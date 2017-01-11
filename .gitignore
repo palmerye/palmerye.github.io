@@ -1,0 +1,7 @@
+.DS_Store
+projectList/node_modules/
+projectList/palmerye-online-github/
+projectList/npm-debug.log
+projectList/test/unit/coverage
+projectList/test/e2e/reports
+projectList/selenium-debug.log
