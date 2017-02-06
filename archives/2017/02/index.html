@@ -86,12 +86,12 @@
 
 <meta name="description" content="暂时的blog存放一些文章">
 <meta property="og:type" content="website">
-<meta property="og:title" content="palmer-blog">
+<meta property="og:title" content="PalmerBlog">
 <meta property="og:url" content="https://palmerye.github.io/palmer-blog/archives/2017/02/index.html">
-<meta property="og:site_name" content="palmer-blog">
+<meta property="og:site_name" content="PalmerBlog">
 <meta property="og:description" content="暂时的blog存放一些文章">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="palmer-blog">
+<meta name="twitter:title" content="PalmerBlog">
 <meta name="twitter:description" content="暂时的blog存放一些文章">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title> 归档 | palmer-blog </title>
+  <title> 归档 | PalmerBlog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -134,6 +134,16 @@
   
 
 
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0bf9a820d93bccab2e07f6bae4acb57c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
 
 
@@ -157,12 +167,12 @@
   <div class="custom-logo-site-title">
     <a href="/palmer-blog/"  class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
-      <span class="site-title">palmer-blog</span>
+      <span class="site-title">PalmerBlog</span>
       <span class="logo-line-after"><i></i></span>
     </a>
   </div>
     
-      <p class="site-subtitle">my blog</p>
+      <p class="site-subtitle">软硬皆施</p>
     
 </div>
 
@@ -191,12 +201,22 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/palmer-blog/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-about">
           <a href="/palmer-blog/about" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            Myself
+            关于
           </a>
         </li>
       
@@ -206,7 +226,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            时间轴
+            归档
           </a>
         </li>
       
@@ -222,159 +242,32 @@
       
 
       
-      <li> <a title="把这个链接拖到你的Chrome收藏夹工具栏中" href='javascript:(function() {
-          function c() {
-              var e = document.createElement("link");
-              e.setAttribute("type", "text/css");
-              e.setAttribute("rel", "stylesheet");
-              e.setAttribute("href", f);
-              e.setAttribute("class", l);
-              document.body.appendChild(e)
-          }
-
-          function h() {
-              var e = document.getElementsByClassName(l);
-              for (var t = 0; t < e.length; t++) {
-                  document.body.removeChild(e[t])
-              }
-          }
-
-          function p() {
-              var e = document.createElement("div");
-              e.setAttribute("class", a);
-              document.body.appendChild(e);
-              setTimeout(function() {
-                  document.body.removeChild(e)
-              }, 100)
-          }
-
-          function d(e) {
-              return {
-                  height : e.offsetHeight,
-                  width : e.offsetWidth
-              }
-          }
-
-          function v(i) {
-              var s = d(i);
-              return s.height > e && s.height < n && s.width > t && s.width < r
-          }
-
-          function m(e) {
-              var t = e;
-              var n = 0;
-              while (!!t) {
-                  n += t.offsetTop;
-                  t = t.offsetParent
-              }
-              return n
-          }
-
-          function g() {
-              var e = document.documentElement;
-              if (!!window.innerWidth) {
-                  return window.innerHeight
-              } else if (e && !isNaN(e.clientHeight)) {
-                  return e.clientHeight
-              }
-              return 0
-          }
-
-          function y() {
-              if (window.pageYOffset) {
-                  return window.pageYOffset
-              }
-              return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
-          }
-
-          function E(e) {
-              var t = m(e);
-              return t >= w && t <= b + w
-          }
-
-          function S() {
-              var e = document.createElement("audio");
-              e.setAttribute("class", l);
-              e.src = i;
-              e.loop = false;
-              e.addEventListener("canplay", function() {
-                  setTimeout(function() {
-                      x(k)
-                  }, 500);
-                  setTimeout(function() {
-                      N();
-                      p();
-                      for (var e = 0; e < O.length; e++) {
-                          T(O[e])
-                      }
-                  }, 15500)
-              }, true);
-              e.addEventListener("ended", function() {
-                  N();
-                  h()
-              }, true);
-              e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
-              document.body.appendChild(e);
-              e.play()
-          }
-
-          function x(e) {
-              e.className += " " + s + " " + o
-          }
-
-          function T(e) {
-              e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
-          }
-
-          function N() {
-              var e = document.getElementsByClassName(s);
-              var t = new RegExp("\\b" + s + "\\b");
-              for (var n = 0; n < e.length; ) {
-                  e[n].className = e[n].className.replace(t, "")
-              }
-          }
-
-          var e = 30;
-          var t = 30;
-          var n = 350;
-          var r = 350;
-          var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
-          var s = "mw-harlem_shake_me";
-          var o = "im_first";
-          var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
-          var a = "mw-strobe_light";
-          var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
-          var l = "mw_added_css";
-          var b = g();
-          var w = y();
-          var C = document.getElementsByTagName("*");
-          var k = null;
-          for (var L = 0; L < C.length; L++) {
-              var A = C[L];
-              if (v(A)) {
-                  if (E(A)) {
-                      k = A;
-                      break
-                  }
-              }
-          }
-          if (A === null) {
-              console.warn("Could not find a node of the right size. Please try a different page.");
-              return
-          }
-          c();
-          S();
-          var O = [];
-          for (var L = 0; L < C.length; L++) {
-              var A = C[L];
-              if (v(A)) {
-                  O.push(A)
-              }
-          }
-      })()    '>High一下</a> </li>
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
     </ul>
   
 
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
   
 </nav>
 
@@ -517,8 +410,8 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://ohce3yxd6.bkt.clouddn.com/image/me.jpg"
-               alt="palmerye" />
-          <p class="site-author-name" itemprop="name">palmerye</p>
+               alt="PalmerYe" />
+          <p class="site-author-name" itemprop="name">PalmerYe</p>
           <p class="site-description motion-element" itemprop="description">暂时的blog存放一些文章</p>
         </div>
         <nav class="site-state motion-element">
@@ -596,14 +489,17 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright" >
   
   &copy; 
   <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">palmerye</span>
+  <span class="author" itemprop="copyrightHolder">PalmerYe</span>
 </div>
 
 
@@ -617,6 +513,9 @@
     NexT.Pisces
   </a>
 </div>
+<span id="busuanzi_container_site_pv">
+   &nbsp&nbsp | &nbsp&nbsp PV <span id="busuanzi_value_site_pv"></span> times
+</span>
 
 
         
@@ -747,10 +646,241 @@
 
   
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/palmer-blog/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("fU7NWCVHwRmprPfq0KMI2AjB-gzGzoHsz", "MJqm1Y2GboqLjHRcjEQh1GTv");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
