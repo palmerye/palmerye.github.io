@@ -1019,8 +1019,25 @@ pre .javascript .function {
   line-height: 36px;
   font-size: 50px;
   font-weight: 100;
-  font-family: 'Impact';
   letter-spacing: 3px;
+}
+@media (max-width: 767px) {
+  .site-title {
+    font-size: 40px;
+    font-family: 'Helvetica';
+    font-weight: 900;
+    etter-spacing: 1px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .site-title {
+    font-family: 'Impact';
+  }
+}
+@media (min-width: 992px) {
+  .site-title {
+    font-family: 'Impact';
+  }
 }
 .site-subtitle {
   margin-top: 10px;
@@ -1705,7 +1722,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #57fff0;
+  background: #c8e2ff;
 }
 .links-of-blogroll {
   font-size: 13px;
