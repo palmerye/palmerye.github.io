@@ -4,15 +4,15 @@ import VueRouter from 'vue-router'
 
 import NotFoundView from '../components/404'
 import test from '../components/test'
-import hello from '../components/Hello'
+import home from '../views/home'
 
 Vue.use(VueRouter)
 
 const routes = [
     {
         path: '/',
-        name: 'hello',
-        component: hello,
+        name: 'home',
+        component: home,
         children: [
         ]
     },
