@@ -451,7 +451,6 @@ body {
 .container {
   position: relative;
   min-height: 100%;
-  overflow-x: hidden;
 }
 .header-inner {
   margin: 0 auto;
@@ -1026,7 +1025,7 @@ pre .javascript .function {
     font-size: 40px;
     font-family: 'Helvetica';
     font-weight: 900;
-    etter-spacing: 1px;
+    letter-spacing: 1px;
   }
 }
 @media (min-width: 768px) and (max-width: 991px) {
@@ -1722,7 +1721,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c8e2ff;
+  background: #ec5d32;
 }
 .links-of-blogroll {
   font-size: 13px;
