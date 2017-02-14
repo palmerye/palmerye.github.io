@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>https://palmerye.github.io/palmer-blog/%E6%89%AB%E7%9B%B2%E7%AC%94%E8%AE%B0-H5%E8%A7%86%E9%A2%91%E7%9B%B4%E6%92%AD/</loc>
+    <lastmod>2017-02-14T14:38:54.000Z</lastmod>
+    <data>
+        <display>
+        <title>扫盲笔记--H5视频直播</title>
+        <pubTime>2017-02-14T14:32:03.000Z</pubTime>
+        
+        <tag>RTMP</tag>
+         
+        <tag>HLS</tag>
+         
+        <tag>WebRTC</tag>
+         
+        <tag>HTTP-FLV</tag>
+         
+        <tag>flv.js</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
     <loc>https://palmerye.github.io/palmer-blog/Web-Log-Blog/</loc>
     <lastmod>2017-02-07T12:05:42.000Z</lastmod>
     <data>
