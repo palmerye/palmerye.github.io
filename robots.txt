@@ -1,7 +1,6 @@
 # hexo robots.txt
 User-agent: * 
 Allow: /
-Allow: /archives/
 
 Disallow: /vendors/
 Disallow: /js/
@@ -10,5 +9,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: https://palmerye.github.io/palmer-blog/sitemap.xml
-Sitemap: https://palmerye.github.io/palmer-blog/baidusitemap.xml
+Sitemap: http://palmerye.online/sitemap.xml
+Sitemap: http://palmerye.online/baidusitemap.xml
