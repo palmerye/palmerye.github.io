@@ -387,58 +387,14 @@
 
       
         
-          
-            <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><h2 id="一言不合讲个小故事"><a href="#一言不合讲个小故事" class="headerlink" title="一言不合讲个小故事"></a>一言不合讲个小故事</h2><blockquote>
-<p>一个和尚有水喝，两个和尚挑水喝，三个和尚没水喝。</p>
-</blockquote>
-<p>故事暴露了团队协作的问题，但接下来的故事与和尚无关，只是讲讲团队协作的事儿。</p>
-<h2 id="贯穿全文的角色"><a href="#贯穿全文的角色" class="headerlink" title="贯穿全文的角色"></a>贯穿全文的角色</h2><ul>
-<li>老A：技术Leader</li>
-<li>阿B：工程师</li>
-<li>小C：实习生</li>
-</ul>
-<p><img src="http://ohce3yxd6.bkt.clouddn.com/git/men.png" alt="image"></p>
-<h2 id="Git工作流"><a href="#Git工作流" class="headerlink" title="Git工作流"></a>Git工作流</h2><blockquote>
-<p>Git是Linux老爹的强大发明之一，用C语言编写。强大的工具也因使用情景、使用对象的不同，衍生出不同的Git工作流。</p>
-</blockquote>
-<ul>
-<li>情景一：集中式工作流</li>
-<li>情景二：功能分支工作流</li>
-<li>情景三：Gitflow工作流</li>
-<li>情景四：Forking工作流</li>
-</ul>
-<h1 id="情景一：集中式工作流"><a href="#情景一：集中式工作流" class="headerlink" title="情景一：集中式工作流"></a>情景一：集中式工作流</h1><h2 id="1-老A初始化工程"><a href="#1-老A初始化工程" class="headerlink" title="1. 老A初始化工程"></a>1. 老A初始化工程</h2><blockquote>
-<p>老A在服务器上新建了一个repository（下文均以本人的<a href="https://github.com/palmerye/git-workflow-story" target="_blank" rel="external">github/git-workflow-story</a>为例子）</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir git-workflow-story &amp;&amp; cd &quot;$_&quot;</div><div class="line">// 当然你也可以在bash里自定义 mkdir&amp;cd 等快捷命令</div><div class="line">git init</div><div class="line"></div><div class="line">git remote add origin https://github.com/palmerye/git-workflow-story.git</div></pre></td></tr></table></figure>
-<h2 id="2-阿B开始写故事"><a href="#2-阿B开始写故事" class="headerlink" title="2. 阿B开始写故事"></a>2. 阿B开始写故事</h2><blockquote>
-<p>阿B的任务是在repo里写Readme(Markdown)</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir story-B &amp;&amp; cd &quot;$_&quot;</div><div class="line"></div><div class="line">git clone https://github.com/palmerye/git-workflow-story.git</div><div class="line"></div><div class="line">vi readme.md</div></pre></td></tr></table></figure>
-<p>于是阿B在readme里面写了一点东西，打算push到老A建的repo里。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">git add readme.md</div><div class="line"></div><div class="line">git commit -m &quot;这是阿B的第一次提交&quot;</div><div class="line"></div><div class="line">git push -u origin master</div><div class="line">// -u 参数用来初次push的时候指定默认upstream上游分支</div></pre></td></tr></table></figure></p>
-<h2 id="3-小C来啦"><a href="#3-小C来啦" class="headerlink" title="3. 小C来啦"></a>3. 小C来啦</h2><blockquote>
-<p>有一天，老A觉得阿B一个人忙不过来，找来小C来帮忙</p>
-</blockquote>
-<p>上班第一天，小C就开始忙活，也打算在老A的repo里写点东西。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">mkdir story-C &amp;&amp; cd &quot;$_&quot;</div><div class="line"></div><div class="line">git clone https://github.com/palmerye/git-workflow-story.git</div></pre></td></tr></table></figure>
-<p>这个时候repo里已经有了阿B的第一次push的文件，小C突然发现有个错别字，就顺便改了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git add readme.md</div><div class="line"></div><div class="line">git commit -m &quot;修改了一个错别字&quot;</div><div class="line"></div><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
-<h2 id="4-冲突"><a href="#4-冲突" class="headerlink" title="4. 冲突"></a>4. 冲突</h2><p>阿B下午又写了点东西，和之前一样，暂存/提交/推送，突然git push失败了（错误提示本地仓库落后于远端）。于是机智的阿B有了如下操作：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull --rebase origin master</div></pre></td></tr></table></figure>
-<p>再次push的时候发现有冲突，于是去解决冲突。发现和小C改了同一个地方，于是自己修改完继续push。</p>
-<blockquote>
-<p>git merge的冲突判定机制如下：先寻找两个commit的公共祖先，比较同一个文件分别在ours和theirs下对于公共祖先的差异，然后合并这两组差异。如果双方同时修改了一处地方且修改内容不同，就判定为合并冲突，依次输出双方修改的内容。</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git add . </div><div class="line"></div><div class="line">git rebase --continue</div><div class="line"></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
-<h2 id="故事完结"><a href="#故事完结" class="headerlink" title="故事完结"></a>故事完结</h2><p>由上面的故事我们可以看到，集中式工作流只有一条master分支，而且维护得干净一点，永远只有一条分支。多人协作的时候，推送前要确保自己本地状态和远端保持同步，因此要记得rebase。但局限就是，一条分支很难去管理多个开发状态，因此在集中式工作流的基础上，有了后文的功能分支工作流。 </p>
-<h2 id="补充点东西"><a href="#补充点东西" class="headerlink" title="补充点东西"></a>补充点东西</h2><blockquote>
-<p>git pull 时，–rebase参数可以让分支更整洁</p>
-</blockquote>
-<p>git pull前<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">      B1---B2 master</div><div class="line">     /</div><div class="line">A---B---C origin/master</div></pre></td></tr></table></figure></p>
-<p>不加–rebase/相当于merge<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">      B1---B2 master</div><div class="line">     /      \</div><div class="line">A---B--------C origin/master</div></pre></td></tr></table></figure></p>
-<p>加上–rebase，告别合并点，让分支更整洁<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">A---B---C---B1---B2 master, origin/master</div></pre></td></tr></table></figure></p>
-
-          
+          <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><h2 id="一言不合讲个小故事"><a href="#一言不合讲个小故事" class="headerlink" title="一言不合讲个小故事"></a>一言不合讲个小故事</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/Git工作流之一-集中式工作流/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
