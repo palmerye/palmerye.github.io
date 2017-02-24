@@ -89,11 +89,11 @@
 <meta name="description" content="引言一言不合讲个小故事">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git工作流之一(集中式工作流)">
-<meta property="og:url" content="http://palmerye.online/Git工作流之一-集中式工作流/index.html">
+<meta property="og:url" content="http://palmerye.online/Git工作流之一--集中式工作流/index.html">
 <meta property="og:site_name" content="软硬皆施">
 <meta property="og:description" content="引言一言不合讲个小故事">
 <meta property="og:image" content="http://ohce3yxd6.bkt.clouddn.com/git/men.png">
-<meta property="og:updated_time" content="2017-02-23T16:14:02.000Z">
+<meta property="og:updated_time" content="2017-02-24T07:04:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git工作流之一(集中式工作流)">
 <meta name="twitter:description" content="引言一言不合讲个小故事">
@@ -125,7 +125,7 @@
 
 
 
-  <link rel="canonical" href="http://palmerye.online/Git工作流之一-集中式工作流/"/>
+  <link rel="canonical" href="http://palmerye.online/Git工作流之一--集中式工作流/"/>
 
 
 
@@ -288,7 +288,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://palmerye.online/Git工作流之一-集中式工作流/">
+  <link itemprop="mainEntityOfPage" href="http://palmerye.online/Git工作流之一--集中式工作流/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="PalmerYe">
@@ -327,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-24T00:08:54+08:00">
-                2017-02-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-17T00:08:54+08:00">
+                2017-02-17
               </time>
             
 
@@ -346,8 +346,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Git工作流之一-集中式工作流/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="Git工作流之一-集中式工作流/" itemprop="commentCount"></span>
+                <a href="/Git工作流之一--集中式工作流/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="Git工作流之一--集中式工作流/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -357,7 +357,7 @@
 
           
           
-             <span id="/Git工作流之一-集中式工作流/" class="leancloud_visitors" data-flag-title="Git工作流之一(集中式工作流)">
+             <span id="/Git工作流之一--集中式工作流/" class="leancloud_visitors" data-flag-title="Git工作流之一(集中式工作流)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -427,7 +427,10 @@
 <p>git merge的冲突判定机制如下：先寻找两个commit的公共祖先，比较同一个文件分别在ours和theirs下对于公共祖先的差异，然后合并这两组差异。如果双方同时修改了一处地方且修改内容不同，就判定为合并冲突，依次输出双方修改的内容。</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">git add . </div><div class="line"></div><div class="line">git rebase --continue</div><div class="line"></div><div class="line">git push origin master</div></pre></td></tr></table></figure>
-<h2 id="故事完结"><a href="#故事完结" class="headerlink" title="故事完结"></a>故事完结</h2><p>由上面的故事我们可以看到，集中式工作流只有一条master分支，而且维护得干净一点，永远只有一条分支。多人协作的时候，推送前要确保自己本地状态和远端保持同步，因此要记得rebase。但局限就是，一条分支很难去管理多个开发状态，因此在集中式工作流的基础上，有了后文的功能分支工作流。 </p>
+<h2 id="故事完结"><a href="#故事完结" class="headerlink" title="故事完结"></a>故事完结</h2><blockquote>
+<p>从此他们在一起过上了幸福的Coder生活。</p>
+</blockquote>
+<p>由上面的故事我们可以看到，集中式工作流只有一条master分支，而且维护得干净一点，永远只有一条分支。多人协作的时候，推送前要确保自己本地状态和远端保持同步，因此要记得rebase。但局限就是，一条分支很难去管理多个开发状态，因此在集中式工作流的基础上，有了后文的功能分支工作流。 </p>
 <h2 id="补充点东西"><a href="#补充点东西" class="headerlink" title="补充点东西"></a>补充点东西</h2><blockquote>
 <p>git pull 时，–rebase参数可以让分支更整洁</p>
 </blockquote>
@@ -535,8 +538,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="Git工作流之一-集中式工作流/"
-           data-title="Git工作流之一(集中式工作流)" data-url="http://palmerye.online/Git工作流之一-集中式工作流/">
+      <div class="ds-thread" data-thread-key="Git工作流之一--集中式工作流/"
+           data-title="Git工作流之一(集中式工作流)" data-url="http://palmerye.online/Git工作流之一--集中式工作流/">
       </div>
     
   </div>
