@@ -20,9 +20,8 @@
 3. 我挺喜欢拍照，拿blog当个web相册也不错
 
 ## 关于这个博客一些东西
-- 暂时搭建在github良心的Pages上（[Repository](https://github.com/palmerye/palmer-blog)）
+- 暂时搭建在github良心的Pages上（[Repository](https://github.com/palmerye/palmerye.github.io)）
 > 如果你手滑点进去了，那就手滑star下吧
-- 搭建于gh-pages分支。为什么不用[palmerye.github.io](https://github.com/palmerye/palmerye.github.io)?另有他用，其实没多大区别
 - Blog工具用的Hexo，主题是Next，自己稍做了一点修改
 - 首页的封面图是用AI画的矢量图，从PCB到Code，也表示自己从硬件转型到软件的历程，每一段经历都很宝贵，值得珍惜。
 - 该加的功能都加了，包括站点底下的PV和UV统计
