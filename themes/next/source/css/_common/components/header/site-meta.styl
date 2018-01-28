@@ -1,0 +1,63 @@
+.site-meta {
+  margin: 0;
+  text-align: $site-meta-text-align;
+
+  +mobile() { text-align: center; }
+}
+
+.brand {
+  position: relative;
+  display: inline-block;
+  padding: 0 40px;
+  color: $brand-color;
+  // background: $brand-bg;
+  border-bottom: none;
+  &:hover { color: $brand-hover-color; }
+}
+
+.logo {
+  display: inline-block;
+  margin-right: 5px;
+  line-height: 36px;
+  vertical-align: top;
+}
+
+.site-title {
+  display: inline-block;
+  vertical-align: top;
+  line-height: 36px;
+  // font-size: $logo-font-size;
+  font-size: 50px;
+  font-weight: 100;
+  //font-family: $font-family-logo;
+  //font-family: 'Impact';
+  letter-spacing: 3px;
+}
+.site-title {
+  +mobile() {
+    font-size: 40px;
+    font-family: 'Helvetica';
+    font-weight: 900;
+    letter-spacing: 1px;
+  }
+  +tablet() { font-family: 'Impact'; }
+  +desktop() { font-family: 'Impact'; }
+}
+
+.site-subtitle {
+  margin-top: 10px;
+  font-size: $subtitle-font-size;
+  // color: $subtitle-color;
+  color: #fff;
+  font-family: 'Microsoft YaHei';
+}
+
+.use-motion {
+  .brand { opacity: 0; }
+
+  .logo, .site-title, .site-subtitle {
+    opacity: 0;
+    position: relative;
+    top: -10px;
+  }
+}
