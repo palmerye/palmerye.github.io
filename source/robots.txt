@@ -12,5 +12,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://palmerye.online/sitemap.xml
-Sitemap: http://palmerye.online/baidusitemap.xml
+Sitemap: http://palmer.arkstack.cn/sitemap.xml
+Sitemap: http://palmer.arkstack.cn/baidusitemap.xml
