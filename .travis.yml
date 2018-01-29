@@ -18,7 +18,7 @@ after_script:
   - git config user.name "palmerye"
   - git config user.email "palmerye@gmail.com"
   - git add .
-  - git commit -m "Update docs by CI"
+  - git commit -m ":memo: Update docs by CI"
   - git push --force --quiet "https://${CI_TOKEN}@${GH_REF}" master:master
 # E: Build LifeCycle
 

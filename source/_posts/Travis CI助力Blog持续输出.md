@@ -4,7 +4,7 @@ date: 2018-01-29 00:00:13
 tags: [CI]
 ---
 
-> 之前更新blog要这样：本地安装hexo环境，还需要敲几个命令：hexo clean && hexo g && hexo d，构建部署还有点浪费时间。其实每次更新blog的时候，只需要增删改几个Markdown文件。懒~干脆上CI吧。
+> 之前更新blog要这样：本地安装hexo环境，还需要敲几个命令：`hexo clean && hexo g && hexo d`，构建部署还有点浪费时间。其实每次更新blog的时候，只需要增删改几个Markdown文件。懒~干脆上CI吧。
 
 <!--more-->
 
