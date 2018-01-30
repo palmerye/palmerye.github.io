@@ -39,8 +39,9 @@ tags: [CI]
 
 > Travis CI: 在线托管的CI服务，最重要的事情，它对开源项目是免费的！！！（重要的感叹号加三个！！！）
 
-[Travis CI](https://travis-ci.org/) 官网上醒目的大字：Test and Deploy with Confidence
-Easily sync your GitHub projects with Travis CI and you’ll be testing your code in minutes!
+[Travis CI](https://travis-ci.org/) 官网上醒目的大字：
+Test and Deploy with Confidence
+Easily sync your **GitHub** projects with Travis CI and you’ll be testing your code in minutes!
 
 > 赤裸裸的表白，果然和Github是一对好基友。
 
@@ -66,7 +67,7 @@ Easily sync your GitHub projects with Travis CI and you’ll be testing your cod
 
 其实官方也有教程，只要三步：
 
-![image](https://segmentfault.com/img/remote/1460000011218417)
+![image](http://ohce3yxd6.bkt.clouddn.com/travisCI/index6.png)
 
 ### 3.添加 .travis.yml
 
