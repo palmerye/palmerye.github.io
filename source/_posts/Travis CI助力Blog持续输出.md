@@ -35,7 +35,7 @@ tags: [CI]
 
 ## Travis CI 又为何物
 
-![image](https://segmentfault.com/img/remote/1460000011218415)
+![image](http://www.ruanyifeng.com/blogimg/asset/2017/bg2017121901.png)
 
 > Travis CI: 在线托管的CI服务，最重要的事情，它对开源项目是免费的！！！（重要的感叹号加三个！！！）
 
@@ -154,3 +154,9 @@ env:
 
 PS：
 Blog in Github：[https://github.com/palmerye/palmerye.github.io/](https://github.com/palmerye/palmerye.github.io/)
+
+---
+
+参考：
+[持续集成是什么？-- 阮大大](http://www.ruanyifeng.com/blog/2015/09/continuous-integration.html)
+[使用Travis进行持续集成 -- 廖大大](https://www.liaoxuefeng.com/article/0014631488240837e3633d3d180476cb684ba7c10fda6f6000)
