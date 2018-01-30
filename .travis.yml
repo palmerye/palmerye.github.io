@@ -16,6 +16,11 @@ script:
   - hexo clean && hexo g
 
 after_script:
+  - git clone https://${GH_REF} .deploy_git
+  - cd .deploy_git
+  - git checkout master
+  - cd ../
+  - mv .deploy_git/.git/ ./public/
   - cd ./public
   - git init
   - git config user.name "palmerye"
