@@ -677,13 +677,14 @@
 <li>一个工厂对应的就是计算机的一个CPU，平时讲的多核就代表多个工厂</li>
 <li>每个工厂里的车间，就是<strong>进程</strong>，意味着同一时刻一个CPU只运行一个<strong>进程</strong>，其余<strong>进程</strong>在怠工</li>
 <li>这个运行的车间（<strong>进程</strong>）里的工人，就是<strong>线程</strong>，可以有多个工人（<strong>线程</strong>）协同完成一个任务</li>
-<li>车间里有若干房间，</li>
+<li>车间（<strong>进程</strong>）里的房间，代表内存。</li>
 </ul>
 <p>再深入点：</p>
 <ul>
-<li>车间（<strong>进程</strong>）里工人可以随意在多个房间之间走动，意味着一个<strong>进程</strong>里，多个<strong>线程</strong>可以共享内存</li>
-<li>部分空间有限，只允许一个工人（<strong>线程</strong>）使用，此时其他工人（<strong>线程</strong>）要等待</li>
-<li></li>
+<li>车间（<strong>进程</strong>）里工人可以随意在多个房间（内存）之间走动，意味着一个<strong>进程</strong>里，多个<strong>线程</strong>可以共享内存</li>
+<li>部分房间（内存）有限，只允许一个工人（<strong>线程</strong>）使用，此时其他工人（<strong>线程</strong>）要等待</li>
+<li>房间里有工人进去后上锁，其他工人需要等房间（内存）里的工人（<strong>线程</strong>）开锁出来后，才能才进去，这就是<strong>互斥锁</strong>（Mutual exclusion，缩写 Mutex）</li>
+<li>有些房间只能容纳部分的人，意味着部分内存只能给</li>
 </ul>
 <h2 id="setTimeout-function-0-发生了什么"><a href="#setTimeout-function-0-发生了什么" class="headerlink" title="setTimeout(function, 0) 发生了什么"></a>setTimeout(function, 0) 发生了什么</h2><hr>
 <p>参考:</p>
