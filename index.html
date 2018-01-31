@@ -650,47 +650,17 @@
 
       
         
-          
-            <blockquote>
+          <blockquote>
 <p>未完待续</p>
 <p>最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。</p>
 </blockquote>
-<h2 id="初识setTimeout-与-setInterval"><a href="#初识setTimeout-与-setInterval" class="headerlink" title="初识setTimeout 与 setInterval"></a>初识setTimeout 与 setInterval</h2><blockquote>
-<p>先来简单认识，后面我们试试用setTimeout 实现 setInterval 的功能</p>
-</blockquote>
-<ul>
-<li>setTimeout 延迟一段时间执行一次 <strong>(Only one)</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>, <span class="title">milliseconds</span>, <span class="title">param1</span>, <span class="title">param2</span>, ...)</span></span><br><span class="line"><span class="function"><span class="title">clearTimeout</span>(<span class="params"></span>) // 阻止定时器运行</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">e</span>.<span class="title">g</span>.</span></span><br><span class="line"><span class="function"><span class="title">setTimeout</span>(<span class="params">function(</span>)</span>&#123; alert(<span class="string">"Hello"</span>); &#125;, <span class="number">3000</span>); <span class="comment">// 3s后弹出</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>setInterval 每隔一段时间执行一次 <strong>(Many times)</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setInterval(<span class="function"><span class="keyword">function</span>, <span class="title">milliseconds</span>, <span class="title">param1</span>, <span class="title">param2</span>, ...)</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">e</span>.<span class="title">g</span>.</span></span><br><span class="line"><span class="function"><span class="title">setInterval</span>(<span class="params">function(</span>)</span>&#123; alert(<span class="string">"Hello"</span>); &#125;, <span class="number">3000</span>); <span class="comment">// 每隔3s弹出</span></span><br></pre></td></tr></table></figure>
-<h2 id="进程与线程，傻傻分不清楚"><a href="#进程与线程，傻傻分不清楚" class="headerlink" title="进程与线程，傻傻分不清楚"></a>进程与线程，傻傻分不清楚</h2><p>为了讲清楚这两个抽象的概念，我们借用阮大大借用的比喻，先来模拟一个场景:</p>
-<ul>
-<li>这里有一个大型工厂</li>
-<li>工厂里有若干车间，每次只能有一个车间在作业</li>
-<li>每个车间里有若干房间，有若干工人在流水线作业</li>
-</ul>
-<p>那么：</p>
-<ul>
-<li>一个工厂对应的就是计算机的一个CPU，平时讲的多核就代表多个工厂</li>
-<li>每个工厂里的车间，就是<strong>进程</strong>，意味着同一时刻一个CPU只运行一个<strong>进程</strong>，其余<strong>进程</strong>在怠工</li>
-<li>这个运行的车间（<strong>进程</strong>）里的工人，就是<strong>线程</strong>，可以有多个工人（<strong>线程</strong>）协同完成一个任务</li>
-<li>车间（<strong>进程</strong>）里的房间，代表内存。</li>
-</ul>
-<p>再深入点：</p>
-<ul>
-<li>车间（<strong>进程</strong>）里工人可以随意在多个房间（内存）之间走动，意味着一个<strong>进程</strong>里，多个<strong>线程</strong>可以共享内存</li>
-<li>部分房间（内存）有限，只允许一个工人（<strong>线程</strong>）使用，此时其他工人（<strong>线程</strong>）要等待</li>
-<li>房间里有工人进去后上锁，其他工人需要等房间（内存）里的工人（<strong>线程</strong>）开锁出来后，才能才进去，这就是<strong>互斥锁</strong>（Mutual exclusion，缩写 Mutex）</li>
-<li>有些房间只能容纳部分的人，意味着部分内存只能给</li>
-</ul>
-<h2 id="setTimeout-function-0-发生了什么"><a href="#setTimeout-function-0-发生了什么" class="headerlink" title="setTimeout(function, 0) 发生了什么"></a>setTimeout(function, 0) 发生了什么</h2><hr>
-<p>参考:</p>
-<p><a href="http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html" target="_blank" rel="noopener">进程与线程的一个简单解释–阮大大</a></p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/从setTimeout-setInterval看JS线程/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
