@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="软硬皆施">
 <meta property="og:description" content="未完待续 最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。  初识setTimeout 与 setInterval 先来简单认识，后面我们试试用setTimeout 实现 setInterval 的功能   setTimeout 延迟一段时">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-31T11:45:54.880Z">
+<meta property="og:updated_time" content="2018-01-31T11:47:53.323Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从setTimeout&#x2F;setInterval看JS线程">
 <meta name="twitter:description" content="未完待续 最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。  初识setTimeout 与 setInterval 先来简单认识，后面我们试试用setTimeout 实现 setInterval 的功能   setTimeout 延迟一段时">
@@ -388,7 +388,7 @@
 <li>setInterval 每隔一段时间执行一次 <strong>(Many times)</strong></li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setInterval(<span class="function"><span class="keyword">function</span>, <span class="title">milliseconds</span>, <span class="title">param1</span>, <span class="title">param2</span>, ...)</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">e</span>.<span class="title">g</span>.</span></span><br><span class="line"><span class="function"><span class="title">setInterval</span>(<span class="params">function(</span>)</span>&#123; alert(<span class="string">"Hello"</span>); &#125;, <span class="number">3000</span>); <span class="comment">// 每隔3s弹出</span></span><br></pre></td></tr></table></figure>
-<h2 id="进程与线程，傻傻分不清楚"><a href="#进程与线程，傻傻分不清楚" class="headerlink" title="进程与线程，傻傻分不清楚"></a>进程与线程，傻傻分不清楚</h2><p>我们先来模拟一个场景:</p>
+<h2 id="进程与线程，傻傻分不清楚"><a href="#进程与线程，傻傻分不清楚" class="headerlink" title="进程与线程，傻傻分不清楚"></a>进程与线程，傻傻分不清楚</h2><p>为了讲清楚这两个抽象的概念，我们借用阮大大借用的比喻，先来模拟一个场景:</p>
 <ul>
 <li>这里有一个大型工厂</li>
 <li>工厂里有若干车间，每次只能有一个车间在作业</li>
