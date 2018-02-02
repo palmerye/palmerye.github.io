@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="软硬皆施">
 <meta property="og:description" content="未完待续 最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-02T05:54:39.649Z">
+<meta property="og:updated_time" content="2018-02-02T06:40:08.261Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从setTimeout&#x2F;setInterval看JS线程">
 <meta name="twitter:description" content="未完待续 最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。">
@@ -407,7 +407,13 @@
 <li>车间（<strong>进程</strong>）里工人可以随意在多个房间（内存）之间走动，意味着一个<strong>进程</strong>里，多个<strong>线程</strong>可以共享内存</li>
 <li>部分房间（内存）有限，只允许一个工人（<strong>线程</strong>）使用，此时其他工人（<strong>线程</strong>）要等待</li>
 <li>房间里有工人进去后上锁，其他工人需要等房间（内存）里的工人（<strong>线程</strong>）开锁出来后，才能才进去，这就是<strong>互斥锁</strong>（Mutual exclusion，缩写 Mutex）</li>
-<li>有些房间只能容纳部分的人，意味着部分内存只能给</li>
+<li>有些房间只能容纳部分的人，意味着部分内存只能给有限的<strong>线程</strong></li>
+</ul>
+<p>再再深入:</p>
+<ul>
+<li>如果同时有多个车间作业，就是<strong>多进程</strong></li>
+<li>如果一个车间里有多个工人协同作业，就是<strong>多线程</strong></li>
+<li>当然不同车间之间的工人也可以有相互协作，就需要协调机制</li>
 </ul>
 <h2 id="setTimeout-function-0-发生了什么"><a href="#setTimeout-function-0-发生了什么" class="headerlink" title="setTimeout(function, 0) 发生了什么"></a>setTimeout(function, 0) 发生了什么</h2><hr>
 <p>参考:</p>
