@@ -5,3 +5,4 @@ tags: [BFC]
 ---
 
 <!--more-->
+CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 GFC 和 FFC。
