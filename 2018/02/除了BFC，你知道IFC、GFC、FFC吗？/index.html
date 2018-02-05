@@ -95,7 +95,7 @@
 <meta property="og:description" content="未完待续">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://developer.mozilla.org/files/72/boxmodel%20(1">
-<meta property="og:updated_time" content="2018-02-05T09:23:18.481Z">
+<meta property="og:updated_time" content="2018-02-05T11:25:54.946Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="除了BFC，你知道IFC、GFC、FFC吗？">
 <meta name="twitter:description" content="未完待续">
@@ -383,7 +383,8 @@
 <p>CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 GFC 和 FFC。</p>
 <h2 id="盒模型-Box-Model"><a href="#盒模型-Box-Model" class="headerlink" title="盒模型(Box Model)"></a>盒模型(Box Model)</h2><p><img src="https://developer.mozilla.org/files/72/boxmodel%20(1" alt="imgage">.png)</p>
 <blockquote>
-<p>W3C标准盒模型</p>
+<p>上图为W3C标准盒模型，另外还有一种IE盒模型（IE6以下），唯一的区别就是：前者<code>width = content</code>，后者<code>width = content + padding + border</code></p>
+<p>若要将IE盒模型转换为标准盒模型，需要在文档顶部加上<code>&lt;!DOCTYPE html&gt;</code>声明；很有意思的是，后来CSS3 中也增加了<code>box-sizing</code>属性，<code>box-sizing: content-box</code>即标准盒模型，<code>box-sizing: border-box</code>即IE盒模型（width包含内边距和边框），W3C反过来又承认了微软，也是有意思。</p>
 </blockquote>
 <h2 id="视觉格式化模型-Visual-Formatting-Model"><a href="#视觉格式化模型-Visual-Formatting-Model" class="headerlink" title="视觉格式化模型(Visual Formatting Model)"></a>视觉格式化模型(Visual Formatting Model)</h2><h2 id="FC-–-Formatting-Context"><a href="#FC-–-Formatting-Context" class="headerlink" title="FC – Formatting Context"></a>FC – Formatting Context</h2><blockquote>
 <p>FC…是谁在说脏话？！ Formatting Context – 格式化上下文</p>
