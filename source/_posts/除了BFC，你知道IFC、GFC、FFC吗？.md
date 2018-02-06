@@ -19,11 +19,25 @@ CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 GFC 和 FFC。
 
 ## 视觉格式化模型(Visual Formatting Model)
 
+> 视觉格式化模型(visual formatting model)是用来处理文档并将它显示在视觉媒体上的机制，根据上述的盒模型，为文档元素生成盒（Box）。通俗的说，视觉格式化模型就是文档里的盒子布局呈现的一种规则。
+
+### 影响布局的因素
+
+1. 盒的尺寸和类型
+2. 定位体系 `Positioning Scheme` （常规流，浮动和绝对定位）
+3. 文档树中元素之间的关系
+4. 外部信息（如：视口大小，图片的固有尺寸等）
+
+### 
+
+
 
 
 ## FC -- Formatting Context
 
 > FC...是谁在说脏话？！ Formatting Context -- 格式化上下文
+
+
 
 ## BFC -- Block Formatting Context
 
