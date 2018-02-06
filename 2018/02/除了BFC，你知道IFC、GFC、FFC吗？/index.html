@@ -95,7 +95,7 @@
 <meta property="og:description" content="未完待续">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://developer.mozilla.org/files/72/boxmodel%20(1">
-<meta property="og:updated_time" content="2018-02-06T06:05:06.918Z">
+<meta property="og:updated_time" content="2018-02-06T10:13:35.002Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="除了BFC，你知道IFC、GFC、FFC吗？">
 <meta name="twitter:description" content="未完待续">
@@ -386,7 +386,17 @@
 <p>上图为W3C标准盒模型，另外还有一种IE盒模型（IE6以下），唯一的区别就是：前者<code>width = content</code>，后者<code>width = content + padding + border</code></p>
 <p>若要将IE盒模型转换为标准盒模型，需要在文档顶部加上<code>&lt;!DOCTYPE html&gt;</code>声明；很有意思的是，后来CSS3 中也增加了<code>box-sizing</code>属性，<code>box-sizing: content-box</code>即标准盒模型，<code>box-sizing: border-box</code>即IE盒模型（width包含内边距和边框），W3C反过来又承认了微软，也是有意思。</p>
 </blockquote>
-<h2 id="视觉格式化模型-Visual-Formatting-Model"><a href="#视觉格式化模型-Visual-Formatting-Model" class="headerlink" title="视觉格式化模型(Visual Formatting Model)"></a>视觉格式化模型(Visual Formatting Model)</h2><h2 id="FC-–-Formatting-Context"><a href="#FC-–-Formatting-Context" class="headerlink" title="FC – Formatting Context"></a>FC – Formatting Context</h2><blockquote>
+<h2 id="视觉格式化模型-Visual-Formatting-Model"><a href="#视觉格式化模型-Visual-Formatting-Model" class="headerlink" title="视觉格式化模型(Visual Formatting Model)"></a>视觉格式化模型(Visual Formatting Model)</h2><blockquote>
+<p>视觉格式化模型(visual formatting model)是用来处理文档并将它显示在视觉媒体上的机制，根据上述的盒模型，为文档元素生成盒（Box）。通俗的说，视觉格式化模型就是文档里的盒子布局呈现的一种规则。</p>
+</blockquote>
+<h3 id="影响布局的因素"><a href="#影响布局的因素" class="headerlink" title="影响布局的因素"></a>影响布局的因素</h3><ol>
+<li>盒的尺寸和类型</li>
+<li>定位体系 <code>Positioning Scheme</code> （常规流，浮动和绝对定位）</li>
+<li>文档树中元素之间的关系</li>
+<li>外部信息（如：视口大小，图片的固有尺寸等）</li>
+</ol>
+<p>### </p>
+<h2 id="FC-–-Formatting-Context"><a href="#FC-–-Formatting-Context" class="headerlink" title="FC – Formatting Context"></a>FC – Formatting Context</h2><blockquote>
 <p>FC…是谁在说脏话？！ Formatting Context – 格式化上下文</p>
 </blockquote>
 <h2 id="BFC-–-Block-Formatting-Context"><a href="#BFC-–-Block-Formatting-Context" class="headerlink" title="BFC – Block Formatting Context"></a>BFC – Block Formatting Context</h2><h3 id="布局规则"><a href="#布局规则" class="headerlink" title="布局规则"></a>布局规则</h3><ol>
@@ -656,7 +666,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#盒模型-Box-Model"><span class="nav-number">1.</span> <span class="nav-text">盒模型(Box Model)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视觉格式化模型-Visual-Formatting-Model"><span class="nav-number">2.</span> <span class="nav-text">视觉格式化模型(Visual Formatting Model)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FC-–-Formatting-Context"><span class="nav-number">3.</span> <span class="nav-text">FC – Formatting Context</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC-–-Block-Formatting-Context"><span class="nav-number">4.</span> <span class="nav-text">BFC – Block Formatting Context</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#布局规则"><span class="nav-number">4.1.</span> <span class="nav-text">布局规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IFC-–-Inline-Formatting-Contexts"><span class="nav-number">5.</span> <span class="nav-text">IFC – Inline Formatting Contexts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GFC-–-GridLayout-Formatting-Contexts"><span class="nav-number">6.</span> <span class="nav-text">GFC – GridLayout Formatting Contexts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FFC-–-Flex-Formatting-Contexts"><span class="nav-number">7.</span> <span class="nav-text">FFC – Flex Formatting Contexts</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#盒模型-Box-Model"><span class="nav-number">1.</span> <span class="nav-text">盒模型(Box Model)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视觉格式化模型-Visual-Formatting-Model"><span class="nav-number">2.</span> <span class="nav-text">视觉格式化模型(Visual Formatting Model)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#影响布局的因素"><span class="nav-number">2.1.</span> <span class="nav-text">影响布局的因素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FC-–-Formatting-Context"><span class="nav-number">3.</span> <span class="nav-text">FC – Formatting Context</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC-–-Block-Formatting-Context"><span class="nav-number">4.</span> <span class="nav-text">BFC – Block Formatting Context</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#布局规则"><span class="nav-number">4.1.</span> <span class="nav-text">布局规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IFC-–-Inline-Formatting-Contexts"><span class="nav-number">5.</span> <span class="nav-text">IFC – Inline Formatting Contexts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GFC-–-GridLayout-Formatting-Contexts"><span class="nav-number">6.</span> <span class="nav-text">GFC – GridLayout Formatting Contexts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FFC-–-Flex-Formatting-Contexts"><span class="nav-number">7.</span> <span class="nav-text">FFC – Flex Formatting Contexts</span></a></li></ol></div>
             
 
           </div>
