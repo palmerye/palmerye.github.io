@@ -95,7 +95,7 @@
 <meta property="og:description" content="未完待续">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://developer.mozilla.org/files/72/boxmodel%20(1">
-<meta property="og:updated_time" content="2018-02-07T06:54:56.494Z">
+<meta property="og:updated_time" content="2018-02-07T11:10:19.839Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="除了BFC，你知道IFC、FFC、GFC吗？">
 <meta name="twitter:description" content="未完待续">
@@ -389,6 +389,30 @@
 <h2 id="视觉格式化模型-Visual-Formatting-Model"><a href="#视觉格式化模型-Visual-Formatting-Model" class="headerlink" title="视觉格式化模型(Visual Formatting Model)"></a>视觉格式化模型(Visual Formatting Model)</h2><blockquote>
 <p>视觉格式化模型(visual formatting model)是用来处理文档并将它显示在视觉媒体上的机制，根据上述的盒模型，为文档元素生成盒（Box）。通俗的说，视觉格式化模型就是文档里的盒子布局呈现的一种规则。</p>
 </blockquote>
+<h3 id="FC-–-Formatting-Context"><a href="#FC-–-Formatting-Context" class="headerlink" title="FC – Formatting Context"></a>FC – Formatting Context</h3><blockquote>
+<p>FC…是谁在说脏话？！ Formatting Context – 格式化上下文，*FC就是视觉格式化模型，用来描述盒子布局规则。</p>
+</blockquote>
+<h3 id="前方大波概念来袭！"><a href="#前方大波概念来袭！" class="headerlink" title="前方大波概念来袭！"></a>前方大波概念来袭！</h3><blockquote>
+<p>块级元素、块级盒、块容器盒、块盒、匿名块盒、行内级元素、行内盒、原子行内级盒、原子行内盒、行盒、匿名行内盒、<del>插入盒</del>……要报警了！！！这些真的不是我YY出来的，<a href="https://www.w3.org/TR/CSS22/visuren.html" target="_blank" rel="noopener">W3C</a> 里真的有这么多概念好吗！！！感觉进坑了啊！！！headache…来吧，一个个捋清楚… -_-|||</p>
+</blockquote>
+<ul>
+<li><p><strong>块级元素(Block-level elements)</strong>：当元素的 CSS 属性 <code>display:block / list-item / table</code> 时，它就是是块级元素 block-level ，视觉上呈现为块，竖直排列。每个块级元素生成一个主要的块级盒 (Principal Block-level Box) 来包含其后代盒和生成的内容，同时参与定位体系 (Positioning Scheme) 。某些块级元素还会在主要盒之外产生额外的盒： list-item 元素。这些额外的盒会相对于主要盒来摆放。</p>
+</li>
+<li><p><strong>块级盒(Block-level boxes)</strong></p>
+</li>
+<li><strong>块容器盒(Block container box)</strong></li>
+<li><strong>块盒(Block boxes)</strong></li>
+<li><p><strong>匿名块盒(Block container box)</strong></p>
+</li>
+<li><p><strong>行内级元素(Inline-level elements)</strong></p>
+</li>
+<li><strong>行内盒(Inline-level boxes)</strong></li>
+<li><strong>原子行内级盒(atomic inline-level boxes)</strong></li>
+<li><strong>原子行内盒(atomic inline boxes)</strong></li>
+<li><strong>行盒(Line boxes)</strong></li>
+<li><strong>匿名行内盒(Anonymous inline boxes)</strong></li>
+<li><del>插入盒(Run-in boxes)</del></li>
+</ul>
 <h3 id="影响布局的因素"><a href="#影响布局的因素" class="headerlink" title="影响布局的因素"></a>影响布局的因素</h3><ol>
 <li>盒的尺寸和类型</li>
 <li>定位体系 <code>Positioning Scheme</code> （常规流，浮动和绝对定位）</li>
@@ -396,9 +420,6 @@
 <li>外部信息（如：视口大小，图片的固有尺寸等）</li>
 </ol>
 <p>### </p>
-<h2 id="FC-–-Formatting-Context"><a href="#FC-–-Formatting-Context" class="headerlink" title="FC – Formatting Context"></a>FC – Formatting Context</h2><blockquote>
-<p>FC…是谁在说脏话？！ Formatting Context – 格式化上下文</p>
-</blockquote>
 <h2 id="BFC-–-Block-Formatting-Context"><a href="#BFC-–-Block-Formatting-Context" class="headerlink" title="BFC – Block Formatting Context"></a>BFC – Block Formatting Context</h2><h3 id="布局规则"><a href="#布局规则" class="headerlink" title="布局规则"></a>布局规则</h3><ol>
 <li>内部的Box会在垂直方向，一个接一个地放置。</li>
 <li>Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠。</li>
@@ -409,7 +430,7 @@
 </ol>
 <h2 id="IFC-–-Inline-Formatting-Contexts"><a href="#IFC-–-Inline-Formatting-Contexts" class="headerlink" title="IFC – Inline Formatting Contexts"></a>IFC – Inline Formatting Contexts</h2><h2 id="FFC-–-Flex-Formatting-Contexts"><a href="#FFC-–-Flex-Formatting-Contexts" class="headerlink" title="FFC – Flex Formatting Contexts"></a>FFC – Flex Formatting Contexts</h2><h2 id="GFC-–-GridLayout-Formatting-Contexts"><a href="#GFC-–-GridLayout-Formatting-Contexts" class="headerlink" title="GFC – GridLayout Formatting Contexts"></a>GFC – GridLayout Formatting Contexts</h2><hr>
 <p>参考：</p>
-<p><a href="https://www.w3.org/TR/CSS22/visuren.html#normal-flow" target="_blank" rel="noopener">CSS2.1规范</a></p>
+<p><a href="https://www.w3.org/TR/CSS22/visuren.html" target="_blank" rel="noopener">Visual formatting model</a></p>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Visual_formatting_model" target="_blank" rel="noopener">视觉格式化模型</a></p>
 <p><a href="https://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html" target="_blank" rel="noopener">BFC 神奇背后的原理</a></p>
 
@@ -666,7 +687,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#盒模型-Box-Model"><span class="nav-number">1.</span> <span class="nav-text">盒模型(Box Model)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视觉格式化模型-Visual-Formatting-Model"><span class="nav-number">2.</span> <span class="nav-text">视觉格式化模型(Visual Formatting Model)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#影响布局的因素"><span class="nav-number">2.1.</span> <span class="nav-text">影响布局的因素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FC-–-Formatting-Context"><span class="nav-number">3.</span> <span class="nav-text">FC – Formatting Context</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC-–-Block-Formatting-Context"><span class="nav-number">4.</span> <span class="nav-text">BFC – Block Formatting Context</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#布局规则"><span class="nav-number">4.1.</span> <span class="nav-text">布局规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IFC-–-Inline-Formatting-Contexts"><span class="nav-number">5.</span> <span class="nav-text">IFC – Inline Formatting Contexts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FFC-–-Flex-Formatting-Contexts"><span class="nav-number">6.</span> <span class="nav-text">FFC – Flex Formatting Contexts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GFC-–-GridLayout-Formatting-Contexts"><span class="nav-number">7.</span> <span class="nav-text">GFC – GridLayout Formatting Contexts</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#盒模型-Box-Model"><span class="nav-number">1.</span> <span class="nav-text">盒模型(Box Model)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视觉格式化模型-Visual-Formatting-Model"><span class="nav-number">2.</span> <span class="nav-text">视觉格式化模型(Visual Formatting Model)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FC-–-Formatting-Context"><span class="nav-number">2.1.</span> <span class="nav-text">FC – Formatting Context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前方大波概念来袭！"><span class="nav-number">2.2.</span> <span class="nav-text">前方大波概念来袭！</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#影响布局的因素"><span class="nav-number">2.3.</span> <span class="nav-text">影响布局的因素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC-–-Block-Formatting-Context"><span class="nav-number">3.</span> <span class="nav-text">BFC – Block Formatting Context</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#布局规则"><span class="nav-number">3.1.</span> <span class="nav-text">布局规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IFC-–-Inline-Formatting-Contexts"><span class="nav-number">4.</span> <span class="nav-text">IFC – Inline Formatting Contexts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FFC-–-Flex-Formatting-Contexts"><span class="nav-number">5.</span> <span class="nav-text">FFC – Flex Formatting Contexts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GFC-–-GridLayout-Formatting-Contexts"><span class="nav-number">6.</span> <span class="nav-text">GFC – GridLayout Formatting Contexts</span></a></li></ol></div>
             
 
           </div>
