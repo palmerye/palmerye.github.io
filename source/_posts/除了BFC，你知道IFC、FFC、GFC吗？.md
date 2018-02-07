@@ -21,6 +21,32 @@ CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 FFC 和 GFC。
 
 > 视觉格式化模型(visual formatting model)是用来处理文档并将它显示在视觉媒体上的机制，根据上述的盒模型，为文档元素生成盒（Box）。通俗的说，视觉格式化模型就是文档里的盒子布局呈现的一种规则。
 
+### FC -- Formatting Context
+
+> FC...是谁在说脏话？！ Formatting Context -- 格式化上下文，*FC就是视觉格式化模型，用来描述盒子布局规则。
+
+### 前方大波概念来袭！
+
+> 块级元素、块级盒、块容器盒、块盒、匿名块盒、行内级元素、行内盒、原子行内级盒、原子行内盒、行盒、匿名行内盒、~~插入盒~~......要报警了！！！这些真的不是我YY出来的，[W3C](https://www.w3.org/TR/CSS22/visuren.html) 里真的有这么多概念好吗！！！感觉进坑了啊！！！headache...来吧，一个个捋清楚... -_-|||
+
+- **块级元素(Block-level elements)**：当元素的 CSS 属性 `display:block / list-item / table` 时，它就是是块级元素 block-level ，视觉上呈现为块，竖直排列。每个块级元素生成一个主要的块级盒 (Principal Block-level Box) 来包含其后代盒和生成的内容，同时参与定位体系 (Positioning Scheme) 。某些块级元素还会在主要盒之外产生额外的盒： list-item 元素。这些额外的盒会相对于主要盒来摆放。
+
+- **块级盒(Block-level boxes)**
+- **块容器盒(Block container box)**
+- **块盒(Block boxes)**
+- **匿名块盒(Block container box)**
+
+- **行内级元素(Inline-level elements)**
+- **行内盒(Inline-level boxes)**
+- **原子行内级盒(atomic inline-level boxes)**
+- **原子行内盒(atomic inline boxes)**
+- **行盒(Line boxes)**
+- **匿名行内盒(Anonymous inline boxes)**
+- ~~插入盒(Run-in boxes)~~
+
+
+
+
 ### 影响布局的因素
 
 1. 盒的尺寸和类型
@@ -33,9 +59,7 @@ CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 FFC 和 GFC。
 
 
 
-## FC -- Formatting Context
 
-> FC...是谁在说脏话？！ Formatting Context -- 格式化上下文
 
 
 
@@ -65,7 +89,7 @@ CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 FFC 和 GFC。
 
 参考：
 
-[CSS2.1规范](https://www.w3.org/TR/CSS22/visuren.html#normal-flow)
+[Visual formatting model](https://www.w3.org/TR/CSS22/visuren.html)
 
 [视觉格式化模型](https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Visual_formatting_model)
 
