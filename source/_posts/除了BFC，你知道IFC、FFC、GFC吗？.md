@@ -1,5 +1,5 @@
 ---
-title: 除了BFC，你知道IFC、GFC、FFC吗？
+title: 除了BFC，你知道IFC、FFC、GFC吗？
 date: 2018-02-02 10:00:12
 tags: [BFC]
 ---
@@ -7,7 +7,7 @@ tags: [BFC]
 > 未完待续
 
 <!--more-->
-CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 GFC 和 FFC。
+CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 FFC 和 GFC。
 
 ## 盒模型(Box Model)
 
@@ -54,10 +54,12 @@ CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 GFC 和 FFC。
 ## IFC -- Inline Formatting Contexts
 
 
+## FFC -- Flex Formatting Contexts
+
+
 ## GFC -- GridLayout Formatting Contexts
 
 
-## FFC -- Flex Formatting Contexts
 
 --- 
 
