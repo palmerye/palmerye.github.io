@@ -39,11 +39,11 @@ CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 FFC 和 GFC。
 
 - **匿名块盒(Anonymous block boxes)**：没有名字，不能被 CSS 选择符选中。块容器盒要么只包含行内级盒，要么只包含块级盒，但通常文档会同时包含两者，在这种情况下，将创建匿名块盒来包含毗邻的行内级盒。
 
-``` JavaScript
+```javaScript
 <div>
-   I'm Block container box.
+   I am Block container box
    <p>I'm Inline-level boxes</p>
-   I'm Block container box.
+   I am Block container box
 </div>
 ```
 
