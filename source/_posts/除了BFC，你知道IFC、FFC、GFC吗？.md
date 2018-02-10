@@ -82,6 +82,17 @@ CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 FFC 和 GFC。
 
 ## BFC -- Block Formatting Context
 
+### 触发条件
+
+1. 根元素或其它包含它的元素
+2. 浮动 `float: left/right/inherit`
+3. 绝对定位元素 `position: absolute/fixed`
+4. 行内块 `display: inline-block`
+5. 表格单元格 `display: table-cell`
+6. 表格标题 `display: table-caption`
+7. 溢出元素 `overflow: hidden/scroll/auto/inherit`
+8. 弹性盒子 `display: flex/inline-flex`
+
 ### 布局规则
 
 1. 内部的Box会在垂直方向，一个接一个地放置。
