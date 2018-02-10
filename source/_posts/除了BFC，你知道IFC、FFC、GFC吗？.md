@@ -27,38 +27,51 @@ CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 FFC 和 GFC。
 
 ### 前方大波概念来袭！
 
-> 块级元素、块级盒、块容器盒、块盒、匿名块盒、行内级元素、行内盒、原子行内级盒、原子行内盒、行盒、匿名行内盒、~~插入盒~~......要报警了！！！这些真的不是我YY出来的，[W3C](https://www.w3.org/TR/CSS22/visuren.html) 里真的有这么多概念好吗！！！感觉进坑了啊！！！headache...来吧，一个个捋清楚... -_-|||
+> 块级元素、块级盒、块容器盒、块盒、匿名块盒、行内级元素、行内级盒、原子行内级盒、原子行内盒、行盒、匿名行内盒、~~插入盒~~......要报警了！！！这些真的不是我YY出来的，[W3C](https://www.w3.org/TR/CSS22/visuren.html) 里真的有这么多概念好吗！！！感觉进坑了啊！！！headache...来吧，一个个捋清楚... -_-|||
 
 - **块级元素(Block-level elements)**：当元素的 CSS 属性 `display:block / list-item / table` 时，它就是是块级元素 block-level ，视觉上呈现为块，竖直排列。每个块级元素生成一个主要的块级盒 (Principal Block-level Box) 来包含其后代盒和生成的内容，同时参与定位体系 (Positioning Scheme) 。某些块级元素还会在主要盒之外产生额外的盒： list-item 元素。这些额外的盒会相对于主要盒来摆放。
 
-- **块级盒(Block-level boxes)**
-- **块容器盒(Block container box)**
-- **块盒(Block boxes)**
-- **匿名块盒(Block container box)**
+- **块级盒(Block-level boxes)**：由块级元素生成，参与块级格式化上下文(BFC)。**描述元素跟它的父元素与兄弟元素之间的表现。**
+- **块容器盒(Block container box)**：只包含其它块级盒，或生成一个行内格式化上下文(inline formatting context)，只包含行内盒。有些块级盒，比如表格，不是块容器盒。相反，一些块容器盒，比如非替换行内块及非替换表格单元格，不是块级盒。**描述元素跟它的后代之间的影响。**
+- **块盒(Block boxes)**：同时是块容器盒的块级盒。
 
-- **行内级元素(Inline-level elements)**
-- **行内盒(Inline-level boxes)**
-- **原子行内级盒(atomic inline-level boxes)**
-- **原子行内盒(atomic inline boxes)**
-- **行盒(Line boxes)**
-- **匿名行内盒(Anonymous inline boxes)**
-- ~~插入盒(Run-in boxes)~~
+![img](https://mdn.mozillademos.org/files/3559/venn_blocks.png)
 
+- **匿名块盒(Anonymous block boxes)**：没有名字，不能被 CSS 选择符选中。块容器盒要么只包含行内级盒，要么只包含块级盒，但通常文档会同时包含两者，在这种情况下，将创建匿名块盒来包含毗邻的行内级盒。
 
+``` JavaScript
+<div>
+   I'm Block container box.
+   <p>I'm Inline-level boxes</p>
+   I'm Block container box.
+</div>
+```
 
+- **行内级元素(Inline-level elements)**：当元素的 CSS 属性 `display：inline, inline-block 或 inline-table` 时，称它为行内级元素。行内级元素生成行内级盒(inline-level boxes)，参与行内格式化上下文(IFC)。
+- **行内级盒(Inline-level boxes)**：所有 `display:inline` 的非替换元素生成的盒是行内盒。
+- **原子行内级盒(atomic inline-level boxes)**：不参与生成行内格式化上下文的行内级盒称为原子行内级盒(atomic inline-level boxes)。
+- **原子行内盒(atomic inline boxes)**：注意：起初原子行内级盒(atomic inline-level boxes)被称为原子行内盒(atomic inline boxes)。很不幸，它们并非行内盒。规范的勘误表修正了这个错误。不管怎样，当再看到原子行内盒时可以放心的当成原子行内级盒，因为只是改了名字。原子行内盒在行内格式化上下文里不能分成多行。
+- **行盒(Line boxes)**：行盒由行内格式化上下文(IFC)产生的盒，用于表示一行。在块盒里面，行盒从块盒一边排版到另一边。 当有浮动时, 行盒从左浮动的最右边排版到右浮动的最左边。
+
+![img](https://developer.mozilla.org/@api/deki/files/6008/=venn_inlines.png)
+
+- **匿名行内盒(Anonymous inline boxes)**：匿名行内盒最常见的例子是块盒直接包含文本。
+- ~~插入盒(Run-in boxes)~~：插入盒(Run-in boxes)从 CSS 2.1 标准中移除了，因为可操作的实现定义不足。 可能 CSS3 会引入，但是这是实验性质，不能用于生产环境。 
 
 ### 影响布局的因素
 
 1. 盒的尺寸和类型
-2. 定位体系 `Positioning Scheme` （常规流，浮动和绝对定位）
+2. 定位方案 `Positioning Scheme` （常规流，浮动和绝对定位）
 3. 文档树中元素之间的关系
 4. 外部信息（如：视口大小，图片的固有尺寸等）
 
-### 
+#### 定位方案(Positioning schemes)
 
+##### - 常规流(Normal flow)
 
+##### - 浮动(Floats)
 
-
+##### - 绝对定位(Absolute positioning)
 
 
 
