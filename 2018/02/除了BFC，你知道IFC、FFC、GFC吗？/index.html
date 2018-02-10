@@ -97,7 +97,7 @@
 <meta property="og:image" content="https://developer.mozilla.org/files/72/boxmodel%20(1">
 <meta property="og:image" content="https://mdn.mozillademos.org/files/3559/venn_blocks.png">
 <meta property="og:image" content="https://developer.mozilla.org/@api/deki/files/6008/=venn_inlines.png">
-<meta property="og:updated_time" content="2018-02-10T09:10:34.532Z">
+<meta property="og:updated_time" content="2018-02-10T09:25:23.066Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="除了BFC，你知道IFC、FFC、GFC吗？">
 <meta name="twitter:description" content="未完待续">
@@ -416,7 +416,7 @@
 <ul>
 <li><strong>匿名块盒(Anonymous block boxes)</strong>：没有名字，不能被 CSS 选择符选中。块容器盒要么只包含行内级盒，要么只包含块级盒，但通常文档会同时包含两者，在这种情况下，将创建匿名块盒来包含毗邻的行内级盒。</li>
 </ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">   I<span class="string">'m Block container box.</span></span><br><span class="line"><span class="string">   &lt;p&gt;I'</span>m Inline-level boxes&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp">   I'm Block container box.</span></span><br><span class="line"><span class="regexp">&lt;/</span>div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div&gt;</span><br><span class="line">   I am Block container box</span><br><span class="line">   &lt;p&gt;I<span class="string">'m Inline-level boxes&lt;/p&gt;</span></span><br><span class="line"><span class="string">   I am Block container box</span></span><br><span class="line"><span class="string">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>行内级元素(Inline-level elements)</strong>：当元素的 CSS 属性 <code>display：inline, inline-block 或 inline-table</code> 时，称它为行内级元素。行内级元素生成行内级盒(inline-level boxes)，参与行内格式化上下文(IFC)。</li>
 <li><strong>行内级盒(Inline-level boxes)</strong>：所有 <code>display:inline</code> 的非替换元素生成的盒是行内盒。</li>
