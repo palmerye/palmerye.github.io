@@ -21,6 +21,13 @@ CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 FFC 和 GFC。
 
 > 视觉格式化模型(visual formatting model)是用来处理文档并将它显示在视觉媒体上的机制，根据上述的盒模型，为文档元素生成盒（Box）。通俗的说，视觉格式化模型就是文档里的盒子布局呈现的一种规则。
 
+影响布局的因素
+
+1. 盒的尺寸和类型
+2. 定位方案 `Positioning Scheme` （常规流，浮动和绝对定位）
+3. 文档树中元素之间的关系
+4. 外部信息（如：视口大小，图片的固有尺寸等）
+
 ### FC -- Formatting Context
 
 > FC...是谁在说脏话？！ Formatting Context -- 格式化上下文，*FC就是视觉格式化模型，用来描述盒子布局规则。
@@ -39,11 +46,11 @@ CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 FFC 和 GFC。
 
 - **匿名块盒(Anonymous block boxes)**：没有名字，不能被 CSS 选择符选中。块容器盒要么只包含行内级盒，要么只包含块级盒，但通常文档会同时包含两者，在这种情况下，将创建匿名块盒来包含毗邻的行内级盒。
 
-```javaScript
+``` JavaScript
 <div>
-   I am Block container box
+   I'm Block container box.
    <p>I'm Inline-level boxes</p>
-   I am Block container box
+   I'm Block container box.
 </div>
 ```
 
@@ -58,22 +65,19 @@ CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 FFC 和 GFC。
 - **匿名行内盒(Anonymous inline boxes)**：匿名行内盒最常见的例子是块盒直接包含文本。
 - ~~插入盒(Run-in boxes)~~：插入盒(Run-in boxes)从 CSS 2.1 标准中移除了，因为可操作的实现定义不足。 可能 CSS3 会引入，但是这是实验性质，不能用于生产环境。 
 
-### 影响布局的因素
+### 定位方案(Positioning schemes)
 
-1. 盒的尺寸和类型
-2. 定位方案 `Positioning Scheme` （常规流，浮动和绝对定位）
-3. 文档树中元素之间的关系
-4. 外部信息（如：视口大小，图片的固有尺寸等）
+#### - 常规流(Normal flow)
 
-#### 定位方案(Positioning schemes)
+> CSS2.1中，常规流包括块级盒的块格式化，行内盒的行内格式化，以及块级盒和行内级盒的相对定位。
 
-##### - 常规流(Normal flow)
+#### - 浮动(Floats)
 
-##### - 浮动(Floats)
+> 在浮动模型中，盒首先根据常规流布局，然后从常规流中脱离并尽可能地向左或向右位移。内容可以布局在浮动周围。
 
-##### - 绝对定位(Absolute positioning)
+#### - 绝对定位(Absolute positioning)
 
-
+> 在绝对定位模型中，盒完全从常规流中脱离（对后面的同胞元素无影响）并根据包含块来分配位置。
 
 
 ## BFC -- Block Formatting Context
