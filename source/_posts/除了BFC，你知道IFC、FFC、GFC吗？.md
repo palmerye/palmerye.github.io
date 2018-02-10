@@ -48,9 +48,9 @@ CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 FFC 和 GFC。
 
 ``` JavaScript
 <div>
-   I'm Block container box.
+   I am Block container box
    <p>I'm Inline-level boxes</p>
-   I'm Block container box.
+   I am Block container box
 </div>
 ```
 
