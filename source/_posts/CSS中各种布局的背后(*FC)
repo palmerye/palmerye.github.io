@@ -1,7 +1,7 @@
 ---
 title: CSS中各种布局的背后(*FC)
 date: 2018-02-25 10:00:12
-tags: [BFC], [IFC], [FFC], [GFC]
+tags: [BFC], IFC, FFC, GFC]
 ---
 
 > CSS中各种布局的背后，实质上是各种*FC的组合。CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 FFC 和 GFC。
