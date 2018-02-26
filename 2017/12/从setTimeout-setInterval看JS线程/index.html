@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="软硬皆施">
 <meta property="og:description" content="未完待续 最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-25T09:08:31.935Z">
+<meta property="og:updated_time" content="2018-02-26T12:01:42.739Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从setTimeout&#x2F;setInterval看JS线程">
 <meta name="twitter:description" content="未完待续 最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。">
@@ -389,6 +389,9 @@
 <li>setInterval 每隔一段时间执行一次 <strong>(Many times)</strong></li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setInterval(<span class="function"><span class="keyword">function</span>, <span class="title">milliseconds</span>, <span class="title">param1</span>, <span class="title">param2</span>, ...)</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"><span class="title">e</span>.<span class="title">g</span>.</span></span><br><span class="line"><span class="function"><span class="title">setInterval</span>(<span class="params">function(</span>)</span>&#123; alert(<span class="string">"Hello"</span>); &#125;, <span class="number">3000</span>); <span class="comment">// 每隔3s弹出</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在JavaScript中没有任何代码是立刻执行的，但一旦进程空闲就尽快执行。这意味着无论是setTimeout还是setInterval，所设置的时间都只是n毫秒被添加到队列中，而不是过n毫秒后立即执行。</p>
+</blockquote>
 <h2 id="进程与线程，傻傻分不清楚"><a href="#进程与线程，傻傻分不清楚" class="headerlink" title="进程与线程，傻傻分不清楚"></a>进程与线程，傻傻分不清楚</h2><p>为了讲清楚这两个抽象的概念，我们借用阮大大借用的比喻，先来模拟一个场景:</p>
 <ul>
 <li>这里有一个大型工厂</li>
