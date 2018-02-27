@@ -33,7 +33,7 @@ e.g.
 setInterval(function(){ alert("Hello"); }, 3000); // 每隔3s弹出
 ```
 
-> 在JavaScript中没有任何代码是立刻执行的，但一旦进程空闲就尽快执行。这意味着无论是setTimeout还是setInterval，所设置的时间都只是n毫秒被添加到队列中，而不是过n毫秒后立即执行。
+> setTimeout和setInterval的延时最小间隔是4ms（W3C在HTML标准中规定）；在JavaScript中没有任何代码是立刻执行的，但一旦进程空闲就尽快执行。这意味着无论是setTimeout还是setInterval，所设置的时间都只是n毫秒被添加到队列中，而不是过n毫秒后立即执行。
 
 ## 进程与线程，傻傻分不清楚
 
@@ -58,6 +58,22 @@ setInterval(function(){ alert("Hello"); }, 3000); // 每隔3s弹出
 - 如果同时有多个车间作业，就是**多进程**
 - 如果一个车间里有多个工人协同作业，就是**多线程**
 - 当然不同车间之间的工人也可以有相互协作，就需要协调机制
+
+## JavaScript 单线程
+
+总所周知，JavaScript 这门语言的核心特征，就是单线程。这和 JavaScript 最初设计是作为一门 GUI 编程语言有关，最初用于浏览器端，单一线程控制 GUI 是很普遍的做法。但这里特别要划个重点，虽然JavaScript是单线程，但**浏览器是多线程的！！！**例如Webkit或是Gecko引擎，可能有javascript引擎线程、界面渲染线程、浏览器事件触发线程、Http请求线程。ps：可能要总结一篇浏览器渲染的文章了。
+
+> HTML5提出Web Worker标准，允许JavaScript脚本创建多个线程，但是子线程完全受主线程控制，且不得操作DOM。所以，这个新标准并没有改变JavaScript单线程的本质。
+
+## 同步与异步，傻傻分不清楚
+
+> 之前阮大大写了一篇《JavaScript 运行机制详解：再谈Event Loop》，然后被[朴灵评注](https://app.yinxiang.com/shard/s8/sh/b72fe246-a89d-434b-85f0-a36420849b84/59bad790bdcf6b0a66b8b93d5eacbead)了，特别是同步异步的理解上，两位大牛有很大的歧义。
+
+## 
+
+## Event Loop
+
+
 
 ## setTimeout(function, 0) 发生了什么
 
