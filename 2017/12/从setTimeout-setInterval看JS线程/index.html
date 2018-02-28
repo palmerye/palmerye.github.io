@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="软硬皆施">
 <meta property="og:description" content="未完待续 最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-27T13:47:08.631Z">
+<meta property="og:updated_time" content="2018-02-28T11:20:23.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从setTimeout&#x2F;setInterval看JS线程">
 <meta name="twitter:description" content="未完待续 最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。">
@@ -423,7 +423,7 @@
 <p>HTML5提出Web Worker标准，允许JavaScript脚本创建多个线程，但是子线程完全受主线程控制，且不得操作DOM。所以，这个新标准并没有改变JavaScript单线程的本质。</p>
 </blockquote>
 <h2 id="同步与异步，傻傻分不清楚"><a href="#同步与异步，傻傻分不清楚" class="headerlink" title="同步与异步，傻傻分不清楚"></a>同步与异步，傻傻分不清楚</h2><blockquote>
-<p>之前阮大大写了一篇《JavaScript 运行机制详解：再谈Event Loop》，然后被<a href="https://app.yinxiang.com/shard/s8/sh/b72fe246-a89d-434b-85f0-a36420849b84/59bad790bdcf6b0a66b8b93d5eacbead" target="_blank" rel="noopener">朴灵评注</a>了，特别是同步异步的理解上，两位大牛有很大的歧义。</p>
+<p>之前阮大大写了一篇<a href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="noopener">《JavaScript 运行机制详解：再谈Event Loop》</a>，然后被<a href="https://app.yinxiang.com/shard/s8/sh/b72fe246-a89d-434b-85f0-a36420849b84/59bad790bdcf6b0a66b8b93d5eacbead" target="_blank" rel="noopener">朴灵评注</a>了，特别是同步异步的理解上，两位大牛有很大的歧义。</p>
 </blockquote>
 <p>## </p>
 <h2 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h2><h2 id="setTimeout-function-0-发生了什么"><a href="#setTimeout-function-0-发生了什么" class="headerlink" title="setTimeout(function, 0) 发生了什么"></a>setTimeout(function, 0) 发生了什么</h2><hr>
