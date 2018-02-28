@@ -67,7 +67,9 @@ setInterval(function(){ alert("Hello"); }, 3000); // 每隔3s弹出
 
 ## 同步与异步，傻傻分不清楚
 
-> 之前阮大大写了一篇《JavaScript 运行机制详解：再谈Event Loop》，然后被[朴灵评注](https://app.yinxiang.com/shard/s8/sh/b72fe246-a89d-434b-85f0-a36420849b84/59bad790bdcf6b0a66b8b93d5eacbead)了，特别是同步异步的理解上，两位大牛有很大的歧义。
+> 之前阮大大写了一篇[《JavaScript 运行机制详解：再谈Event Loop》](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)，然后被[朴灵评注](https://app.yinxiang.com/shard/s8/sh/b72fe246-a89d-434b-85f0-a36420849b84/59bad790bdcf6b0a66b8b93d5eacbead)了，特别是同步异步的理解上，两位大牛有很大的歧义。
+
+
 
 ## 
 
