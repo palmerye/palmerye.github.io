@@ -84,4 +84,6 @@ setInterval(function(){ alert("Hello"); }, 3000); // 每隔3s弹出
 
 参考:
 
-[进程与线程的一个简单解释--阮大大](http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html)
+[进程与线程的一个简单解释 -- 阮大大](http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html)
+
+[【译】JavaScript 如何工作的: 事件循环和异步编程的崛起 + 5 个关于如何使用 async/await 编写更好的技巧](https://juejin.im/post/5a221d35f265da43356291cc)
