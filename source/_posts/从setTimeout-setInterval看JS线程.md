@@ -61,7 +61,7 @@ setInterval(function(){ alert("Hello"); }, 3000); // 每隔3s弹出
 
 ## JavaScript 单线程
 
-总所周知，JavaScript 这门语言的核心特征，就是单线程。这和 JavaScript 最初设计是作为一门 GUI 编程语言有关，最初用于浏览器端，单一线程控制 GUI 是很普遍的做法。但这里特别要划个重点，虽然JavaScript是单线程，但**浏览器是多线程的！！！**例如Webkit或是Gecko引擎，可能有javascript引擎线程、界面渲染线程、浏览器事件触发线程、Http请求线程。ps：可能要总结一篇浏览器渲染的文章了。
+总所周知，JavaScript 这门语言的核心特征，就是单线程（是指在**JS引擎**中负责解释和执行JavaScript代码的线程只有一个）。这和 JavaScript 最初设计是作为一门 GUI 编程语言有关，最初用于浏览器端，单一线程控制 GUI 是很普遍的做法。但这里特别要划个重点，虽然JavaScript是单线程，但**浏览器是多线程的！！！**例如Webkit或是Gecko引擎，可能有javascript引擎线程、界面渲染线程、浏览器事件触发线程、Http请求线程，读写文件的线程(例如在Node.js中)。ps：可能要总结一篇浏览器渲染的文章了。
 
 > HTML5提出Web Worker标准，允许JavaScript脚本创建多个线程，但是子线程完全受主线程控制，且不得操作DOM。所以，这个新标准并没有改变JavaScript单线程的本质。
 
@@ -69,13 +69,24 @@ setInterval(function(){ alert("Hello"); }, 3000); // 每隔3s弹出
 
 > 之前阮大大写了一篇[《JavaScript 运行机制详解：再谈Event Loop》](http://www.ruanyifeng.com/blog/2014/10/event-loop.html)，然后被[朴灵评注](https://app.yinxiang.com/shard/s8/sh/b72fe246-a89d-434b-85f0-a36420849b84/59bad790bdcf6b0a66b8b93d5eacbead)了，特别是同步异步的理解上，两位大牛有很大的歧义。
 
+- 同步：假如一个函数返回时，调用者就能够得到预期结果(即拿到了预期的返回值或者看到了预期的效果)，这就是同步函数。
 
+```
+e.g.
+alert('马上能看到我拉');
+console.log('也能马上看到我哦');
+```
 
-## 
+- 异步：假如一个函数返回时，调用者不能得到预期结果，需要通过一定手段才能获得，这就是异步函数。
+
+```
+e.g.
+setTimeout(function() {
+    // 过一段时间才能执行我哦
+}, 1000);
+```
 
 ## Event Loop
-
-
 
 ## setTimeout(function, 0) 发生了什么
 
