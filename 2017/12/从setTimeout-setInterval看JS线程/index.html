@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="软硬皆施">
 <meta property="og:description" content="未完待续 最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-02T08:47:33.264Z">
+<meta property="og:updated_time" content="2018-03-06T03:28:31.747Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从setTimeout&#x2F;setInterval看JS线程">
 <meta name="twitter:description" content="未完待续 最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。">
@@ -418,14 +418,21 @@
 <li>如果一个车间里有多个工人协同作业，就是<strong>多线程</strong></li>
 <li>当然不同车间之间的工人也可以有相互协作，就需要协调机制</li>
 </ul>
-<h2 id="JavaScript-单线程"><a href="#JavaScript-单线程" class="headerlink" title="JavaScript 单线程"></a>JavaScript 单线程</h2><p>总所周知，JavaScript 这门语言的核心特征，就是单线程。这和 JavaScript 最初设计是作为一门 GUI 编程语言有关，最初用于浏览器端，单一线程控制 GUI 是很普遍的做法。但这里特别要划个重点，虽然JavaScript是单线程，但<strong>浏览器是多线程的！！！</strong>例如Webkit或是Gecko引擎，可能有javascript引擎线程、界面渲染线程、浏览器事件触发线程、Http请求线程。ps：可能要总结一篇浏览器渲染的文章了。</p>
+<h2 id="JavaScript-单线程"><a href="#JavaScript-单线程" class="headerlink" title="JavaScript 单线程"></a>JavaScript 单线程</h2><p>总所周知，JavaScript 这门语言的核心特征，就是单线程（是指在<strong>JS引擎</strong>中负责解释和执行JavaScript代码的线程只有一个）。这和 JavaScript 最初设计是作为一门 GUI 编程语言有关，最初用于浏览器端，单一线程控制 GUI 是很普遍的做法。但这里特别要划个重点，虽然JavaScript是单线程，但<strong>浏览器是多线程的！！！</strong>例如Webkit或是Gecko引擎，可能有javascript引擎线程、界面渲染线程、浏览器事件触发线程、Http请求线程，读写文件的线程(例如在Node.js中)。ps：可能要总结一篇浏览器渲染的文章了。</p>
 <blockquote>
 <p>HTML5提出Web Worker标准，允许JavaScript脚本创建多个线程，但是子线程完全受主线程控制，且不得操作DOM。所以，这个新标准并没有改变JavaScript单线程的本质。</p>
 </blockquote>
 <h2 id="同步与异步，傻傻分不清楚"><a href="#同步与异步，傻傻分不清楚" class="headerlink" title="同步与异步，傻傻分不清楚"></a>同步与异步，傻傻分不清楚</h2><blockquote>
 <p>之前阮大大写了一篇<a href="http://www.ruanyifeng.com/blog/2014/10/event-loop.html" target="_blank" rel="noopener">《JavaScript 运行机制详解：再谈Event Loop》</a>，然后被<a href="https://app.yinxiang.com/shard/s8/sh/b72fe246-a89d-434b-85f0-a36420849b84/59bad790bdcf6b0a66b8b93d5eacbead" target="_blank" rel="noopener">朴灵评注</a>了，特别是同步异步的理解上，两位大牛有很大的歧义。</p>
 </blockquote>
-<p>## </p>
+<ul>
+<li>同步：假如一个函数返回时，调用者就能够得到预期结果(即拿到了预期的返回值或者看到了预期的效果)，这就是同步函数。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">e.g.</span><br><span class="line">alert(&apos;马上能看到我拉&apos;);</span><br><span class="line">console.log(&apos;也能马上看到我哦&apos;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>异步：假如一个函数返回时，调用者不能得到预期结果，需要通过一定手段才能获得，这就是异步函数。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">e.g.</span><br><span class="line">setTimeout(function() &#123;</span><br><span class="line">    // 过一段时间才能执行我哦</span><br><span class="line">&#125;, 1000);</span><br></pre></td></tr></table></figure>
 <h2 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h2><h2 id="setTimeout-function-0-发生了什么"><a href="#setTimeout-function-0-发生了什么" class="headerlink" title="setTimeout(function, 0) 发生了什么"></a>setTimeout(function, 0) 发生了什么</h2><hr>
 <p>参考:</p>
 <p><a href="http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html" target="_blank" rel="noopener">进程与线程的一个简单解释 – 阮大大</a></p>
