@@ -93,7 +93,7 @@
 <meta property="og:site_name" content="软硬皆施">
 <meta property="og:description" content="未完待续 最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-07T11:21:50.717Z">
+<meta property="og:updated_time" content="2018-03-09T08:55:39.059Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从setTimeout&#x2F;setInterval看JS线程">
 <meta name="twitter:description" content="未完待续 最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。">
@@ -441,7 +441,16 @@
 <li>回调函数 – 处理结果</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">e.g.</span><br><span class="line">setTimeout(fn, 1000);</span><br><span class="line">// setTimeout就是异步过程的发起函数，fn是回调函数</span><br></pre></td></tr></table></figure>
-<h2 id="Event-Loop"><a href="#Event-Loop" class="headerlink" title="Event Loop"></a>Event Loop</h2><h2 id="setTimeout-function-0-发生了什么"><a href="#setTimeout-function-0-发生了什么" class="headerlink" title="setTimeout(function, 0) 发生了什么"></a>setTimeout(function, 0) 发生了什么</h2><hr>
+<h2 id="通信机制"><a href="#通信机制" class="headerlink" title="通信机制"></a>通信机制</h2><blockquote>
+<p>异步过程的通信机制：工作线程将消息放到消息队列，主线程通过事件循环过程去取消息。</p>
+</blockquote>
+<h3 id="消息队列-Message-Queue"><a href="#消息队列-Message-Queue" class="headerlink" title="消息队列 Message Queue"></a>消息队列 Message Queue</h3><blockquote>
+<p>一个先进先出的队列，存放各类消息。</p>
+</blockquote>
+<h3 id="事件循环-Event-Loop"><a href="#事件循环-Event-Loop" class="headerlink" title="事件循环 Event Loop"></a>事件循环 Event Loop</h3><blockquote>
+<p>主线程（js线程）只会做一件事，就是从消息队列里面取消息、执行消息，再取消息、再执行。消息队列为空时，就会等待直到消息队列变成非空。只有当前的消息执行结束，才会去取下一个消息。这种机制就叫做事件循环机制<strong>Event Loop</strong>，取一个消息并执行的过程叫做一次循环。</p>
+</blockquote>
+<h2 id="setTimeout-function-0-发生了什么"><a href="#setTimeout-function-0-发生了什么" class="headerlink" title="setTimeout(function, 0) 发生了什么"></a>setTimeout(function, 0) 发生了什么</h2><hr>
 <p>参考:</p>
 <p><a href="http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html" target="_blank" rel="noopener">进程与线程的一个简单解释 – 阮大大</a></p>
 <p><a href="https://juejin.im/post/5a221d35f265da43356291cc" target="_blank" rel="noopener">【译】JavaScript 如何工作的: 事件循环和异步编程的崛起 + 5 个关于如何使用 async/await 编写更好的技巧</a></p>
@@ -697,7 +706,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初识setTimeout-与-setInterval"><span class="nav-number">1.</span> <span class="nav-text">初识setTimeout 与 setInterval</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程与线程，傻傻分不清楚"><span class="nav-number">2.</span> <span class="nav-text">进程与线程，傻傻分不清楚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-单线程"><span class="nav-number">3.</span> <span class="nav-text">JavaScript 单线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步与异步，傻傻分不清楚"><span class="nav-number">4.</span> <span class="nav-text">同步与异步，傻傻分不清楚</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#异步构成要素"><span class="nav-number">4.1.</span> <span class="nav-text">异步构成要素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Event-Loop"><span class="nav-number">5.</span> <span class="nav-text">Event Loop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setTimeout-function-0-发生了什么"><span class="nav-number">6.</span> <span class="nav-text">setTimeout(function, 0) 发生了什么</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初识setTimeout-与-setInterval"><span class="nav-number">1.</span> <span class="nav-text">初识setTimeout 与 setInterval</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程与线程，傻傻分不清楚"><span class="nav-number">2.</span> <span class="nav-text">进程与线程，傻傻分不清楚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-单线程"><span class="nav-number">3.</span> <span class="nav-text">JavaScript 单线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步与异步，傻傻分不清楚"><span class="nav-number">4.</span> <span class="nav-text">同步与异步，傻傻分不清楚</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#异步构成要素"><span class="nav-number">4.1.</span> <span class="nav-text">异步构成要素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通信机制"><span class="nav-number">5.</span> <span class="nav-text">通信机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#消息队列-Message-Queue"><span class="nav-number">5.1.</span> <span class="nav-text">消息队列 Message Queue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件循环-Event-Loop"><span class="nav-number">5.2.</span> <span class="nav-text">事件循环 Event Loop</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setTimeout-function-0-发生了什么"><span class="nav-number">6.</span> <span class="nav-text">setTimeout(function, 0) 发生了什么</span></a></li></ol></div>
             
 
           </div>
