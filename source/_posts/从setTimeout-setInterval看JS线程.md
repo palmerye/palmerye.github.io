@@ -135,7 +135,7 @@ setInterval(function, N)
 
 上图可见，setInterval每隔100ms往队列中添加一个事件；100ms后，添加T1定时器代码至队列中，主线程中还有任务在执行，所以等待，`some event`执行结束后执行T1定时器代码；又过了100ms，T2定时器被添加到队列中，主线程还在执行T1代码，所以等待；又过了100ms，理论上又要往队列里推一个定时器代码，但由于此时T2还在队列中，所以T3不会被添加，结果就是此时被跳过；这里我们可以看到，T1定时器执行结束后马上执行了T2代码，所以并没有达到定时器的效果。
 
-综上所述，有两个问题：
+综上所述，setInterval有两个缺点：
 - 使用setInterval时，某些间隔会被跳过；
 - 可能多个定时器会连续执行；
 
@@ -147,6 +147,12 @@ setTimeout(function () {
     setTimeout(arguments.callee, interval);
 }, interval)
 ```
+
+> [警告](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/arguments/callee)：在严格模式下，第5版 ECMAScript (ES5) 禁止使用 arguments.callee()。当一个函数必须调用自身的时候, 避免使用 arguments.callee(), 通过要么给函数表达式一个名字,要么使用一个函数声明.
+
+上述函数每次执行的时候都会创建一个新的定时器，第二个setTimeout使用了arguments.callee()获取当前函数的引用，并且为其设置另一个定时器。好处：
+- 在前一个定时器执行完前，不会向队列插入新的定时器（解决缺点一）
+- 保证定时器间隔（解决缺点二）
 
 ----------
 
