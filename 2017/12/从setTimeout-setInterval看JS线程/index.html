@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="event loop,线程," />
 
 
 
@@ -86,19 +86,20 @@
 
 
 
-<meta name="description" content="未完待续 最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。">
+<meta name="description" content="最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。">
+<meta name="keywords" content="event loop,线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从setTimeout&#x2F;setInterval看JS线程">
 <meta property="og:url" content="http://palmer.arkstack.cn/2017/12/从setTimeout-setInterval看JS线程/index.html">
 <meta property="og:site_name" content="软硬皆施">
-<meta property="og:description" content="未完待续 最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。">
+<meta property="og:description" content="最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://palmer.arkstack.cn/img/bV5mEF">
 <meta property="og:image" content="http://palmer.arkstack.cn/img/bV5yai">
-<meta property="og:updated_time" content="2018-03-12T11:21:11.853Z">
+<meta property="og:updated_time" content="2018-03-13T08:20:13.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从setTimeout&#x2F;setInterval看JS线程">
-<meta name="twitter:description" content="未完待续 最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。">
+<meta name="twitter:description" content="最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。">
 <meta name="twitter:image" content="http://palmer.arkstack.cn/img/bV5mEF">
 
 
@@ -377,7 +378,6 @@
 
       
         <blockquote>
-<p>未完待续</p>
 <p>最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。</p>
 </blockquote>
 <a id="more"></a>
@@ -482,6 +482,8 @@
 <li>在前一个定时器执行完前，不会向队列插入新的定时器（解决缺点一）</li>
 <li>保证定时器间隔（解决缺点二）</li>
 </ul>
+<h2 id="So…"><a href="#So…" class="headerlink" title="So…"></a>So…</h2><p>回顾最开始的业务场景的问题，用同步阻塞还是异步，答案已经出来了…</p>
+<p>PS：其实还有macrotask与microtask等知识点没有提到，总结了那么多，其实JavaScript深入下去还有很多，任重而道远呀。</p>
 <hr>
 <p>参考:</p>
 <p><a href="http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html" target="_blank" rel="noopener">进程与线程的一个简单解释 – 阮大大</a></p>
@@ -511,6 +513,14 @@
 
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/event-loop/" rel="tag"># event loop</a>
+          
+            <a href="/tags/线程/" rel="tag"># 线程</a>
+          
+        </div>
       
 
       
@@ -635,7 +645,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -738,7 +748,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初识setTimeout-与-setInterval"><span class="nav-number">1.</span> <span class="nav-text">初识setTimeout 与 setInterval</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程与线程，傻傻分不清楚"><span class="nav-number">2.</span> <span class="nav-text">进程与线程，傻傻分不清楚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-单线程"><span class="nav-number">3.</span> <span class="nav-text">JavaScript 单线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步与异步，傻傻分不清楚"><span class="nav-number">4.</span> <span class="nav-text">同步与异步，傻傻分不清楚</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#异步构成要素"><span class="nav-number">4.1.</span> <span class="nav-text">异步构成要素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通信机制"><span class="nav-number">5.</span> <span class="nav-text">通信机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#消息队列-Message-Queue"><span class="nav-number">5.1.</span> <span class="nav-text">消息队列 Message Queue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件循环-Event-Loop"><span class="nav-number">5.2.</span> <span class="nav-text">事件循环 Event Loop</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setTimeout-function-0-发生了什么"><span class="nav-number">6.</span> <span class="nav-text">setTimeout(function, 0) 发生了什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setInterval-缺点"><span class="nav-number">7.</span> <span class="nav-text">setInterval 缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#链式setTimeout"><span class="nav-number">7.1.</span> <span class="nav-text">链式setTimeout</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#初识setTimeout-与-setInterval"><span class="nav-number">1.</span> <span class="nav-text">初识setTimeout 与 setInterval</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程与线程，傻傻分不清楚"><span class="nav-number">2.</span> <span class="nav-text">进程与线程，傻傻分不清楚</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript-单线程"><span class="nav-number">3.</span> <span class="nav-text">JavaScript 单线程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步与异步，傻傻分不清楚"><span class="nav-number">4.</span> <span class="nav-text">同步与异步，傻傻分不清楚</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#异步构成要素"><span class="nav-number">4.1.</span> <span class="nav-text">异步构成要素</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通信机制"><span class="nav-number">5.</span> <span class="nav-text">通信机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#消息队列-Message-Queue"><span class="nav-number">5.1.</span> <span class="nav-text">消息队列 Message Queue</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件循环-Event-Loop"><span class="nav-number">5.2.</span> <span class="nav-text">事件循环 Event Loop</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setTimeout-function-0-发生了什么"><span class="nav-number">6.</span> <span class="nav-text">setTimeout(function, 0) 发生了什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#setInterval-缺点"><span class="nav-number">7.</span> <span class="nav-text">setInterval 缺点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#链式setTimeout"><span class="nav-number">7.1.</span> <span class="nav-text">链式setTimeout</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#So…"><span class="nav-number">8.</span> <span class="nav-text">So…</span></a></li></ol></div>
             
 
           </div>
