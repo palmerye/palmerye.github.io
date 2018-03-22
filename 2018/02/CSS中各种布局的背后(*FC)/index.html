@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="权限,token,安全," />
+  <meta name="keywords" content="BFC,IFC,FFC,GFC," />
 
 
 
@@ -86,21 +86,22 @@
 
 
 
-<meta name="description" content="有一天突然想到一个问题，web端的权限控制：1.真的能控制权限吗？2.仅仅靠前端，能不能做到真正的权限控制？3.如果需要后台配合，应该如何配合？可能这是一个老生常谈的问题，但还是想整理下，有误的地方望大家指出。">
-<meta name="keywords" content="权限,token,安全">
+<meta name="description" content="CSS中各种布局的背后，实质上是各种*FC的组合。CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 FFC 和 GFC。">
+<meta name="keywords" content="BFC,IFC,FFC,GFC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="前端真的能做到彻底权限控制吗？">
-<meta property="og:url" content="http://palmer.arkstack.cn/2017/09/前端真的能做到彻底权限控制吗？/index.html">
+<meta property="og:title" content="CSS中各种布局的背后(*FC)">
+<meta property="og:url" content="http://palmer.arkstack.cn/2018/02/CSS中各种布局的背后(*FC)/index.html">
 <meta property="og:site_name" content="软硬皆施">
-<meta property="og:description" content="有一天突然想到一个问题，web端的权限控制：1.真的能控制权限吗？2.仅仅靠前端，能不能做到真正的权限控制？3.如果需要后台配合，应该如何配合？可能这是一个老生常谈的问题，但还是想整理下，有误的地方望大家指出。">
+<meta property="og:description" content="CSS中各种布局的背后，实质上是各种*FC的组合。CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 FFC 和 GFC。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ohce3yxd6.bkt.clouddn.com/httpau.png">
-<meta property="og:image" content="http://ohce3yxd6.bkt.clouddn.com/FEAuth_yepanmeng.png">
+<meta property="og:image" content="https://developer.mozilla.org/files/72/boxmodel%20(1">
+<meta property="og:image" content="https://mdn.mozillademos.org/files/3559/venn_blocks.png">
+<meta property="og:image" content="https://developer.mozilla.org/@api/deki/files/6008/=venn_inlines.png">
 <meta property="og:updated_time" content="2018-03-22T14:05:05.918Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="前端真的能做到彻底权限控制吗？">
-<meta name="twitter:description" content="有一天突然想到一个问题，web端的权限控制：1.真的能控制权限吗？2.仅仅靠前端，能不能做到真正的权限控制？3.如果需要后台配合，应该如何配合？可能这是一个老生常谈的问题，但还是想整理下，有误的地方望大家指出。">
-<meta name="twitter:image" content="http://ohce3yxd6.bkt.clouddn.com/httpau.png">
+<meta name="twitter:title" content="CSS中各种布局的背后(*FC)">
+<meta name="twitter:description" content="CSS中各种布局的背后，实质上是各种*FC的组合。CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 FFC 和 GFC。">
+<meta name="twitter:image" content="https://developer.mozilla.org/files/72/boxmodel%20(1">
 
 
 
@@ -128,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://palmer.arkstack.cn/2017/09/前端真的能做到彻底权限控制吗？/"/>
+  <link rel="canonical" href="http://palmer.arkstack.cn/2018/02/CSS中各种布局的背后(*FC)/"/>
 
 
 
 
 
-  <title> 前端真的能做到彻底权限控制吗？ | 软硬皆施 </title>
+  <title> CSS中各种布局的背后(*FC) | 软硬皆施 </title>
   <meta name="baidu-site-verification" content="ihL4VoNRDr" />
 </head>
 
@@ -291,7 +292,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://palmer.arkstack.cn/2017/09/前端真的能做到彻底权限控制吗？/">
+  <link itemprop="mainEntityOfPage" href="http://palmer.arkstack.cn/2018/02/CSS中各种布局的背后(*FC)/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="PalmerYe">
@@ -315,7 +316,7 @@
             
             
               
-                前端真的能做到彻底权限控制吗？
+                CSS中各种布局的背后(*FC)
               
             
           </h2>
@@ -330,8 +331,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-23T14:41:20+00:00">
-                2017-09-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-25T02:00:12+00:00">
+                2018-02-25
               </time>
             
 
@@ -350,7 +351,7 @@
 
           
           
-             <span id="/2017/09/前端真的能做到彻底权限控制吗？/" class="leancloud_visitors" data-flag-title="前端真的能做到彻底权限控制吗？">
+             <span id="/2018/02/CSS中各种布局的背后(*FC)/" class="leancloud_visitors" data-flag-title="CSS中各种布局的背后(*FC)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -378,46 +379,129 @@
 
       
         <blockquote>
-<p>有一天突然想到一个问题，web端的权限控制：<br>1.真的能控制权限吗？<br>2.仅仅靠前端，能不能做到真正的权限控制？<br>3.如果需要后台配合，应该如何配合？<br>可能这是一个老生常谈的问题，但还是想整理下，有误的地方望大家指出。</p>
+<p>CSS中各种布局的背后，实质上是各种*FC的组合。CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 FFC 和 GFC。</p>
 </blockquote>
 <a id="more"></a>
-<h1 id="何为权限控制"><a href="#何为权限控制" class="headerlink" title="何为权限控制"></a>何为权限控制</h1><p>权限控制大致分为两个维度:</p>
+<h2 id="盒模型-Box-Model"><a href="#盒模型-Box-Model" class="headerlink" title="盒模型(Box Model)"></a>盒模型(Box Model)</h2><p><img src="https://developer.mozilla.org/files/72/boxmodel%20(1" alt="imgage">.png)</p>
+<blockquote>
+<p>上图为W3C标准盒模型，另外还有一种IE盒模型（IE6以下），唯一的区别就是：前者<code>width = content</code>，后者<code>width = content + padding + border</code></p>
+<p>若要将IE盒模型转换为标准盒模型，需要在文档顶部加上<code>&lt;!DOCTYPE html&gt;</code>声明；很有意思的是，后来CSS3 中也增加了<code>box-sizing</code>属性，<code>box-sizing: content-box</code>即标准盒模型，<code>box-sizing: border-box</code>即IE盒模型（width包含内边距和边框），W3C反过来又承认了微软，也是有意思。</p>
+</blockquote>
+<h2 id="视觉格式化模型-Visual-Formatting-Model"><a href="#视觉格式化模型-Visual-Formatting-Model" class="headerlink" title="视觉格式化模型(Visual Formatting Model)"></a>视觉格式化模型(Visual Formatting Model)</h2><blockquote>
+<p>视觉格式化模型(visual formatting model)是用来处理文档并将它显示在视觉媒体上的机制，根据上述的盒模型，为文档元素生成盒（Box）。通俗的说，视觉格式化模型就是文档里的盒子布局呈现的一种规则。</p>
+</blockquote>
+<p>影响布局的因素</p>
+<ol>
+<li>盒的尺寸和类型</li>
+<li>定位方案 <code>Positioning Scheme</code> （常规流，浮动和绝对定位）</li>
+<li>文档树中元素之间的关系</li>
+<li>外部信息（如：视口大小，图片的固有尺寸等）</li>
+</ol>
+<h3 id="FC-–-Formatting-Context"><a href="#FC-–-Formatting-Context" class="headerlink" title="FC – Formatting Context"></a>FC – Formatting Context</h3><blockquote>
+<p>FC…是谁在说脏话？！ Formatting Context – 格式化上下文，*FC就是视觉格式化模型，用来描述盒子布局规则。</p>
+</blockquote>
+<h3 id="前方大波概念来袭！"><a href="#前方大波概念来袭！" class="headerlink" title="前方大波概念来袭！"></a>前方大波概念来袭！</h3><blockquote>
+<p>块级元素、块级盒、块容器盒、块盒、匿名块盒、行内级元素、行内级盒、原子行内级盒、原子行内盒、行盒、匿名行内盒、<del>插入盒</del>……要报警了！！！这些真的不是我YY出来的，<a href="https://www.w3.org/TR/CSS22/visuren.html" target="_blank" rel="noopener">W3C</a> 里真的有这么多概念好吗！！！感觉进坑了啊！！！headache…来吧，一个个捋清楚… -_-|||</p>
+</blockquote>
 <ul>
-<li><strong>垂直维度</strong>: 控制用户可以访问哪些url的权限</li>
-<li><strong>水平维度</strong>: 控制用户访问特定url，获取哪些数据的权限（e.g. 普通用户、管理员、超级管理员访问同一url，获取的数据是不同的）</li>
+<li><p><strong>块级元素(Block-level elements)</strong>：当元素的 CSS 属性 <code>display:block / list-item / table</code> 时，它就是是块级元素 block-level ，视觉上呈现为块，竖直排列。每个块级元素生成一个主要的块级盒 (Principal Block-level Box) 来包含其后代盒和生成的内容，同时参与定位体系 (Positioning Scheme) 。某些块级元素还会在主要盒之外产生额外的盒： list-item 元素。这些额外的盒会相对于主要盒来摆放。</p>
+</li>
+<li><p><strong>块级盒(Block-level boxes)</strong>：由块级元素生成，参与块级格式化上下文(BFC)。<strong>描述元素跟它的父元素与兄弟元素之间的表现。</strong></p>
+</li>
+<li><strong>块容器盒(Block container box)</strong>：只包含其它块级盒，或生成一个行内格式化上下文(inline formatting context)，只包含行内盒。有些块级盒，比如表格，不是块容器盒。相反，一些块容器盒，比如非替换行内块及非替换表格单元格，不是块级盒。<strong>描述元素跟它的后代之间的影响。</strong></li>
+<li><strong>块盒(Block boxes)</strong>：同时是块容器盒的块级盒。</li>
 </ul>
-<h1 id="Web权限控制方案List"><a href="#Web权限控制方案List" class="headerlink" title="Web权限控制方案List"></a>Web权限控制方案List</h1><ul>
-<li>前后端不分离：以Java为例，后端通过jsp、freemark、thmeleaf等模板来渲染相应权限的数据，渲染完呈现在浏览器端</li>
-<li>前后端分离：<ul>
-<li>SPA单页面应用，路由由前端控制，前端通过js控制hash路由的权限</li>
-<li>SSR服务端渲染，Node中间层做代理路由，判断权限渲染特定的路由至浏览器端</li>
+<p><img src="https://mdn.mozillademos.org/files/3559/venn_blocks.png" alt="img"></p>
+<ul>
+<li><strong>匿名块盒(Anonymous block boxes)</strong>：没有名字，不能被 CSS 选择符选中。块容器盒要么只包含行内级盒，要么只包含块级盒，但通常文档会同时包含两者，在这种情况下，将创建匿名块盒来包含毗邻的行内级盒。</li>
 </ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">   I am Block container box</span><br><span class="line">   <span class="tag">&lt;<span class="name">p</span>&gt;</span>I'm Inline-level boxes<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   I am Block container box</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>行内级元素(Inline-level elements)</strong>：当元素的 CSS 属性 <code>display：inline, inline-block 或 inline-table</code> 时，称它为行内级元素。行内级元素生成行内级盒(inline-level boxes)，参与行内格式化上下文(IFC)。</li>
+<li><strong>行内级盒(Inline-level boxes)</strong>：所有 <code>display:inline</code> 的非替换元素生成的盒是行内盒。</li>
+<li><strong>原子行内级盒(atomic inline-level boxes)</strong>：不参与生成行内格式化上下文的行内级盒称为原子行内级盒(atomic inline-level boxes)。</li>
+<li><strong>原子行内盒(atomic inline boxes)</strong>：注意：起初原子行内级盒(atomic inline-level boxes)被称为原子行内盒(atomic inline boxes)。很不幸，它们并非行内盒。规范的勘误表修正了这个错误。不管怎样，当再看到原子行内盒时可以放心的当成原子行内级盒，因为只是改了名字。原子行内盒在行内格式化上下文里不能分成多行。</li>
+<li><strong>行盒(Line boxes)</strong>：行盒由行内格式化上下文(IFC)产生的盒，用于表示一行。在块盒里面，行盒从块盒一边排版到另一边。 当有浮动时, 行盒从左浮动的最右边排版到右浮动的最左边。</li>
+</ul>
+<p><img src="https://developer.mozilla.org/@api/deki/files/6008/=venn_inlines.png" alt="img"></p>
+<ul>
+<li><strong>匿名行内盒(Anonymous inline boxes)</strong>：匿名行内盒最常见的例子是块盒直接包含文本。</li>
+<li><del>插入盒(Run-in boxes)</del>：插入盒(Run-in boxes)从 CSS 2.1 标准中移除了，因为可操作的实现定义不足。 可能 CSS3 会引入，但是这是实验性质，不能用于生产环境。 </li>
+</ul>
+<h3 id="定位方案-Positioning-schemes"><a href="#定位方案-Positioning-schemes" class="headerlink" title="定位方案(Positioning schemes)"></a>定位方案(Positioning schemes)</h3><h4 id="常规流-Normal-flow"><a href="#常规流-Normal-flow" class="headerlink" title="- 常规流(Normal flow)"></a>- 常规流(Normal flow)</h4><blockquote>
+<p>CSS2.1中，常规流包括块级盒的块格式化，行内盒的行内格式化，以及块级盒和行内级盒的相对定位。</p>
+</blockquote>
+<h4 id="浮动-Floats"><a href="#浮动-Floats" class="headerlink" title="- 浮动(Floats)"></a>- 浮动(Floats)</h4><blockquote>
+<p>在浮动模型中，盒首先根据常规流布局，然后从常规流中脱离并尽可能地向左或向右位移。内容可以布局在浮动周围。</p>
+</blockquote>
+<h4 id="绝对定位-Absolute-positioning"><a href="#绝对定位-Absolute-positioning" class="headerlink" title="- 绝对定位(Absolute positioning)"></a>- 绝对定位(Absolute positioning)</h4><blockquote>
+<p>在绝对定位模型中，盒完全从常规流中脱离（对后面的同胞元素无影响）并根据包含块来分配位置。</p>
+</blockquote>
+<h2 id="BFC-–-Block-Formatting-Context"><a href="#BFC-–-Block-Formatting-Context" class="headerlink" title="BFC – Block Formatting Context"></a>BFC – Block Formatting Context</h2><h3 id="触发条件"><a href="#触发条件" class="headerlink" title="触发条件"></a>触发条件</h3><ol>
+<li>根元素或其它包含它的元素</li>
+<li>浮动 <code>float: left/right/inherit</code></li>
+<li>绝对定位元素 <code>position: absolute/fixed</code></li>
+<li>行内块 <code>display: inline-block</code></li>
+<li>表格单元格 <code>display: table-cell</code></li>
+<li>表格标题 <code>display: table-caption</code></li>
+<li>溢出元素 <code>overflow: hidden/scroll/auto/inherit</code></li>
+<li>弹性盒子 <code>display: flex/inline-flex</code></li>
+</ol>
+<h3 id="布局规则"><a href="#布局规则" class="headerlink" title="布局规则"></a>布局规则</h3><ol>
+<li>内部的Box会在垂直方向，一个接一个地放置。</li>
+<li>Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠。</li>
+<li>每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。</li>
+<li>BFC的区域不会与float box重叠。</li>
+<li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。</li>
+<li>计算BFC的高度时，浮动元素也参与计算</li>
+</ol>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<li>闭合浮动：浮动区域不叠加到BFC区域上</li>
+<li>防止与浮动元素重叠</li>
+<li>防止margin collapse</li>
+<li>float 元素高度塌陷</li>
+<li>…</li>
+</ul>
+<h2 id="IFC-–-Inline-Formatting-Contexts"><a href="#IFC-–-Inline-Formatting-Contexts" class="headerlink" title="IFC – Inline Formatting Contexts"></a>IFC – Inline Formatting Contexts</h2><h3 id="触发条件-1"><a href="#触发条件-1" class="headerlink" title="触发条件"></a>触发条件</h3><p>一个块级元素中<strong>仅</strong>包含内联级别元素</p>
+<h3 id="布局规则-1"><a href="#布局规则-1" class="headerlink" title="布局规则"></a>布局规则</h3><ul>
+<li><p>内部的盒子会在水平方向，一个接一个地放置。</p>
+</li>
+<li><p>这些盒子垂直方向的起点从包含块盒子的顶部开始。</p>
+</li>
+<li><p>摆放这些盒子的时候，它们在水平方向上的 padding、border、margin 所占用的空间都会被考虑在内。</p>
+</li>
+<li><p>在垂直方向上，这些框可能会以不同形式来对齐（vertical-align）：它们可能会使用底部或顶部对齐，也可能通过其内部的文本基线（baseline）对齐。</p>
+</li>
+<li><p>能把在一行上的框都完全包含进去的一个矩形区域，被称为该行的行框（line box）。行框的宽度是由包含块（containing box）和存在的浮动来决定。</p>
+</li>
+<li><p>IFC中的 line box 一般左右边都贴紧其包含块，但是会因为float元素的存在发生变化。float 元素会位于IFC与与 line box 之间，使得 line box 宽度缩短。</p>
+</li>
+<li><p>IFC 中的 line box 高度由 CSS 行高计算规则来确定，同个 IFC 下的多个 line box 高度可能会不同（比如一行包含了较高的图片，而另一行只有文本）</p>
+</li>
+<li><p>当 inline-level boxes 的总宽度少于包含它们的 line box 时，其水平渲染规则由 text-align 属性来确定，如果取值为 justify，那么浏览器会对 inline-boxes（注意不是inline-table 和 inline-block boxes）中的文字和空格做出拉伸。</p>
+</li>
+<li><p>当一个 inline box 超过 line box 的宽度时，它会被分割成多个boxes，这些 boxes 被分布在多个 line box 里。如果一个 inline box 不能被分割（比如只包含单个字符，或 word-breaking 机制被禁用，或该行内框受 white-space 属性值为 nowrap 或 pre 的影响），那么这个 inline box 将溢出这个 line box。</p>
 </li>
 </ul>
-<h1 id="SPA前端权限控制方案"><a href="#SPA前端权限控制方案" class="headerlink" title="SPA前端权限控制方案"></a>SPA前端权限控制方案</h1><blockquote>
-<p>SPA: 单页Web应用（single page web application）将所有web活动局限于一个html页面中，利用js通过hash或者浏览器history api来实现无刷新路由跳转，前后端通过ajax数据通信，避免了浏览器的刷新重新加载，为用户提供流程的操作体验。这意味着前端接管了路由层，需要通过调用前端自身的MVC模块，来渲染不同的页面。</p>
-</blockquote>
-<p>Base on：</p>
-<ul>
-<li>Vue 前端MVVM框架</li>
-<li>Vuex 状态管理机</li>
-<li>Vue-router 路由</li>
-<li>Axios HTTP请求库</li>
+<h3 id="应用场景-1"><a href="#应用场景-1" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<li><p>水平居中：当一个块要在环境中水平居中时，设置其为 inline-block 则会在外层产生 IFC，通过设置父容器 text-align:center 则可以使其水平居中。</p>
+</li>
+<li><p>垂直居中：创建一个IFC，用其中一个元素撑开父元素的高度，然后设置其 vertical-align:middle，其他行内元素则可以在此父元素下垂直居中。</p>
+</li>
 </ul>
-<h2 id="1-登陆事件Login"><a href="#1-登陆事件Login" class="headerlink" title="1.登陆事件Login"></a>1.登陆事件Login</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.触发登陆事件</span></span><br><span class="line">dispatch(<span class="string">'login'</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment">// actions</span></span><br><span class="line">commit(types.LOGIN_SUCCESS, res.data.data)</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<h2 id="2-获取Token，经Base64编码后存至sessionStorage"><a href="#2-获取Token，经Base64编码后存至sessionStorage" class="headerlink" title="2.获取Token，经Base64编码后存至sessionStorage"></a>2.获取Token，经Base64编码后存至sessionStorage</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// mutations</span></span><br><span class="line"><span class="keyword">const</span> mutations = &#123;</span><br><span class="line">    [types.LOGIN_SUCCESS] (state, data) &#123;</span><br><span class="line">        state.authlock = <span class="literal">false</span></span><br><span class="line">	<span class="comment">// 2.登陆成功回调拿到token,经Base64 编码后存入本地sessionStorage</span></span><br><span class="line">        <span class="keyword">let</span> token = Base64.encode(data + <span class="string">':HIKDATAE'</span>)</span><br><span class="line">        sessionStorage.setItem(<span class="string">'userToken'</span>, token)</span><br><span class="line">	<span class="comment">// 路由跳转至目标页面</span></span><br><span class="line">        router.push(&#123;<span class="attr">name</span>: <span class="string">'xxx'</span>&#125;)</span><br><span class="line">    &#125;,</span><br><span class="line">    [types.LOGOUT_SUCCESS] (state) &#123;</span><br><span class="line">        state.authlock = <span class="literal">true</span></span><br><span class="line">	<span class="comment">// 登出成功回调,移除本地token</span></span><br><span class="line">        sessionStorage.removeItem(<span class="string">'userToken'</span>)</span><br><span class="line">		router.push(&#123;<span class="attr">name</span>: <span class="string">'Login'</span>&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="3-所有HTTP-Header-Authorization-加上编码后的token-前后端可约定规则"><a href="#3-所有HTTP-Header-Authorization-加上编码后的token-前后端可约定规则" class="headerlink" title="3.所有HTTP Header Authorization 加上编码后的token(前后端可约定规则)"></a>3.所有HTTP Header Authorization 加上编码后的token(前后端可约定规则)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Axios 请求钩子（request）</span></span><br><span class="line">axios.interceptors.request.use(<span class="function"><span class="params">req</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> token = sessionStorage.getItem(<span class="string">'user'</span>)     </span><br><span class="line">    <span class="keyword">if</span> (token) &#123; 		</span><br><span class="line">        <span class="comment">// 3.token 存在,则在之后所有请求的http请求头 Authorization 带上base64编码后的token,后台拿到token后进行验证权限         </span></span><br><span class="line">        req.headers.Authorization = <span class="string">`Basic <span class="subst">$&#123;token&#125;</span>`</span>     </span><br><span class="line">    &#125;</span><br><span class="line">    req.data = qs.stringify(req.data)     </span><br><span class="line">    <span class="keyword">return</span> req </span><br><span class="line">&#125;, error =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error) </span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>浏览器http header</p>
-</blockquote>
-<p><img src="http://ohce3yxd6.bkt.clouddn.com/httpau.png" alt="FEAuths"></p>
-<h2 id="4-请求拦截：后台拿到token后对每个请求进行校验，若校验失败返回401，前端response钩子里统一catch-error-跳转至登陆页面"><a href="#4-请求拦截：后台拿到token后对每个请求进行校验，若校验失败返回401，前端response钩子里统一catch-error-跳转至登陆页面" class="headerlink" title="4.请求拦截：后台拿到token后对每个请求进行校验，若校验失败返回401，前端response钩子里统一catch error 跳转至登陆页面"></a>4.请求拦截：后台拿到token后对每个请求进行校验，若校验失败返回401，前端response钩子里统一catch error 跳转至登陆页面</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Axios 请求钩子（response）</span></span><br><span class="line">axios.interceptors.response.use(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;, error =&gt; &#123;</span><br><span class="line">	<span class="keyword">if</span> (error.response) &#123;</span><br><span class="line">        <span class="keyword">switch</span> (error.response.status) &#123;</span><br><span class="line">		<span class="comment">// 4.所有接口response校验钩子,若token检验失败,后台返回 401 error code, 清除token信息并跳转到登录页面</span></span><br><span class="line">        	<span class="keyword">case</span> <span class="number">401</span>:</span><br><span class="line">            	store.commit(types.LOGOUT)</span><br><span class="line">            	router.replace(&#123;</span><br><span class="line">            		path: <span class="string">'/login'</span></span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="5-路由跳转拦截：任意路由跳转时，在路由beforeEach钩子里校验本地是否存在token，若没有，则跳转至登陆页面"><a href="#5-路由跳转拦截：任意路由跳转时，在路由beforeEach钩子里校验本地是否存在token，若没有，则跳转至登陆页面" class="headerlink" title="5.路由跳转拦截：任意路由跳转时，在路由beforeEach钩子里校验本地是否存在token，若没有，则跳转至登陆页面"></a>5.路由跳转拦截：任意路由跳转时，在路由beforeEach钩子里校验本地是否存在token，若没有，则跳转至登陆页面</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 路由钩子(每个路由跳转前调起beforeEach钩子)</span></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (to.path === <span class="string">'/login'</span>) &#123;</span><br><span class="line">    sessionStorage.removeItem(<span class="string">'userToken'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> user = sessionStorage.getItem(<span class="string">'userToken'</span>)</span><br><span class="line">  <span class="keyword">if</span> (!user &amp;&amp; to.path !== <span class="string">'/login'</span>) &#123;</span><br><span class="line">	<span class="comment">// 若本地token不存在,则任意路由跳转的时候,重定向至login 登陆页面</span></span><br><span class="line">    next(&#123; <span class="attr">path</span>: <span class="string">'/login'</span> &#125;)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    next()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-<h2 id="6-登出Logout：清楚本地sessionStorage的token信息"><a href="#6-登出Logout：清楚本地sessionStorage的token信息" class="headerlink" title="6.登出Logout：清楚本地sessionStorage的token信息"></a>6.登出Logout：清楚本地sessionStorage的token信息</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// mutations</span></span><br><span class="line"><span class="keyword">const</span> mutations = &#123;</span><br><span class="line">	...</span><br><span class="line">    [types.LOGOUT_SUCCESS] (state) &#123;</span><br><span class="line">        state.authlock = <span class="literal">true</span></span><br><span class="line">	<span class="comment">// 登出成功回调,移除本地token</span></span><br><span class="line">        sessionStorage.removeItem(<span class="string">'userToken'</span>)</span><br><span class="line">	router.push(&#123;<span class="attr">name</span>: <span class="string">'Login'</span>&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="流程示意图如下"><a href="#流程示意图如下" class="headerlink" title="流程示意图如下:"></a>流程示意图如下:</h2><p><img src="http://ohce3yxd6.bkt.clouddn.com/FEAuth_yepanmeng.png" alt="FEAuth"></p>
-<blockquote>
-<p>写完才觉得，什么才是真正的安全权限？任重而道远。。。</p>
-</blockquote>
+<h2 id="FFC-–-Flex-Formatting-Contexts"><a href="#FFC-–-Flex-Formatting-Contexts" class="headerlink" title="FFC – Flex Formatting Contexts"></a>FFC – Flex Formatting Contexts</h2><h3 id="触发条件-2"><a href="#触发条件-2" class="headerlink" title="触发条件"></a>触发条件</h3><p>当 <code>display</code> 的值为 <code>flex</code> 或 <code>inline-flex</code> 时，将生成弹性容器（Flex Containers）, 一个弹性容器为其内容建立了一个新的弹性格式化上下文环境（FFC）</p>
+<h3 id="布局规则-2"><a href="#布局规则-2" class="headerlink" title="布局规则"></a>布局规则</h3><ul>
+<li>设置为 <code>flex</code> 的容器被渲染为一个块级元素</li>
+<li>设置为 <code>inline-flex</code> 的容器则渲染为一个行内元素</li>
+<li>弹性容器中的每一个子元素都是一个弹性项目。弹性项目可以是任意数量的。弹性容器外和弹性项目内的一切元素都不受影响。简单地说，Flexbox 定义了弹性容器内弹性项目该如何布局</li>
+</ul>
+<h2 id="GFC-–-GridLayout-Formatting-Contexts"><a href="#GFC-–-GridLayout-Formatting-Contexts" class="headerlink" title="GFC – GridLayout Formatting Contexts"></a>GFC – GridLayout Formatting Contexts</h2><h3 id="触发条件-3"><a href="#触发条件-3" class="headerlink" title="触发条件"></a>触发条件</h3><p>当为一个元素设置<code>display</code>值为<code>grid</code>的时候，此元素将会获得一个独立的渲染区域</p>
+<h3 id="布局规则-3"><a href="#布局规则-3" class="headerlink" title="布局规则"></a>布局规则</h3><p>通过在网格容器（grid container）上定义网格定义行（grid definition rows）和网格定义列（grid definition columns）属性各在网格项目（grid item）上定义网格行（grid row）和网格列（grid columns）为每一个网格项目（grid item）定义位置和空间</p>
+<hr>
+<p>参考：</p>
+<p><a href="https://www.w3.org/TR/CSS22/visuren.html" target="_blank" rel="noopener">Visual formatting model</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Visual_formatting_model" target="_blank" rel="noopener">视觉格式化模型</a></p>
+<p><a href="https://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html" target="_blank" rel="noopener">BFC 神奇背后的原理</a></p>
 
       
     </div>
@@ -446,11 +530,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/权限/" rel="tag"># 权限</a>
+            <a href="/tags/BFC/" rel="tag"># BFC</a>
           
-            <a href="/tags/token/" rel="tag"># token</a>
+            <a href="/tags/IFC/" rel="tag"># IFC</a>
           
-            <a href="/tags/安全/" rel="tag"># 安全</a>
+            <a href="/tags/FFC/" rel="tag"># FFC</a>
+          
+            <a href="/tags/GFC/" rel="tag"># GFC</a>
           
         </div>
       
@@ -459,8 +545,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/09/8㎡出租房100元小折腾记录-90后杭漂程序员/" rel="next" title="8㎡出租房100元小折腾记录--90后杭漂程序员">
-                <i class="fa fa-chevron-left"></i> 8㎡出租房100元小折腾记录--90后杭漂程序员
+              <a href="/2018/01/Travis CI助力Blog持续输出/" rel="next" title="Travis CI助力Blog持续输出">
+                <i class="fa fa-chevron-left"></i> Travis CI助力Blog持续输出
               </a>
             
           </div>
@@ -469,8 +555,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/从setTimeout-setInterval看JS线程/" rel="prev" title="从setTimeout/setInterval看JS线程">
-                从setTimeout/setInterval看JS线程 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/03/DOM操作成本到底高在哪儿/" rel="prev" title="DOM操作成本到底高在哪儿？">
+                DOM操作成本到底高在哪儿？ <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -680,7 +766,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#何为权限控制"><span class="nav-number">1.</span> <span class="nav-text">何为权限控制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Web权限控制方案List"><span class="nav-number">2.</span> <span class="nav-text">Web权限控制方案List</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SPA前端权限控制方案"><span class="nav-number">3.</span> <span class="nav-text">SPA前端权限控制方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-登陆事件Login"><span class="nav-number">3.1.</span> <span class="nav-text">1.登陆事件Login</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-获取Token，经Base64编码后存至sessionStorage"><span class="nav-number">3.2.</span> <span class="nav-text">2.获取Token，经Base64编码后存至sessionStorage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-所有HTTP-Header-Authorization-加上编码后的token-前后端可约定规则"><span class="nav-number">3.3.</span> <span class="nav-text">3.所有HTTP Header Authorization 加上编码后的token(前后端可约定规则)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-请求拦截：后台拿到token后对每个请求进行校验，若校验失败返回401，前端response钩子里统一catch-error-跳转至登陆页面"><span class="nav-number">3.4.</span> <span class="nav-text">4.请求拦截：后台拿到token后对每个请求进行校验，若校验失败返回401，前端response钩子里统一catch error 跳转至登陆页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-路由跳转拦截：任意路由跳转时，在路由beforeEach钩子里校验本地是否存在token，若没有，则跳转至登陆页面"><span class="nav-number">3.5.</span> <span class="nav-text">5.路由跳转拦截：任意路由跳转时，在路由beforeEach钩子里校验本地是否存在token，若没有，则跳转至登陆页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-登出Logout：清楚本地sessionStorage的token信息"><span class="nav-number">3.6.</span> <span class="nav-text">6.登出Logout：清楚本地sessionStorage的token信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程示意图如下"><span class="nav-number">3.7.</span> <span class="nav-text">流程示意图如下:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#盒模型-Box-Model"><span class="nav-number">1.</span> <span class="nav-text">盒模型(Box Model)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视觉格式化模型-Visual-Formatting-Model"><span class="nav-number">2.</span> <span class="nav-text">视觉格式化模型(Visual Formatting Model)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FC-–-Formatting-Context"><span class="nav-number">2.1.</span> <span class="nav-text">FC – Formatting Context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前方大波概念来袭！"><span class="nav-number">2.2.</span> <span class="nav-text">前方大波概念来袭！</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定位方案-Positioning-schemes"><span class="nav-number">2.3.</span> <span class="nav-text">定位方案(Positioning schemes)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常规流-Normal-flow"><span class="nav-number">2.3.1.</span> <span class="nav-text">- 常规流(Normal flow)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浮动-Floats"><span class="nav-number">2.3.2.</span> <span class="nav-text">- 浮动(Floats)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绝对定位-Absolute-positioning"><span class="nav-number">2.3.3.</span> <span class="nav-text">- 绝对定位(Absolute positioning)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC-–-Block-Formatting-Context"><span class="nav-number">3.</span> <span class="nav-text">BFC – Block Formatting Context</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#触发条件"><span class="nav-number">3.1.</span> <span class="nav-text">触发条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局规则"><span class="nav-number">3.2.</span> <span class="nav-text">布局规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景"><span class="nav-number">3.3.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IFC-–-Inline-Formatting-Contexts"><span class="nav-number">4.</span> <span class="nav-text">IFC – Inline Formatting Contexts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#触发条件-1"><span class="nav-number">4.1.</span> <span class="nav-text">触发条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局规则-1"><span class="nav-number">4.2.</span> <span class="nav-text">布局规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景-1"><span class="nav-number">4.3.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FFC-–-Flex-Formatting-Contexts"><span class="nav-number">5.</span> <span class="nav-text">FFC – Flex Formatting Contexts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#触发条件-2"><span class="nav-number">5.1.</span> <span class="nav-text">触发条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局规则-2"><span class="nav-number">5.2.</span> <span class="nav-text">布局规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GFC-–-GridLayout-Formatting-Contexts"><span class="nav-number">6.</span> <span class="nav-text">GFC – GridLayout Formatting Contexts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#触发条件-3"><span class="nav-number">6.1.</span> <span class="nav-text">触发条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局规则-3"><span class="nav-number">6.2.</span> <span class="nav-text">布局规则</span></a></li></ol></li></ol></div>
             
 
           </div>
