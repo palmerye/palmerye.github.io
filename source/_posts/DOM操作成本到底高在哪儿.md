@@ -68,6 +68,9 @@ Python也可以访问DOM。所以DOM不是提供给Javascript的API，也不是J
 
 ![图片描述][2]
 
+简单描述这个过程：
+
+DOM树从根节点开始遍历**可见**节点，这里之所以强调了“可见”，是因为如果遇到类似设置了`display: none;`的不可见节点，在render过程中是会被跳过的（但`visibility: hidden; opacity: 0`这种仍旧占据空间的节点不会被跳过render）。
 
 ![图片描述][3]
 
