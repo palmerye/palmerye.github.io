@@ -97,7 +97,7 @@
 <meta property="og:image" content="http://palmer.arkstack.cn/img/bV6yUy">
 <meta property="og:image" content="http://palmer.arkstack.cn/img/bV6yUI">
 <meta property="og:image" content="http://palmer.arkstack.cn/img/bV5TvO">
-<meta property="og:updated_time" content="2018-03-23T10:53:49.084Z">
+<meta property="og:updated_time" content="2018-03-24T08:02:48.616Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DOM操作成本到底高在哪儿？">
 <meta name="twitter:description" content="从我接触前端到现在，一直听到的一句话：操作DOM的成本很高，不要轻易去操作DOM。尤其是React、vue等MV*框架的出现，数据驱动视图的模式越发深入人心，jQuery时代提供的强大便利地操作DOM的API在前端工程里用的越来越少。刨根问底，这里说的成本，到底高在哪儿呢？">
@@ -421,7 +421,9 @@
 </blockquote>
 <p><img src="/img/bV6yUI" alt="图片描述"></p>
 <p>简单描述这个过程：</p>
-<p>DOM树从根节点开始遍历<strong>可见</strong>节点，这里之所以强调了“可见”，是因为如果遇到类似设置了<code>display: none;</code>的不可见节点，在render过程中是会被跳过的（但<code>visibility: hidden; opacity: 0</code>这种仍旧占据空间的节点不会被跳过render）。</p>
+<p>DOM树从根节点开始遍历<strong>可见</strong>节点，这里之所以强调了“可见”，是因为如果遇到设置了类似<code>display: none;</code>的不可见节点，在render过程中是会被跳过的（但<code>visibility: hidden; opacity: 0</code>这种仍旧占据空间的节点不会被跳过render），保存各个节点的样式信息及其余节点的从属关系。</p>
+<h3 id="Layout-布局"><a href="#Layout-布局" class="headerlink" title="Layout 布局"></a>Layout 布局</h3><p>有了各个节点的样式信息和属性，但不知道各个节点的确切位置和大小，所以要通过布局将样式信息和属性转换为实际可视窗口的相对大小和位置。</p>
+<h3 id="Paint-绘制"><a href="#Paint-绘制" class="headerlink" title="Paint 绘制"></a>Paint 绘制</h3><p>万事俱备，最后只要将确定好位置大小的各节点，通过GPU渲染到屏幕的实际像素。</p>
 <p><img src="/img/bV5TvO" alt="图片描述"></p>
 <h2 id="何时触发reflow和repaint"><a href="#何时触发reflow和repaint" class="headerlink" title="何时触发reflow和repaint"></a>何时触发reflow和repaint</h2><blockquote>
 <p>reflow(回流): 根据Render Tree布局(几何属性);<br>repaint(重绘): 在reflow之后，渲染像素点到屏幕(颜色、背景…)；</p>
@@ -682,7 +684,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是DOM"><span class="nav-number">1.</span> <span class="nav-text">什么是DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器渲染过程"><span class="nav-number">2.</span> <span class="nav-text">浏览器渲染过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构建DOM树"><span class="nav-number">2.1.</span> <span class="nav-text">构建DOM树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成render树"><span class="nav-number">2.2.</span> <span class="nav-text">生成render树</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#何时触发reflow和repaint"><span class="nav-number">3.</span> <span class="nav-text">何时触发reflow和repaint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loaded和domcontentloaded"><span class="nav-number">4.</span> <span class="nav-text">loaded和domcontentloaded</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">5.</span> <span class="nav-text">参考文献:</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是DOM"><span class="nav-number">1.</span> <span class="nav-text">什么是DOM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#浏览器渲染过程"><span class="nav-number">2.</span> <span class="nav-text">浏览器渲染过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构建DOM树"><span class="nav-number">2.1.</span> <span class="nav-text">构建DOM树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成render树"><span class="nav-number">2.2.</span> <span class="nav-text">生成render树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Layout-布局"><span class="nav-number">2.3.</span> <span class="nav-text">Layout 布局</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Paint-绘制"><span class="nav-number">2.4.</span> <span class="nav-text">Paint 绘制</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#何时触发reflow和repaint"><span class="nav-number">3.</span> <span class="nav-text">何时触发reflow和repaint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#loaded和domcontentloaded"><span class="nav-number">4.</span> <span class="nav-text">loaded和domcontentloaded</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">5.</span> <span class="nav-text">参考文献:</span></a></li></ol></div>
             
 
           </div>
