@@ -40,7 +40,7 @@ Python也可以访问DOM。所以DOM不是提供给Javascript的API，也不是J
 
  6. 浏览器会将各层的信息发送给GPU，GPU将各层合成（composite），显示在屏幕上
 
-### 构建DOM树
+### 1.构建DOM树
 
 ```
 <html>
@@ -62,7 +62,11 @@ Python也可以访问DOM。所以DOM不是提供给Javascript的API，也不是J
 
 > DOM树构建过程：当前节点的所有子节点都构建好后才会去构建当前节点的下一个兄弟节点。
 
-### 生成render树
+### 2.构建CSSOM树
+
+上述也提到了CSSOM的构建过程，也是树的结构，在最终计算各个节点的样式时，浏览器都会先从该节点的普遍属性（比如body里设置的全局样式）开始，再去应用该节点的具体属性。还有要注意的是，每个浏览器都有自己默认的样式表，因此很多时候这棵CSSOM树只是对这张默认样式表的部分替换。
+
+### 3.生成render树
 
 > DOM树和CSSOM树合并生成render树
 
@@ -72,16 +76,23 @@ Python也可以访问DOM。所以DOM不是提供给Javascript的API，也不是J
 
 DOM树从根节点开始遍历**可见**节点，这里之所以强调了“可见”，是因为如果遇到设置了类似`display: none;`的不可见节点，在render过程中是会被跳过的（但`visibility: hidden; opacity: 0`这种仍旧占据空间的节点不会被跳过render），保存各个节点的样式信息及其余节点的从属关系。
 
-### Layout 布局
+### 4.Layout 布局
 
 有了各个节点的样式信息和属性，但不知道各个节点的确切位置和大小，所以要通过布局将样式信息和属性转换为实际可视窗口的相对大小和位置。
 
-### Paint 绘制
+### 5.Paint 绘制
 
 万事俱备，最后只要将确定好位置大小的各节点，通过GPU渲染到屏幕的实际像素。
 
-![图片描述][3]
 
+### **Tips**
+
+- 在上述渲染过程中，前3点可能要多次执行，比如js脚本去操作dom、更改css样式时，浏览器又要重新构建DOM、CSSOM树，重新render，重新layout、paint；
+- Layout在Paint之前，因此每次Layout重新布局（reflow 回流）后都要重新出发Paint渲染，这时又要去消耗GPU；
+- Paint不一定会触发Layout，比如改个颜色改个背景；（repaint 重绘）
+- 图片下载完也会重新出发Layout和Paint；
+
+![图片描述][3]
 
 ## 何时触发reflow和repaint
 
