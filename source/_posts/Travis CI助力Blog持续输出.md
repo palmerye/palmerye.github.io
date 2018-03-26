@@ -24,7 +24,7 @@ tags: [CI]
 
 > 其实应该将这几个概念揉在一起：持续集成、持续部署、持续交付、持续发布。
 
-![image](https://pic2.zhimg.com/80/386dcf92f1c7070d3f84473057829ea2_hd.jpg)
+![](http://ohce3yxd6.bkt.clouddn.com/blog/2403013470-5a708bdde14ce_articlex.jpeg?fromMac)
 
 1.代码提交：commit
 2.测试（第一轮）：hook相应的commit动作，自动化测试
