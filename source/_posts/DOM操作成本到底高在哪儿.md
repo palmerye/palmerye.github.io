@@ -58,7 +58,7 @@ Python也可以访问DOM。所以DOM不是提供给Javascript的API，也不是J
 
 > 无论是DOM还是CSSOM，都是要经过`Bytes → characters → tokens → nodes → object model`这个过程。
 
-![图片描述][1]
+![](http://ohce3yxd6.bkt.clouddn.com/blog/bV6yUI.png?fromMac)
 
 > DOM树构建过程：当前节点的所有子节点都构建好后才会去构建当前节点的下一个兄弟节点。
 
@@ -70,7 +70,7 @@ Python也可以访问DOM。所以DOM不是提供给Javascript的API，也不是J
 
 > DOM树和CSSOM树合并生成render树
 
-![图片描述][2]
+![](http://ohce3yxd6.bkt.clouddn.com/blog/bV6yUy.png?fromMac)
 
 简单描述这个过程：
 
@@ -92,7 +92,7 @@ DOM树从根节点开始遍历**可见**节点，这里之所以强调了“可�
 - Paint不一定会触发Layout，比如改个颜色改个背景；（repaint 重绘）
 - 图片下载完也会重新出发Layout和Paint；
 
-![图片描述][3]
+![](http://ohce3yxd6.bkt.clouddn.com/blog/bV6yUy.png?fromMac)
 
 ## 何时触发reflow和repaint
 
@@ -108,8 +108,3 @@ repaint(重绘): 在reflow之后，渲染像素点到屏幕(颜色、背景...)�
 ## 参考文献:
 
 [https://developers.google.com/web/fundamentals/performance/critical-rendering-path/](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/)
-
-
-  [1]: /img/bV6yUy
-  [2]: /img/bV6yUI
-  [3]: /img/bV5TvO
