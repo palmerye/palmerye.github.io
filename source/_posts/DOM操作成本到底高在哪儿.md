@@ -96,11 +96,15 @@ DOM树从根节点开始遍历**可见**节点，这里之所以强调了“可�
 
 ## 何时触发reflow和repaint
 
-> reflow(回流): 根据Render Tree布局(几何属性);
-repaint(重绘): 在reflow之后，渲染像素点到屏幕(颜色、背景...)；
-
+> reflow(回流): 根据Render Tree布局(几何属性)，意味着元素的内容、结构、位置或尺寸发生了变化，需要重新计算样式和渲染树；
+repaint(重绘): 意味着元素发生的改变只影响了节点的一些样式（背景色，边框颜色，文字颜色等），只需要应用新样式绘制这个元素就可以了；
+reflow回流的成本开销要高于repaint重绘，一个节点的回流往往回导致子节点以及同级节点的回流；
 
 [GoogleChromeLabs](https://github.com/GoogleChromeLabs) 里面有一个[csstriggers](https://csstriggers.com/)，列出了各个CSS属性对浏览器执行Layout、Paint、Composite的影响。
+
+### 引起reflow回流
+
+### 引起repaint重绘
 
 ## loaded和domcontentloaded
 
