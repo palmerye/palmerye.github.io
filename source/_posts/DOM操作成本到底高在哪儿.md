@@ -189,5 +189,7 @@ reflow回流的成本开销要高于repaint重绘，一个节点的回流往往�
 
 [https://developers.google.com/web/fundamentals/performance/critical-rendering-path/](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/)
 
+> 已同步至个人博客-[软硬皆施](palmer.arkstack.cn/2018/03/DOM操作成本到底高在哪儿/)
+[Github](https://github.com/palmerye/palmerye.github.io) 欢迎star :)
 
   [1]: /img/bV5VQG
