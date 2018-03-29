@@ -28,7 +28,7 @@ Python也可以访问DOM。所以DOM不是提供给Javascript的API，也不是J
 
 这里暂只讨论浏览器拿到HTML之后开始解析、渲染。（怎么拿到HTML资源的可能后续另开篇总结吧，什么握握握手啊挥挥挥挥手啊，万恶的flag...）
 
- 1. 解析HTML，构建DOM树
+ 1. 解析HTML，构建DOM树（这里遇到外链，此时会发起请求）
 
  2. 解析CSS，生成CSS规则树
 
@@ -104,24 +104,90 @@ reflow回流的成本开销要高于repaint重绘，一个节点的回流往往�
 
 ### 引起reflow回流
 
+> 现代浏览器会对回流做优化，它会等到足够数量的变化发生，再做一次批处理回流。
+
 1. 页面第一次渲染（初始化）
 2. DOM树变化（如：增删节点）
 3. Render树变化（如：padding改变）
 4. 浏览器窗口resize
-5. 。。。
+5. 获取元素的某些属性：
+    浏览器为了获得正确的值也会**提前触发回流**，这样就使得浏览器的优化失效了，这些属性包括offsetLeft、offsetTop、offsetWidth、offsetHeight、 scrollTop/Left/Width/Height、clientTop/Left/Width/Height、调用了getComputedStyle()或者IE的currentStyle
 
 ### 引起repaint重绘
 
-1. reflow回流必定引起repaint重绘
-2. 
+1. reflow回流必定引起repaint重绘，重绘可以单独触发
+2. 背景色、颜色、字体改变（注意：字体大小发生变化时，会触发回流）
+
+### 优化reflow、repaint触发次数
+
+- 避免逐个修改节点样式，尽量一次性修改
+- 使用DocumentFragment将需要多次修改的DOM元素缓存，最后一次性append到真实DOM中渲染
+- 可以将需要多次修改的DOM元素设置`display: none`，操作完再显示。（因为隐藏元素不在render树内，因此修改隐藏元素不会触发回流重绘）
+- 避免多次读取某些属性（见上）
+- 将复杂的节点元素脱离文档流，降低回流成本
 
 ## 为什么一再强调将css放在头部，将js文件放在尾部
 
-### CSS 资源阻塞渲染
-
 ### DOMContentLoaded 和 load
 
+- DOMContentLoaded 事件触发时，仅当DOM加载完成，不包括样式表，图片...
+- load 事件触发时，页面上所有的DOM，样式表，脚本，图片都已加载完成
+
+### CSS 资源阻塞渲染
+
+构建Render树需要DOM和CSSOM，所以HTML和CSS都会阻塞渲染。所以需要让CSS尽早加载（如：放在头部），以缩短首次渲染的时间。
+
+### JS 资源
+
+- 阻塞浏览器的解析，也就是说发现一个外链脚本时，需等待脚本下载完成并执行后才会继续解析HTML
+    - 这和之前文章提到的浏览器线程有关，浏览器中js引擎线程和渲染线程是互斥的，详见[《从setTimeout-setInterval看JS线程》](https://segmentfault.com/a/1190000013702430#articleHeader2)
+- 普通的脚本会阻塞浏览器解析，加上defer或async属性，脚本就变成异步，可等到解析完毕再执行
+    - async异步执行，异步下载完毕后就会执行，不确保执行顺序，一定在onload前，但不确定在DOMContentLoaded事件的前后
+    - defer延迟执行，相对于放在body最后（理论上在DOMContentLoaded事件前）
+
+### 举个栗子
+
+```
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <p>Hello <span>web performance</span> students!</p>
+    <div><img src="awesome-photo.jpg"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
+```
+
+![图片描述][1]
+
+- 浏览器拿到HTML后，从上到下顺序解析文档
+- 此时遇到css、js外链，则同时发起请求
+- 开始构建DOM树
+- 这里要特别注意，由于有CSS资源，CSSOM还未构建前，会阻塞js（如果有的话）
+- 无论JavaScript是内联还是外链，只要浏览器遇到 `script` 标记，唤醒`JavaScript解析器`，就会进行暂停 `blocked` 浏览器解析HTML，并等到 `CSSOM` 构建完毕，才执行js脚本
+- 渲染首屏（DOMContentLoaded 触发，其实不一定是首屏，可能在js脚本执行前DOM树和CSSOM已经构建完render树，已经paint）
+
+## 首屏优化Tips
+
+> 说了这么多，其实可以总结几点浏览器首屏渲染优化的方向
+
+- 减少资源请求数量（内联亦或是延迟动态加载）
+- 使CSS样式表尽早加载，减少@import的使用，因为需要解析完样式表中所有import的资源才会算CSS资源下载完
+- 异步js：阻塞解析器的 JavaScript 会强制浏览器等待 CSSOM 并暂停 DOM 的构建，导致首次渲染的时间延迟
+- so on...
+
+## 知道操作DOM成本多高了吗?
+
+> 其实写了这么多，感觉偏题了，大量的资料参考的是chrome开发者文档。感觉js脚本资源那块还是有点乱，包括和DOMContentLoaded的关系，希望大家能多多指点，多多批评，谢谢大佬们。 
+
+操作DOM具体的成本，说到底是造成浏览器回流reflow和重绘reflow，从而消耗GPU资源。
 
 ## 参考文献:
 
 [https://developers.google.com/web/fundamentals/performance/critical-rendering-path/](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/)
+
+
+  [1]: /img/bV5VQG
