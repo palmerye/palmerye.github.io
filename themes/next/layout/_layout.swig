@@ -74,6 +74,6 @@
   {% include '_scripts/third-party/lean-analytics.swig' %}
   {% include '_scripts/baidu-push.swig' %}
   {% include '_components/algolia-search/assets.swig' %}
-  <a class="github-fork-ribbon left-bottom fixed" href="https://github.com/palmerye/palmerye.github.io" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+  <a class="github-fork-ribbon left-bottom fixed" href="https://github.com/palmerye/palmerye.github.io" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub.</a>
 </body>
 </html>
