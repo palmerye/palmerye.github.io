@@ -45,6 +45,8 @@ tags: [me, palmer]
 - 多看源码深入一些框架
 - 继续补充...
 
+> 写于 2017-02-06
+
 ![image](http://ohce3yxd6.bkt.clouddn.com/photogh/2.jpg?imageView2/0/w/900/h/630)
 
 
