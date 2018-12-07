@@ -109,7 +109,7 @@ setTimeout(fn, 1000);
 
 > 主线程（js线程）只会做一件事，就是从消息队列里面取消息、执行消息，再取消息、再执行。消息队列为空时，就会等待直到消息队列变成非空。只有当前的消息执行结束，才会去取下一个消息。这种机制就叫做事件循环机制**Event Loop**，取一个消息并执行的过程叫做一次循环。
 
-![](http://ohce3yxd6.bkt.clouddn.com/blog/bV5mEF.png?fromMac)
+![](https://github.com/palmerye/pictureBed/raw/master/blog/bV5mEF.png?fromMac)
 
 > 工作线程是生产者，主线程是消费者。工作线程执行异步任务，执行完成后把对应的回调函数封装成一条消息放到消息队列中；主线程不断地从消息队列中取消息并执行，当消息队列空时主线程阻塞，直到消息队列再次非空。
 
@@ -129,7 +129,7 @@ setInterval(function, N)
 
 那么显而易见，上面这段代码意味着，每隔N秒把function事件推到消息队列中，什么时候执行？母鸡啊！
 
-![](http://ohce3yxd6.bkt.clouddn.com/blog/bV5yai.png?fromMac)
+![](https://github.com/palmerye/pictureBed/raw/master/blog/bV5yai.png?fromMac)
 
 上图可见，setInterval每隔100ms往队列中添加一个事件；100ms后，添加T1定时器代码至队列中，主线程中还有任务在执行，所以等待，`some event`执行结束后执行T1定时器代码；又过了100ms，T2定时器被添加到队列中，主线程还在执行T1代码，所以等待；又过了100ms，理论上又要往队列里推一个定时器代码，但由于此时T2还在队列中，所以T3不会被添加，结果就是此时被跳过；这里我们可以看到，T1定时器执行结束后马上执行了T2代码，所以并没有达到定时器的效果。
 

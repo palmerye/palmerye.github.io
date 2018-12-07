@@ -75,7 +75,7 @@ deploy:
   branch: master
 
 # this is my opitions
-avatar: http://ohce3yxd6.bkt.clouddn.com/image/me.jpg
+avatar: https://github.com/palmerye/pictureBed/raw/master/image/me.jpg
 
 baidu_analytics: 3591c30f9156b35464cb2b78cf0e563e
 duoshuo_hotartical: true

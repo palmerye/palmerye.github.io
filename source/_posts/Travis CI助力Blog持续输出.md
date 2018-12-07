@@ -24,7 +24,7 @@ tags: [CI]
 
 > 其实应该将这几个概念揉在一起：持续集成、持续部署、持续交付、持续发布。
 
-![](http://ohce3yxd6.bkt.clouddn.com/blog/2403013470-5a708bdde14ce_articlex.jpeg?fromMac)
+![](https://github.com/palmerye/pictureBed/raw/master/blog/2403013470-5a708bdde14ce_articlex.jpeg?fromMac)
 
 1.代码提交：commit
 2.测试（第一轮）：hook相应的commit动作，自动化测试
@@ -55,11 +55,11 @@ Easily sync your **GitHub** projects with Travis CI and you’ll be testing your
 
 ### 2.打开Repo CI配置
 
-![image](http://ohce3yxd6.bkt.clouddn.com/travisCI/index.png)
+![image](https://github.com/palmerye/pictureBed/raw/master/travisCI/index.png)
 
 勾上你的blog repo (这里我勾上了`palmerye.github.io`)，点击小齿轮，进入配置页。
 
-![image](http://ohce3yxd6.bkt.clouddn.com/travisCI/index2.png)
+![image](https://github.com/palmerye/pictureBed/raw/master/travisCI/index2.png)
 
 打开最上方两个开关，其它默认就行了：
 `Build only if .travis.yml is present`
@@ -67,7 +67,7 @@ Easily sync your **GitHub** projects with Travis CI and you’ll be testing your
 
 其实官方也有教程，只要三步：
 
-![image](http://ohce3yxd6.bkt.clouddn.com/travisCI/index6.png)
+![image](https://github.com/palmerye/pictureBed/raw/master/travisCI/index6.png)
 
 ### 3.添加 .travis.yml
 
@@ -87,7 +87,7 @@ public/
 .deploy*/
 ```
 
-![image](http://ohce3yxd6.bkt.clouddn.com/travisCI/index3.png)
+![image](https://github.com/palmerye/pictureBed/raw/master/travisCI/index3.png)
 
 2.为Travis CI 新建Token
 
@@ -95,7 +95,7 @@ public/
 
 在GitHub个人账户 `Setting/ Developer settings/ Personal access tokens`下，新建一个Token，然后在Travis CI配置中，Environment Variables，添加生成的Token。
 
-![image](http://ohce3yxd6.bkt.clouddn.com/travisCI/index4.png)
+![image](https://github.com/palmerye/pictureBed/raw/master/travisCI/index4.png)
 
 3.source分支下新建.travis.yml
 
@@ -151,7 +151,7 @@ env:
 
 最后，为了提高Blog的档bi次ge，在readme加个build passing 标签吧。
 
-![image](http://ohce3yxd6.bkt.clouddn.com/travisCI/index5.png)
+![image](https://github.com/palmerye/pictureBed/raw/master/travisCI/index5.png)
 
 ## 最后的最后
 

@@ -137,7 +137,7 @@ social:
   GitHub: https://github.com/palmerye
   微博: http://weibo.com/u/2548546880
   知乎: http://www.zhihu.com/people/palmerye.github.io
-  微信: http://ohce3yxd6.bkt.clouddn.com/wechat-qrcode.png
+  微信: https://github.com/palmerye/pictureBed/raw/master/wechat-qrcode.png
 
 
 # Social Links Icons
@@ -231,7 +231,7 @@ post_meta:
 # Wechat Subscriber
 wechat_subscriber:
   enabled: true
-  qcode: http://ohce3yxd6.bkt.clouddn.com/wechat-qrcode.png
+  qcode: https://github.com/palmerye/pictureBed/raw/master/wechat-qrcode.png
   description: 世界很大，圈子很小，欢迎关注，相互进步。
 
 

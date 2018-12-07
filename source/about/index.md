@@ -4,7 +4,7 @@ date: 2017-02-06 17:41:22
 type: "about"
 tags: [me, palmer]
 ---
-![image](http://ohce3yxd6.bkt.clouddn.com/photogh/1.jpg?imageView2/0/w/900/h/630)
+![image](https://github.com/palmerye/pictureBed/raw/master/photogh/1.jpg?imageView2/0/w/900/h/630)
 
 ## 软硬皆施？？
 
@@ -47,13 +47,13 @@ tags: [me, palmer]
 
 > 写于 2017-02-06
 
-![image](http://ohce3yxd6.bkt.clouddn.com/photogh/2.jpg?imageView2/0/w/900/h/630)
+![image](https://github.com/palmerye/pictureBed/raw/master/photogh/2.jpg?imageView2/0/w/900/h/630)
 
 
 ---
 
 ## 多多交流吧
 
-![image](http://ohce3yxd6.bkt.clouddn.com/wechat-qrcode.png?imageView2/0/w/200/h/200)
+![image](https://github.com/palmerye/pictureBed/raw/master/wechat-qrcode.png?imageView2/0/w/200/h/200)
 
 > 真诚待人，落地做事，保持初心，一直前进。

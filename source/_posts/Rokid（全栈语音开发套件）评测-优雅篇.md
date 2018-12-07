@@ -12,7 +12,7 @@ tags: [rokid, 硬件]
 
 ## 全家桶
 
-![](http://ohce3yxd6.bkt.clouddn.com/rokid/WechatIMG3841514985737_.pic_hd.jpg)
+![](https://github.com/palmerye/pictureBed/raw/master/rokid/WechatIMG3841514985737_.pic_hd.jpg)
 
 从左至右依次为：
 
@@ -27,11 +27,11 @@ tags: [rokid, 硬件]
 
 > 作为一名曾经的硬件工程师，看到螺丝这种东西，都想不自觉地拧一拧
 
-![](http://ohce3yxd6.bkt.clouddn.com/rokid/WechatIMG3831514985731_.pic_hd.jpg)
+![](https://github.com/palmerye/pictureBed/raw/master/rokid/WechatIMG3831514985731_.pic_hd.jpg)
 
 拆下所有螺丝螺母，铜制，Rokid还是良心呀。
 
-![](http://ohce3yxd6.bkt.clouddn.com/rokid/WechatIMG3821514985724_.pic_hd.jpg)
+![](https://github.com/palmerye/pictureBed/raw/master/rokid/WechatIMG3821514985724_.pic_hd.jpg)
 
 很快就将能拆的都拆了，两块圆形透明塑料板子让开发板线路很直观，很极客。但如果需要把debug板子集成进去的话，还需要再加三根铜柱来支撑。
 
@@ -41,41 +41,41 @@ tags: [rokid, 硬件]
 
 ### 核心板
 
-![](http://ohce3yxd6.bkt.clouddn.com/rokid/WechatIMG3801514985704_.pic_hd.jpg)
+![](https://github.com/palmerye/pictureBed/raw/master/rokid/WechatIMG3801514985704_.pic_hd.jpg)
 
-![](http://ohce3yxd6.bkt.clouddn.com/rokid/WechatIMG3791514985666_.pic_hd.jpg)
+![](https://github.com/palmerye/pictureBed/raw/master/rokid/WechatIMG3791514985666_.pic_hd.jpg)
 
-![](http://ohce3yxd6.bkt.clouddn.com/rokid/WechatIMG3811514985715_.pic_hd.jpg)
+![](https://github.com/palmerye/pictureBed/raw/master/rokid/WechatIMG3811514985715_.pic_hd.jpg)
 
 ### Debug板
 
-![](http://ohce3yxd6.bkt.clouddn.com/rokid/WechatIMG3771514985640_.pic_hd.jpg)
+![](https://github.com/palmerye/pictureBed/raw/master/rokid/WechatIMG3771514985640_.pic_hd.jpg)
 
-![](http://ohce3yxd6.bkt.clouddn.com/rokid/WechatIMG3761514985619_.pic_hd.jpg)
+![](https://github.com/palmerye/pictureBed/raw/master/rokid/WechatIMG3761514985619_.pic_hd.jpg)
 
-![](http://ohce3yxd6.bkt.clouddn.com/rokid/WechatIMG3751514985603_.pic_hd.jpg)
+![](https://github.com/palmerye/pictureBed/raw/master/rokid/WechatIMG3751514985603_.pic_hd.jpg)
 
 躺在盒子是这个样子的。
 
 ### PCB收尾
 
-![](http://ohce3yxd6.bkt.clouddn.com/rokid/WechatIMG3781514985655_.pic_hd.jpg)
+![](https://github.com/palmerye/pictureBed/raw/master/rokid/WechatIMG3781514985655_.pic_hd.jpg)
 
 ## 一言不合开个机看看
 
 USB口接上普通手机电源，我是直接插到笔记本边上了，也能带得动。
 
-![](http://ohce3yxd6.bkt.clouddn.com/rokid/WechatIMG3741514985594_.pic_hd.jpg)
+![](https://github.com/palmerye/pictureBed/raw/master/rokid/WechatIMG3741514985594_.pic_hd.jpg)
 
 刚开机的时候，外圈交替闪烁四盏LED（白）。3.5mm接口插上耳机（开发套件默认不配备扬声器），可以听到开发套件的语音反馈。
 
-![](http://ohce3yxd6.bkt.clouddn.com/rokid/WechatIMG3711514985578_.pic_hd.jpg)
+![](https://github.com/palmerye/pictureBed/raw/master/rokid/WechatIMG3711514985578_.pic_hd.jpg)
 
-![](http://ohce3yxd6.bkt.clouddn.com/rokid/WechatIMG3731514985589_.pic_hd.jpg)
+![](https://github.com/palmerye/pictureBed/raw/master/rokid/WechatIMG3731514985589_.pic_hd.jpg)
 
-![](http://ohce3yxd6.bkt.clouddn.com/rokid/WechatIMG3721514985584_.pic_hd.jpg)
+![](https://github.com/palmerye/pictureBed/raw/master/rokid/WechatIMG3721514985584_.pic_hd.jpg)
 
-![](http://ohce3yxd6.bkt.clouddn.com/rokid/WechatIMG370.jpeg)
+![](https://github.com/palmerye/pictureBed/raw/master/rokid/WechatIMG370.jpeg)
 
 这里我就跳过了App网络蓝牙配置阶段了。
 - 配置成功后亮起一圈LED（绿）

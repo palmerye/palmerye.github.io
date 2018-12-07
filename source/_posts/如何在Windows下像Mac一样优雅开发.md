@@ -17,7 +17,7 @@ tags: [iterm2, oh-my-zsh, Cmder, Homebrew, Chocolatey, spotlight, Listary, Clove
 ### - iterm2
 
 [iterm2](http://www.iterm2.com/documentation.html)是Mac下最好用的终端工具，听说没有之一。配合[oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh),你的终端居然可以这样！震惊！！（UC震惊部）
-![image](http://ohce3yxd6.bkt.clouddn.com/win-mac/iterm.png)
+![image](https://github.com/palmerye/pictureBed/raw/master/win-mac/iterm.png)
 
 > 池建强大大有一篇文章[《终极 Shell》](http://macshuo.com/?p=676)讲mac下的终端，讲的比较好，贴这。大家可以做取舍。
 
@@ -34,7 +34,7 @@ tags: [iterm2, oh-my-zsh, Cmder, Homebrew, Chocolatey, spotlight, Listary, Clove
     - 文字重叠问题
     - λ其实可以替换成$
 
-![image](http://ohce3yxd6.bkt.clouddn.com/win-mac/cmder.png)
+![image](https://github.com/palmerye/pictureBed/raw/master/win-mac/cmder.png)
 
 ## 2. Homebrew VS Chocolatey
 
@@ -101,7 +101,7 @@ choco install SublimeText3
 
 #### 安利VueJs时刻！
 
-![image](http://ohce3yxd6.bkt.clouddn.com/win-mac/spotlight.png)
+![image](https://github.com/palmerye/pictureBed/raw/master/win-mac/spotlight.png)
 
 ### - Listary
 
@@ -117,9 +117,9 @@ choco install SublimeText3
 
 #### 界面举栗
 
-![image](http://ohce3yxd6.bkt.clouddn.com/win-mac/listary1.png)
+![image](https://github.com/palmerye/pictureBed/raw/master/win-mac/listary1.png)
 
-![image](http://ohce3yxd6.bkt.clouddn.com/win-mac/listary2.png)
+![image](https://github.com/palmerye/pictureBed/raw/master/win-mac/listary2.png)
 
 如果你是Mac用户，我想是无缝衔接的，配置快捷键后，效率也是极高的！
 
@@ -132,7 +132,7 @@ choco install SublimeText3
 - Clover[下载地址](http://cn.ejie.me/)
 - 同样的，你可以将常用的地址存为标签，类似浏览器收藏夹，方便下次打开。
 
-![image](http://ohce3yxd6.bkt.clouddn.com/win-mac/clover.jpg)
+![image](https://github.com/palmerye/pictureBed/raw/master/win-mac/clover.jpg)
 
 ## 继续寻觅中......
 

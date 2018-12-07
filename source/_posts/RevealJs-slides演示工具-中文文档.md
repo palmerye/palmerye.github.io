@@ -8,7 +8,7 @@ tags: [reveal.js, slides]
 
 <!--more-->
 
-![image](http://ohce3yxd6.bkt.clouddn.com/revealjs/revealjs-zh.jpg)
+![image](https://github.com/palmerye/pictureBed/raw/master/revealjs/revealjs-zh.jpg)
 
 > 示例： 左图为移动端，右图为PC端。完整示例：[Demo 预览](http://palmerye.online/demos-Reveal.js/)
 

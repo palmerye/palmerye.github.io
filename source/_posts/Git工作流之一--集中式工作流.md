@@ -17,7 +17,7 @@ tags: [git, workflow, gitflow]
 - 阿B：工程师
 - 小C：实习生
 
-![image](http://ohce3yxd6.bkt.clouddn.com/git/men.png)
+![image](https://github.com/palmerye/pictureBed/raw/master/git/men.png)
 
 ## Git工作流
 

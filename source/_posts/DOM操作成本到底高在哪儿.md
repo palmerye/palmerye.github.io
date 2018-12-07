@@ -58,7 +58,7 @@ Python也可以访问DOM。所以DOM不是提供给Javascript的API，也不是J
 
 > 无论是DOM还是CSSOM，都是要经过`Bytes → characters → tokens → nodes → object model`这个过程。
 
-![](http://ohce3yxd6.bkt.clouddn.com/blog/bV6yUy.png?fromMac)
+![](https://github.com/palmerye/pictureBed/raw/master/blog/bV6yUy.png?fromMac)
 
 > DOM树构建过程：当前节点的所有子节点都构建好后才会去构建当前节点的下一个兄弟节点。
 
@@ -70,7 +70,7 @@ Python也可以访问DOM。所以DOM不是提供给Javascript的API，也不是J
 
 > DOM树和CSSOM树合并生成render树
 
-![](http://ohce3yxd6.bkt.clouddn.com/blog/bV6yUI.png?fromMac)
+![](https://github.com/palmerye/pictureBed/raw/master/blog/bV6yUI.png?fromMac)
 
 简单描述这个过程：
 
@@ -92,7 +92,7 @@ DOM树从根节点开始遍历**可见**节点，这里之所以强调了“可�
 - Paint不一定会触发Layout，比如改个颜色改个背景；（repaint 重绘）
 - 图片下载完也会重新出发Layout和Paint；
 
-![](http://ohce3yxd6.bkt.clouddn.com/blog/2193277599-5aaa2e14da341_articlex.png?fromMac)
+![](https://github.com/palmerye/pictureBed/raw/master/blog/2193277599-5aaa2e14da341_articlex.png?fromMac)
 
 ## 何时触发reflow和repaint
 
@@ -161,7 +161,7 @@ reflow回流的成本开销要高于repaint重绘，一个节点的回流往往�
 </html>
 ```
 
-![](http://ohce3yxd6.bkt.clouddn.com/blog/517718454-5aaa988a999bb_articlex.png?fromMac)
+![](https://github.com/palmerye/pictureBed/raw/master/blog/517718454-5aaa988a999bb_articlex.png?fromMac)
 
 - 浏览器拿到HTML后，从上到下顺序解析文档
 - 此时遇到css、js外链，则同时发起请求
