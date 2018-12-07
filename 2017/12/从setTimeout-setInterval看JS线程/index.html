@@ -94,13 +94,13 @@
 <meta property="og:site_name" content="软硬皆施">
 <meta property="og:description" content="最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ohce3yxd6.bkt.clouddn.com/blog/bV5mEF.png?fromMac">
-<meta property="og:image" content="http://ohce3yxd6.bkt.clouddn.com/blog/bV5yai.png?fromMac">
-<meta property="og:updated_time" content="2018-12-04T14:10:23.107Z">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/blog/bV5mEF.png?fromMac">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/blog/bV5yai.png?fromMac">
+<meta property="og:updated_time" content="2018-12-07T14:38:39.859Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从setTimeout&#x2F;setInterval看JS线程">
 <meta name="twitter:description" content="最近项目中遇到了一个场景，其实很常见，就是定时获取接口刷新数据。那么问题来了，假设我设置的定时时间为1s，而数据接口返回大于1s，应该用同步阻塞还是异步？我们先整理下js中定时器的相关知识，再来看这个问题。">
-<meta name="twitter:image" content="http://ohce3yxd6.bkt.clouddn.com/blog/bV5mEF.png?fromMac">
+<meta name="twitter:image" content="https://github.com/palmerye/pictureBed/raw/master/blog/bV5mEF.png?fromMac">
 
 
 
@@ -297,7 +297,7 @@
   <span style="display:none" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
     <meta itemprop="name" content="PalmerYe">
     <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://ohce3yxd6.bkt.clouddn.com/image/me.jpg">
+    <meta itemprop="image" content="https://github.com/palmerye/pictureBed/raw/master/image/me.jpg">
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -454,7 +454,7 @@
 <h3 id="事件循环-Event-Loop"><a href="#事件循环-Event-Loop" class="headerlink" title="事件循环 Event Loop"></a>事件循环 Event Loop</h3><blockquote>
 <p>主线程（js线程）只会做一件事，就是从消息队列里面取消息、执行消息，再取消息、再执行。消息队列为空时，就会等待直到消息队列变成非空。只有当前的消息执行结束，才会去取下一个消息。这种机制就叫做事件循环机制<strong>Event Loop</strong>，取一个消息并执行的过程叫做一次循环。</p>
 </blockquote>
-<p><img src="http://ohce3yxd6.bkt.clouddn.com/blog/bV5mEF.png?fromMac" alt=""></p>
+<p><img src="https://github.com/palmerye/pictureBed/raw/master/blog/bV5mEF.png?fromMac" alt=""></p>
 <blockquote>
 <p>工作线程是生产者，主线程是消费者。工作线程执行异步任务，执行完成后把对应的回调函数封装成一条消息放到消息队列中；主线程不断地从消息队列中取消息并执行，当消息队列空时主线程阻塞，直到消息队列再次非空。</p>
 </blockquote>
@@ -467,7 +467,7 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setInterval(function, N)</span><br></pre></td></tr></table></figure>
 <p>那么显而易见，上面这段代码意味着，每隔N秒把function事件推到消息队列中，什么时候执行？母鸡啊！</p>
-<p><img src="http://ohce3yxd6.bkt.clouddn.com/blog/bV5yai.png?fromMac" alt=""></p>
+<p><img src="https://github.com/palmerye/pictureBed/raw/master/blog/bV5yai.png?fromMac" alt=""></p>
 <p>上图可见，setInterval每隔100ms往队列中添加一个事件；100ms后，添加T1定时器代码至队列中，主线程中还有任务在执行，所以等待，<code>some event</code>执行结束后执行T1定时器代码；又过了100ms，T2定时器被添加到队列中，主线程还在执行T1代码，所以等待；又过了100ms，理论上又要往队列里推一个定时器代码，但由于此时T2还在队列中，所以T3不会被添加，结果就是此时被跳过；这里我们可以看到，T1定时器执行结束后马上执行了T2代码，所以并没有达到定时器的效果。</p>
 <p>综上所述，setInterval有两个缺点：</p>
 <ul>
@@ -497,7 +497,7 @@
       
         
 <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-    <img id="wechat_subscriber_qcode" src="http://ohce3yxd6.bkt.clouddn.com/wechat-qrcode.png" alt="PalmerYe wechat" style="width: 200px; max-width: 100%;">
+    <img id="wechat_subscriber_qcode" src="https://github.com/palmerye/pictureBed/raw/master/wechat-qrcode.png" alt="PalmerYe wechat" style="width: 200px; max-width: 100%;">
     <div>世界很大，圈子很小，欢迎关注，相互进步。</div>
 </div>
 
@@ -624,7 +624,7 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="http://ohce3yxd6.bkt.clouddn.com/image/me.jpg" alt="PalmerYe">
+          <img class="site-author-image" itemprop="image" src="https://github.com/palmerye/pictureBed/raw/master/image/me.jpg" alt="PalmerYe">
           <p class="site-author-name" itemprop="name">PalmerYe</p>
           <p class="site-description motion-element" itemprop="description">日子如何，力量就如何</p>
         </div>
@@ -685,7 +685,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://ohce3yxd6.bkt.clouddn.com/wechat-qrcode.png" target="_blank" title="微信">
+                <a href="https://github.com/palmerye/pictureBed/raw/master/wechat-qrcode.png" target="_blank" title="微信">
                   
                     <i class="fa fa-fw fa-weixin"></i>
                   

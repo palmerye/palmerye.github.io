@@ -94,13 +94,13 @@
 <meta property="og:site_name" content="软硬皆施">
 <meta property="og:description" content="有一天突然想到一个问题，web端的权限控制：1.真的能控制权限吗？2.仅仅靠前端，能不能做到真正的权限控制？3.如果需要后台配合，应该如何配合？可能这是一个老生常谈的问题，但还是想整理下，有误的地方望大家指出。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://ohce3yxd6.bkt.clouddn.com/httpau.png">
-<meta property="og:image" content="http://ohce3yxd6.bkt.clouddn.com/FEAuth_yepanmeng.png">
-<meta property="og:updated_time" content="2018-12-04T14:10:23.107Z">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/httpau.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/FEAuth_yepanmeng.png">
+<meta property="og:updated_time" content="2018-12-07T14:38:39.859Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端真的能做到彻底权限控制吗？">
 <meta name="twitter:description" content="有一天突然想到一个问题，web端的权限控制：1.真的能控制权限吗？2.仅仅靠前端，能不能做到真正的权限控制？3.如果需要后台配合，应该如何配合？可能这是一个老生常谈的问题，但还是想整理下，有误的地方望大家指出。">
-<meta name="twitter:image" content="http://ohce3yxd6.bkt.clouddn.com/httpau.png">
+<meta name="twitter:image" content="https://github.com/palmerye/pictureBed/raw/master/httpau.png">
 
 
 
@@ -297,7 +297,7 @@
   <span style="display:none" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
     <meta itemprop="name" content="PalmerYe">
     <meta itemprop="description" content="">
-    <meta itemprop="image" content="http://ohce3yxd6.bkt.clouddn.com/image/me.jpg">
+    <meta itemprop="image" content="https://github.com/palmerye/pictureBed/raw/master/image/me.jpg">
   </span>
 
   <span style="display:none" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -411,11 +411,11 @@
 <blockquote>
 <p>浏览器http header</p>
 </blockquote>
-<p><img src="http://ohce3yxd6.bkt.clouddn.com/httpau.png" alt="FEAuths"></p>
+<p><img src="https://github.com/palmerye/pictureBed/raw/master/httpau.png" alt="FEAuths"></p>
 <h2 id="4-请求拦截：后台拿到token后对每个请求进行校验，若校验失败返回401，前端response钩子里统一catch-error-跳转至登陆页面"><a href="#4-请求拦截：后台拿到token后对每个请求进行校验，若校验失败返回401，前端response钩子里统一catch-error-跳转至登陆页面" class="headerlink" title="4.请求拦截：后台拿到token后对每个请求进行校验，若校验失败返回401，前端response钩子里统一catch error 跳转至登陆页面"></a>4.请求拦截：后台拿到token后对每个请求进行校验，若校验失败返回401，前端response钩子里统一catch error 跳转至登陆页面</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Axios 请求钩子（response）</span></span><br><span class="line">axios.interceptors.response.use(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">&#125;, error =&gt; &#123;</span><br><span class="line">	<span class="keyword">if</span> (error.response) &#123;</span><br><span class="line">        <span class="keyword">switch</span> (error.response.status) &#123;</span><br><span class="line">		<span class="comment">// 4.所有接口response校验钩子,若token检验失败,后台返回 401 error code, 清除token信息并跳转到登录页面</span></span><br><span class="line">        	<span class="keyword">case</span> <span class="number">401</span>:</span><br><span class="line">            	store.commit(types.LOGOUT)</span><br><span class="line">            	router.replace(&#123;</span><br><span class="line">            		path: <span class="string">'/login'</span></span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.reject(error)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h2 id="5-路由跳转拦截：任意路由跳转时，在路由beforeEach钩子里校验本地是否存在token，若没有，则跳转至登陆页面"><a href="#5-路由跳转拦截：任意路由跳转时，在路由beforeEach钩子里校验本地是否存在token，若没有，则跳转至登陆页面" class="headerlink" title="5.路由跳转拦截：任意路由跳转时，在路由beforeEach钩子里校验本地是否存在token，若没有，则跳转至登陆页面"></a>5.路由跳转拦截：任意路由跳转时，在路由beforeEach钩子里校验本地是否存在token，若没有，则跳转至登陆页面</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 路由钩子(每个路由跳转前调起beforeEach钩子)</span></span><br><span class="line">router.beforeEach(<span class="function">(<span class="params">to, <span class="keyword">from</span>, next</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (to.path === <span class="string">'/login'</span>) &#123;</span><br><span class="line">    sessionStorage.removeItem(<span class="string">'userToken'</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">let</span> user = sessionStorage.getItem(<span class="string">'userToken'</span>)</span><br><span class="line">  <span class="keyword">if</span> (!user &amp;&amp; to.path !== <span class="string">'/login'</span>) &#123;</span><br><span class="line">	<span class="comment">// 若本地token不存在,则任意路由跳转的时候,重定向至login 登陆页面</span></span><br><span class="line">    next(&#123; <span class="attr">path</span>: <span class="string">'/login'</span> &#125;)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    next()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h2 id="6-登出Logout：清楚本地sessionStorage的token信息"><a href="#6-登出Logout：清楚本地sessionStorage的token信息" class="headerlink" title="6.登出Logout：清楚本地sessionStorage的token信息"></a>6.登出Logout：清楚本地sessionStorage的token信息</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// mutations</span></span><br><span class="line"><span class="keyword">const</span> mutations = &#123;</span><br><span class="line">	...</span><br><span class="line">    [types.LOGOUT_SUCCESS] (state) &#123;</span><br><span class="line">        state.authlock = <span class="literal">true</span></span><br><span class="line">	<span class="comment">// 登出成功回调,移除本地token</span></span><br><span class="line">        sessionStorage.removeItem(<span class="string">'userToken'</span>)</span><br><span class="line">	router.push(&#123;<span class="attr">name</span>: <span class="string">'Login'</span>&#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="流程示意图如下"><a href="#流程示意图如下" class="headerlink" title="流程示意图如下:"></a>流程示意图如下:</h2><p><img src="http://ohce3yxd6.bkt.clouddn.com/FEAuth_yepanmeng.png" alt="FEAuth"></p>
+<h2 id="流程示意图如下"><a href="#流程示意图如下" class="headerlink" title="流程示意图如下:"></a>流程示意图如下:</h2><p><img src="https://github.com/palmerye/pictureBed/raw/master/FEAuth_yepanmeng.png" alt="FEAuth"></p>
 <blockquote>
 <p>写完才觉得，什么才是真正的安全权限？任重而道远。。。</p>
 </blockquote>
@@ -427,7 +427,7 @@
       
         
 <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
-    <img id="wechat_subscriber_qcode" src="http://ohce3yxd6.bkt.clouddn.com/wechat-qrcode.png" alt="PalmerYe wechat" style="width: 200px; max-width: 100%;">
+    <img id="wechat_subscriber_qcode" src="https://github.com/palmerye/pictureBed/raw/master/wechat-qrcode.png" alt="PalmerYe wechat" style="width: 200px; max-width: 100%;">
     <div>世界很大，圈子很小，欢迎关注，相互进步。</div>
 </div>
 
@@ -556,7 +556,7 @@
 
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="http://ohce3yxd6.bkt.clouddn.com/image/me.jpg" alt="PalmerYe">
+          <img class="site-author-image" itemprop="image" src="https://github.com/palmerye/pictureBed/raw/master/image/me.jpg" alt="PalmerYe">
           <p class="site-author-name" itemprop="name">PalmerYe</p>
           <p class="site-description motion-element" itemprop="description">日子如何，力量就如何</p>
         </div>
@@ -617,7 +617,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://ohce3yxd6.bkt.clouddn.com/wechat-qrcode.png" target="_blank" title="微信">
+                <a href="https://github.com/palmerye/pictureBed/raw/master/wechat-qrcode.png" target="_blank" title="微信">
                   
                     <i class="fa fa-fw fa-weixin"></i>
                   
