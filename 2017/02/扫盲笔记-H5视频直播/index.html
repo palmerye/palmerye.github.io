@@ -96,7 +96,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/livevideo/live.png">
 <meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/livevideo/webRTC.png">
-<meta property="og:updated_time" content="2019-05-21T14:24:32.334Z">
+<meta property="og:updated_time" content="2019-05-28T14:21:46.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="扫盲笔记--H5视频直播">
 <meta name="twitter:description" content="项目需要，这里做一个简单的笔记梳理  视频直播流程：采集端 ==&amp;gt; 服务器端 ==&amp;gt; 播放端">
@@ -436,8 +436,14 @@
 <p>PS：苹果官方推荐的ts时长为10s，列表3个ts文件，因此会有大概30s的延迟。<br><a href="https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/StreamingMediaGuide/FrequentlyAskedQuestions/FrequentlyAskedQuestions.html" target="_blank" rel="noopener">https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/StreamingMediaGuide/FrequentlyAskedQuestions/FrequentlyAskedQuestions.html</a></p>
 <blockquote>
 <p>3.What duration should media files be?</p>
+</blockquote>
+<blockquote>
 <p>The main point to consider is that shorter segments result in more frequent refreshes of the index file, which might create unnecessary network overhead for the client. Longer segments will extend the inherent latency of the broadcast and initial startup time. A duration of <strong>10</strong> seconds of media per file seems to strike a reasonable balance for most broadcast content.</p>
+</blockquote>
+<blockquote>
 <p>4.How many files should be listed in the index file during a continuous, ongoing session?</p>
+</blockquote>
+<blockquote>
 <p>The normal recommendation is <strong>3</strong>, but the optimum number may be larger…</p>
 </blockquote>
 <h2 id="3-WebRTC（Web-Real-Time-Communication）"><a href="#3-WebRTC（Web-Real-Time-Communication）" class="headerlink" title="3. WebRTC（Web Real-Time Communication）"></a>3. WebRTC（Web Real-Time Communication）</h2><blockquote>
