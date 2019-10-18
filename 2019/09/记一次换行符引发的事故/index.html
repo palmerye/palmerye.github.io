@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="iterm2,oh-my-zsh,Cmder,Homebrew,Chocolatey,spotlight,Listary,Clover,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -86,25 +86,25 @@
 
 
 
-<meta name="description" content="起因：之前一直用Mac开发，换了家公司，只许用Windows下开发，说实话，一开始我是拒绝的，可自从看到了这几个工具以后…… 下文大标题说明：（Mac下的工具）VS（Windows下的工具），Mac下的工具说明会简要点，毕竟看文章的基本上都是实在受不了Windows的重度Mac开发者。  1. item2 VS Cmder 终端工具">
-<meta name="keywords" content="iterm2,oh-my-zsh,Cmder,Homebrew,Chocolatey,spotlight,Listary,Clover">
+<meta name="description" content="那天项目部署的时候，遇到一个很诡异的现象，一度怀疑自己职业生涯到此结束了，后面经排除发现，原来是Linux和Windows下shell脚本换行符的格式问题，导致脚本一直执行不了…（到此，标题所说的事故讲完了…：） 看起来很蠢的问题，溜了 :) …但莎士比亚说过，解决一个问题最好的方式，就是下次不要再犯了。所以我们刨根问底儿，彻底搞清楚换行符在计算机系统中到底是个啥玩意儿。  历史来源">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何在Windows下像Mac一样优雅开发">
-<meta property="og:url" content="http://palmer.arkstack.cn/2017/04/如何在Windows下像Mac一样优雅开发/index.html">
+<meta property="og:title" content="记一次换行符引发的事故">
+<meta property="og:url" content="http://palmer.arkstack.cn/2019/09/记一次换行符引发的事故/index.html">
 <meta property="og:site_name" content="软硬皆施">
-<meta property="og:description" content="起因：之前一直用Mac开发，换了家公司，只许用Windows下开发，说实话，一开始我是拒绝的，可自从看到了这几个工具以后…… 下文大标题说明：（Mac下的工具）VS（Windows下的工具），Mac下的工具说明会简要点，毕竟看文章的基本上都是实在受不了Windows的重度Mac开发者。  1. item2 VS Cmder 终端工具">
+<meta property="og:description" content="那天项目部署的时候，遇到一个很诡异的现象，一度怀疑自己职业生涯到此结束了，后面经排除发现，原来是Linux和Windows下shell脚本换行符的格式问题，导致脚本一直执行不了…（到此，标题所说的事故讲完了…：） 看起来很蠢的问题，溜了 :) …但莎士比亚说过，解决一个问题最好的方式，就是下次不要再犯了。所以我们刨根问底儿，彻底搞清楚换行符在计算机系统中到底是个啥玩意儿。  历史来源">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/win-mac/iterm.png">
-<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/win-mac/cmder.png">
-<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/win-mac/spotlight.png">
-<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/win-mac/listary1.png">
-<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/win-mac/listary2.png">
-<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/win-mac/clover.jpg">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/29/16cdd1edadf05db1?w=474&h=266&f=png&s=171464">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/29/16cdd56922280953?w=486&h=367&f=png&s=8017">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/29/16cdd66cdb8e9c93?w=387&h=76&f=png&s=6786">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/29/16cdd6a98da94de2?w=389&h=78&f=png&s=7222">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/29/16cdd90fdc095d43?w=464&h=93&f=png&s=8871">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/29/16cdd9bb03dcf40c?w=647&h=367&f=png&s=10072">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/30/16ce067f129b3bcd?w=540&h=215&f=png&s=23363">
 <meta property="og:updated_time" content="2019-10-18T08:10:14.086Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何在Windows下像Mac一样优雅开发">
-<meta name="twitter:description" content="起因：之前一直用Mac开发，换了家公司，只许用Windows下开发，说实话，一开始我是拒绝的，可自从看到了这几个工具以后…… 下文大标题说明：（Mac下的工具）VS（Windows下的工具），Mac下的工具说明会简要点，毕竟看文章的基本上都是实在受不了Windows的重度Mac开发者。  1. item2 VS Cmder 终端工具">
-<meta name="twitter:image" content="https://github.com/palmerye/pictureBed/raw/master/win-mac/iterm.png">
+<meta name="twitter:title" content="记一次换行符引发的事故">
+<meta name="twitter:description" content="那天项目部署的时候，遇到一个很诡异的现象，一度怀疑自己职业生涯到此结束了，后面经排除发现，原来是Linux和Windows下shell脚本换行符的格式问题，导致脚本一直执行不了…（到此，标题所说的事故讲完了…：） 看起来很蠢的问题，溜了 :) …但莎士比亚说过，解决一个问题最好的方式，就是下次不要再犯了。所以我们刨根问底儿，彻底搞清楚换行符在计算机系统中到底是个啥玩意儿。  历史来源">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/8/29/16cdd1edadf05db1?w=474&h=266&f=png&s=171464">
 
 
 
@@ -132,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://palmer.arkstack.cn/2017/04/如何在Windows下像Mac一样优雅开发/">
+  <link rel="canonical" href="http://palmer.arkstack.cn/2019/09/记一次换行符引发的事故/">
 
 
 
 
 
-  <title> 如何在Windows下像Mac一样优雅开发 | 软硬皆施 </title>
+  <title> 记一次换行符引发的事故 | 软硬皆施 </title>
   <meta name="baidu-site-verification" content="ihL4VoNRDr">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.2/gh-fork-ribbon.min.css">
 </head>
@@ -296,7 +296,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://palmer.arkstack.cn/2017/04/如何在Windows下像Mac一样优雅开发/">
+  <link itemprop="mainEntityOfPage" href="http://palmer.arkstack.cn/2019/09/记一次换行符引发的事故/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="PalmerYe">
@@ -320,7 +320,7 @@
             
             
               
-                如何在Windows下像Mac一样优雅开发
+                记一次换行符引发的事故
               
             
           </h2>
@@ -335,8 +335,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-17T16:03:08+00:00">
-                2017-04-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-22T13:22:13+00:00">
+                2019-09-22
               </time>
             
 
@@ -355,7 +355,7 @@
 
           
           
-             <span id="/2017/04/如何在Windows下像Mac一样优雅开发/" class="leancloud_visitors" data-flag-title="如何在Windows下像Mac一样优雅开发">
+             <span id="/2019/09/记一次换行符引发的事故/" class="leancloud_visitors" data-flag-title="记一次换行符引发的事故">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -383,77 +383,155 @@
 
       
         <blockquote>
-<p>起因：之前一直用Mac开发，换了家公司，只许用Windows下开发，说实话，一开始我是拒绝的，可自从看到了这几个工具以后……</p>
-<p>下文大标题说明：（Mac下的工具）VS（Windows下的工具），Mac下的工具说明会简要点，毕竟看文章的基本上都是实在受不了Windows的重度Mac开发者。</p>
+<p>那天项目部署的时候，遇到一个很诡异的现象，一度怀疑自己职业生涯到此结束了，后面经排除发现，原来是<code>Linux</code>和<code>Windows</code>下<code>shell</code>脚本换行符的格式问题，导致脚本一直执行不了…（到此，标题所说的事故讲完了…：）</p>
+<p>看起来很蠢的问题，溜了 :) …但莎士比亚说过，解决一个问题最好的方式，就是下次不要再犯了。所以我们刨根问底儿，彻底搞清楚换行符在计算机系统中到底是个啥玩意儿。</p>
 </blockquote>
-<h2 id="1-item2-VS-Cmder"><a href="#1-item2-VS-Cmder" class="headerlink" title="1. item2 VS Cmder"></a>1. item2 VS Cmder</h2><blockquote>
-<p>终端工具</p>
-</blockquote>
+<h2 id="历史来源"><a href="#历史来源" class="headerlink" title="历史来源"></a>历史来源</h2><p><img src="https://user-gold-cdn.xitu.io/2019/8/29/16cdd1edadf05db1?w=474&amp;h=266&amp;f=png&amp;s=171464" alt></p>
 <a id="more"></a>
-<h3 id="iterm2"><a href="#iterm2" class="headerlink" title="- iterm2"></a>- iterm2</h3><p><a href="http://www.iterm2.com/documentation.html" target="_blank" rel="noopener">iterm2</a>是Mac下最好用的终端工具，听说没有之一。配合<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">oh-my-zsh</a>,你的终端居然可以这样！震惊！！（UC震惊部）<br><img src="https://github.com/palmerye/pictureBed/raw/master/win-mac/iterm.png" alt="image"></p>
-<blockquote>
-<p>池建强大大有一篇文章<a href="http://macshuo.com/?p=676" target="_blank" rel="noopener">《终极 Shell》</a>讲mac下的终端，讲的比较好，贴这。大家可以做取舍。</p>
-</blockquote>
-<h3 id="Cmder"><a href="#Cmder" class="headerlink" title="- Cmder"></a>- Cmder</h3><blockquote>
-<p>如果你用过Windows自带的cmd，简直想shi有没有！页面丑就算了！没有tab！窗口不能缩放！不能用鼠标复制文本！！@#￥%&amp;*￥%…%￥</p>
-</blockquote>
-<p><a href="https://github.com/cmderdev/cmder" target="_blank" rel="noopener">Cmder</a>绝对是一款Windows环境下的cmd替代者，支持了大部分的Linux命令。</p>
+<p>在计算机出现之前，有一种通信设备叫电传打字机（Teletype Mode），每秒输出10个字符，平均每个字符0.1秒，但有个问题，就是打完一行换行的时候，要消耗0.2秒，在这个时间段内，如果有新字符传来，就将丢失，所以有人为了解决这个问题，在每一行后面加两个字符表示该行结束。</p>
+<p>那这里就涉及到两个动作：</p>
 <ul>
-<li>支持tab标签</li>
-<li>集成git</li>
-<li>支持绝大Unix/Linux命令</li>
-<li>但是安装之后一般都会有以下几个问题：<ul>
-<li>中文乱码问题</li>
-<li>文字重叠问题</li>
-<li>λ其实可以替换成$</li>
+<li>将打印探头（就如上图的那个刻度上的头子）从右边拉回到左边，这就是回车（carriage return）</li>
+<li>拉回到左边还不够，还要将探头换行（相对应的就是将纸往上吐一行的距离），这就是换行（line feed）</li>
 </ul>
-</li>
-</ul>
-<p><img src="https://github.com/palmerye/pictureBed/raw/master/win-mac/cmder.png" alt="image"></p>
-<h2 id="2-Homebrew-VS-Chocolatey"><a href="#2-Homebrew-VS-Chocolatey" class="headerlink" title="2. Homebrew VS Chocolatey"></a>2. Homebrew VS Chocolatey</h2><blockquote>
-<p>包管理工具</p>
-</blockquote>
-<h3 id="Homebrew"><a href="#Homebrew" class="headerlink" title="- Homebrew"></a>- Homebrew</h3><p>为什么要用Homebrew？<a href="https://brew.sh/index_zh-cn.html" target="_blank" rel="noopener">官网</a>讲得很露骨，一款macOS缺失的软件包管理器</p>
-<h4 id="安装Homebrew：命令行输入"><a href="#安装Homebrew：命令行输入" class="headerlink" title="安装Homebrew：命令行输入"></a>安装Homebrew：命令行输入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
-<h4 id="举个栗子，如果你要安装sublimeText，你可以这样："><a href="#举个栗子，如果你要安装sublimeText，你可以这样：" class="headerlink" title="举个栗子，如果你要安装sublimeText，你可以这样："></a>举个栗子，如果你要安装sublimeText，你可以这样：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install sublime-text</span><br></pre></td></tr></table></figure>
-<h4 id="再优雅点，你可以安装Homebrew的命令行工具homebrew-cask"><a href="#再优雅点，你可以安装Homebrew的命令行工具homebrew-cask" class="headerlink" title="再优雅点，你可以安装Homebrew的命令行工具homebrew-cask"></a>再优雅点，你可以安装Homebrew的命令行工具homebrew-cask</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">brew tap phinze/homebrew-cask &amp;&amp; brew install brew-cask</span><br><span class="line"></span><br><span class="line">然后你可以这样愉快地安装一堆软件</span><br><span class="line"></span><br><span class="line">brew cask install sublime-text skitch dropbox google-chrome</span><br></pre></td></tr></table></figure>
-<h4 id="用Homebrew安装软件有什么好处么？"><a href="#用Homebrew安装软件有什么好处么？" class="headerlink" title="用Homebrew安装软件有什么好处么？"></a>用Homebrew安装软件有什么好处么？</h4><ul>
-<li>将软件包安装到<strong>独立</strong>目录，并将其文件软链接至 /usr/local</li>
-<li>不会将文件安装到它本身目录之外，所以您可将 Homebrew 安装到任意位置</li>
-<li>完全基于git和ruby，所以自由修改的同时你仍可以轻松撤销你的变更或与上游<strong>更新</strong>合并</li>
-</ul>
-<h3 id="Chocolatey"><a href="#Chocolatey" class="headerlink" title="- Chocolatey"></a>- Chocolatey</h3><p>Chocolatey<a href="https://chocolatey.org/" target="_blank" rel="noopener">官网</a>是这么介绍自己的，The package manager for Windows.</p>
-<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>嘿嘿，这个时候打开上面提到的cmder命令行工具，输入:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@powershell -NoProfile -ExecutionPolicy Bypass -Command &quot;iex ((New-Object System.Net.WebClient).DownloadString(&apos;https://chocolatey.org/install.ps1&apos;))&quot; &amp;&amp; SET &quot;PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&quot;</span><br></pre></td></tr></table></figure>
-<h4 id="这个时候如果你也要装sublimeText3，你也可以这样！"><a href="#这个时候如果你也要装sublimeText3，你也可以这样！" class="headerlink" title="这个时候如果你也要装sublimeText3，你也可以这样！"></a>这个时候如果你也要装sublimeText3，你也可以这样！</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install SublimeText3</span><br></pre></td></tr></table></figure>
-<p>是不是很酷！好处同上，具体的配置自行琢磨，这个时候已经和Mac下的体验很接近了。让我们再近一步！~</p>
-<h2 id="3-Spotlight-VS-Listary"><a href="#3-Spotlight-VS-Listary" class="headerlink" title="3. Spotlight VS Listary"></a>3. Spotlight VS Listary</h2><blockquote>
-<p>文件浏览增强工具</p>
-</blockquote>
-<h3 id="Spotlight"><a href="#Spotlight" class="headerlink" title="- Spotlight"></a>- Spotlight</h3><p>自从升级到macOS Sierra后，其实mac自带的Spotlight已经很强大了，至于类似Alfred的神器，我倒觉得一般用户没必要折腾了，当然你想更Geek点，可以折腾下<a href="https://www.alfredapp.com/" target="_blank" rel="noopener">Alfred</a>，毕竟那样看起来很酷！</p>
-<h4 id="安利VueJs时刻！"><a href="#安利VueJs时刻！" class="headerlink" title="安利VueJs时刻！"></a>安利VueJs时刻！</h4><p><img src="https://github.com/palmerye/pictureBed/raw/master/win-mac/spotlight.png" alt="image"></p>
-<h3 id="Listary"><a href="#Listary" class="headerlink" title="- Listary"></a>- Listary</h3><blockquote>
-<p><a href="http://www.listary.com/" target="_blank" rel="noopener">Listary</a>的出现，让突然从Mac转向Windows开发的我产生的强烈排斥心理得到了一定的缓解！</p>
-</blockquote>
-<h4 id="先说说效果"><a href="#先说说效果" class="headerlink" title="先说说效果"></a>先说说效果</h4><p>经过我的配置，我想要打开某一软件或者文件，双击Ctrl，弹出Listary小窗，输入几个模糊关键字，回车！仿佛置身于Mac有没有！！</p>
-<h4 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h4><p><a href="http://www.listary.com/" target="_blank" rel="noopener">官网</a>有free版和Pro版，至于破解还是支持正版…</p>
-<h4 id="界面举栗"><a href="#界面举栗" class="headerlink" title="界面举栗"></a>界面举栗</h4><p><img src="https://github.com/palmerye/pictureBed/raw/master/win-mac/listary1.png" alt="image"></p>
-<p><img src="https://github.com/palmerye/pictureBed/raw/master/win-mac/listary2.png" alt="image"></p>
-<p>如果你是Mac用户，我想是无缝衔接的，配置快捷键后，效率也是极高的！</p>
-<h2 id="4-Clover"><a href="#4-Clover" class="headerlink" title="4. Clover"></a>4. Clover</h2><blockquote>
-<p>给Windows资源管理器加上Tab标签</p>
-</blockquote>
+<p>后面这个概念就被搬到了计算机系统上，But，有人的地方就有分歧，各大系统开始秀了。</p>
 <ul>
-<li>不知道Windows用户有没有注意到，每次打开我的电脑，会弹出一个新的窗口，再打开，再弹！再打开！再弹！循环个几次，桌面上会有一堆“我的电脑”窗口，是的，一堆……一堆……堆……</li>
-<li>所以你需要一个类似chrome标签一样的工具，帮你窗口整合。这就是[Clover]<strong>唯一</strong>的作用。</li>
-<li>Clover<a href="http://cn.ejie.me/" target="_blank" rel="noopener">下载地址</a></li>
-<li>同样的，你可以将常用的地址存为标签，类似浏览器收藏夹，方便下次打开。</li>
+<li><code>Windows</code>系统里，每行结尾是回车+换行（和上述提到的两个动作一致），<code>\r\n</code>;</li>
+<li><code>Unix</code>系统，每行结尾只有换行<code>\n</code>;</li>
+<li><code>Mac</code>系统，每行结尾只有换行<code>\n</code>;</li>
 </ul>
-<p><img src="https://github.com/palmerye/pictureBed/raw/master/win-mac/clover.jpg" alt="image"></p>
-<h2 id="继续寻觅中……"><a href="#继续寻觅中……" class="headerlink" title="继续寻觅中……"></a>继续寻觅中……</h2><p>对我来说，应该是对于绝大部分开发者来说，开发环境的舒适是很重要的，想方设法提高效率，我倒觉得折腾这些工具也是挺有必要的。</p>
 <blockquote>
-<p>应该会持续更新吧，毕竟Windows下坑还很多。</p>
+<p>PS：老<code>MAC</code>系统用的<code>\r</code>，现在的<code>MAC</code>都是用的<code>\n</code>，和<code>Unix</code>一致了。</p>
 </blockquote>
+<p>不同系统之间的换行规则的不同，导致不同系统下的文件交叉使用的时候，存在不一致，比如最常见的，<code>Unix/Mac</code>系统下的文件在<code>Windows</code>里打开，所有文字会变成一行，原因显而易见。</p>
+<h3 id="ASCII码"><a href="#ASCII码" class="headerlink" title="ASCII码"></a>ASCII码</h3><table>
+<thead>
+<tr>
+<th>二进制</th>
+<th>十进制</th>
+<th>十六进制</th>
+<th>字符/缩写</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>00001001</td>
+<td>9</td>
+<td>09</td>
+<td>HT (Horizontal Tab)</td>
+<td>水平制表符</td>
+</tr>
+<tr>
+<td>00001010</td>
+<td>10</td>
+<td>0A</td>
+<td><strong>LF</strong>/NL(Line Feed/New Line)</td>
+<td><strong>换行键</strong></td>
+</tr>
+<tr>
+<td>00001011</td>
+<td>11</td>
+<td>0B</td>
+<td>VT (Vertical Tab)</td>
+<td>垂直制表符</td>
+</tr>
+<tr>
+<td>00001100</td>
+<td>12</td>
+<td>0C</td>
+<td>FF/NP (Form Feed/New Page)</td>
+<td>换页键</td>
+</tr>
+<tr>
+<td>00001101</td>
+<td>13</td>
+<td>0D</td>
+<td><strong>CR</strong> (Carriage Return)</td>
+<td><strong>回车键</strong></td>
+</tr>
+<tr>
+<td>00001110</td>
+<td>14</td>
+<td>0E</td>
+<td>SO (Shift Out)</td>
+<td>不用切换</td>
+</tr>
+</tbody>
+</table>
+<h2 id="实践见真章"><a href="#实践见真章" class="headerlink" title="实践见真章"></a>实践见真章</h2><blockquote>
+<p>我们一步步来实践下上述说的，测试环境是<code>Windows</code>和<code>Linux</code>。</p>
+</blockquote>
+<ol>
+<li><code>Windows</code>下新建个<code>win.txt</code>文件，写一句大白话。上面有听讲的同学应该知道，这里的换行符为<code>CRLF</code>。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">talk is cheap,</span><br><span class="line">show me your code.</span><br></pre></td></tr></table></figure>
+<ol>
+<li>在<code>Linux</code>系统用<code>vim</code>打开刚新建的文件</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/29/16cdd56922280953?w=486&amp;h=367&amp;f=png&amp;s=8017" alt></p>
+<p>这看起来不是挺正常的么？和<code>Windows</code>上显示的一样啊。注意这里<code>vim</code>查看文件的时候，会检测换行符，如果所有的换行符都是<code>CRLF</code>，那么它会自动以<code>dos</code>格式来显示文本内容，最下面<code>[dos]</code>里也体现了这一点。</p>
+<blockquote>
+<p><code>dos</code>(Disk Operating System 磁盘操作系统)和<code>Windows</code>一样采用的是<code>CRLF</code></p>
+</blockquote>
+<ol>
+<li>使用<code>cat -A</code>选项查看文本所有的字符</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/29/16cdd66cdb8e9c93?w=387&amp;h=76&amp;f=png&amp;s=6786" alt></p>
+<p>可以看到多了<code>^M$</code>，<code>^M</code>这是<code>Linux</code>等系统下规定的特殊标记，占一个字符大小，不是<code>^</code>和<code>M</code>的组合，只能用<code>Ctrl+v，Ctrl+m</code>按出来；而<code>$</code>不是换行符，可以理解为<code>Linux</code>下用来表示文本结束EOF的符号。</p>
+<ol>
+<li>使用<code>cat -v</code>选项显示出非打印字符</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/29/16cdd6a98da94de2?w=389&amp;h=78&amp;f=png&amp;s=7222" alt></p>
+<ol>
+<li>把第一行的回车符去掉再看看</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &apos;1s/^M//&apos; win.txt</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/29/16cdd90fdc095d43?w=464&amp;h=93&amp;f=png&amp;s=8871" alt></p>
+<p>看到第一行的<code>^M</code>不见了，第二行还是保留。</p>
+<ol>
+<li>再重复第一步看看变化</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/29/16cdd9bb03dcf40c?w=647&amp;h=367&amp;f=png&amp;s=10072" alt></p>
+<p>结果展示<code>vim</code>中多了<code>^M</code>这个符号，左下角也没了<code>[dos]</code>的标识，这里回应了第二点提到的现象，表示<code>vim</code>用<code>Linux</code>来显示文本内容。</p>
+<p>到这一步为止，我们证实了<code>Windows</code>和<code>Linux</code>环境下不同换行规则带来的差异。</p>
+<h3 id="验证下回车符的真实存在"><a href="#验证下回车符的真实存在" class="headerlink" title="验证下回车符的真实存在"></a>验证下回车符的真实存在</h3><blockquote>
+<p>看到社区里的小伙伴做了这个尝试，便参考着做了下，可以直观体现什么是“回车”。</p>
+</blockquote>
+<ol>
+<li>还原上述的例子，<code>cat -A</code>查看所有字符</li>
+<li><code>sed -i &#39;1s/.*/&amp; ypm/g&#39; win.txt</code>在第一行末尾加上<code>ypm</code></li>
+<li>再次查看，我们发现上面执行的命令用<code>.*</code>匹配整行的时候，不包括换行符<code>^M</code>，所以<code>ypm</code>加在了第一行的末尾</li>
+<li>用<code>cat</code>正常查看文本的时候，发现一件奇怪的事情，<code>ypm</code>覆盖了<code>talk</code>，怎么解释？</li>
+</ol>
+<blockquote>
+<p>我们要知道<code>cat</code>普通模式下输出文本内容，会将<code>^M</code>理解为回车。</p>
+</blockquote>
+<p>这就可以解释了，遇到回车符，就像打印探头从右回到了左，<code>ypm</code>这里的四个字符，刚好覆盖了<code>talk</code>四个字符。这就直观解释了什么是回车。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/30/16ce067f129b3bcd?w=540&amp;h=215&amp;f=png&amp;s=23363" alt></p>
+<h2 id="如何规避"><a href="#如何规避" class="headerlink" title="如何规避"></a>如何规避</h2><p>谈到如何规避这个差异，其实不同方向上有不同方法，比如针对<code>^M</code>、强制转换文本格式，但个人觉得，能解决其根本问题的，还是在不同系统间，代码编辑的时候，注意到这个格式问题，各大IDE都有自己的解决方案。</p>
+<ol>
+<li>去除回车符号</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat -v win.txt | tr -d &apos;^M&apos;  &gt; linux.txt</span><br><span class="line">或者</span><br><span class="line">cat win.txt |tr -d &apos;\015&apos; &gt; linux.txt</span><br><span class="line">或者</span><br><span class="line">cat win.txt |tr -d &apos;\r&apos; &gt; linux.txt</span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vim</span> 编辑器中输入</span><br><span class="line">:%s/^M//g</span><br><span class="line">或者</span><br><span class="line">:<span class="keyword">set</span> fileformat=unix</span><br></pre></td></tr></table></figure>
+<ol>
+<li>终端命令转换</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dos2unix win.txt</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
+<li>回车符 <code>\r</code>：CR（carriage return）</li>
+<li>换行符 <code>\n</code>：LF（line feed）</li>
+<li><code>Windows</code>系统遵循最原始的规则，即必须满足回车符+换行符，缺少或者顺序调换都不可，即<code>\r\n</code></li>
+<li><code>Unix</code>系统中遇到换行符<code>\n</code>就会进行回车+换行的操作，而回车符<code>\r</code>会作为特殊字符<code>^M</code>显示</li>
+</ul>
+<p>没想到这么简单的问题，扯了这么多，其实很多小伙伴也都遇到过这个问题，社区里也经常有因为换行符导致的“血案”，希望没有因此酿成之前那个程序猿小哥手误导致的几千万的损失。在运维、DB等领域，这些“小问题”可能会被放大，因此还是需要引起重视，虽然有很多规避手段，但在代码编写的初期，就应该养成习惯关注到这一点，排查问题的时候这同样是一个方向。</p>
+<blockquote>
+<p>PS: 可能会有不严谨的地方，也欢迎大家讨论，轻喷…</p>
+</blockquote>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://www.ruanyifeng.com/blog/2006/04/post_213.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2006/04/post_213.html</a></p>
+<p><a href="https://www.cnblogs.com/linuxnote/p/3753153.html" target="_blank" rel="noopener">https://www.cnblogs.com/linuxnote/p/3753153.html</a></p>
+<p><a href="https://blog.csdn.net/zhangguangyi888/article/details/8159601" target="_blank" rel="noopener">https://blog.csdn.net/zhangguangyi888/article/details/8159601</a></p>
 
       
     </div>
@@ -480,33 +558,13 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/iterm2/" rel="tag"># iterm2</a>
-          
-            <a href="/tags/oh-my-zsh/" rel="tag"># oh-my-zsh</a>
-          
-            <a href="/tags/Cmder/" rel="tag"># Cmder</a>
-          
-            <a href="/tags/Homebrew/" rel="tag"># Homebrew</a>
-          
-            <a href="/tags/Chocolatey/" rel="tag"># Chocolatey</a>
-          
-            <a href="/tags/spotlight/" rel="tag"># spotlight</a>
-          
-            <a href="/tags/Listary/" rel="tag"># Listary</a>
-          
-            <a href="/tags/Clover/" rel="tag"># Clover</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/Git工作流之一--集中式工作流/" rel="next" title="Git工作流之一(集中式工作流)">
-                <i class="fa fa-chevron-left"></i> Git工作流之一(集中式工作流)
+              <a href="/2019/05/Nodejs调试的各种姿势/" rel="next" title="Nodejs调试的各种姿势">
+                <i class="fa fa-chevron-left"></i> Nodejs调试的各种姿势
               </a>
             
           </div>
@@ -514,10 +572,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/RevealJs-slides演示工具-中文文档/" rel="prev" title="RevealJs(slides演示工具)中文文档">
-                RevealJs(slides演示工具)中文文档 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -724,7 +778,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-item2-VS-Cmder"><span class="nav-number">1.</span> <span class="nav-text">1. item2 VS Cmder</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#iterm2"><span class="nav-number">1.1.</span> <span class="nav-text">- iterm2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cmder"><span class="nav-number">1.2.</span> <span class="nav-text">- Cmder</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Homebrew-VS-Chocolatey"><span class="nav-number">2.</span> <span class="nav-text">2. Homebrew VS Chocolatey</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Homebrew"><span class="nav-number">2.1.</span> <span class="nav-text">- Homebrew</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Homebrew：命令行输入"><span class="nav-number">2.1.1.</span> <span class="nav-text">安装Homebrew：命令行输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#举个栗子，如果你要安装sublimeText，你可以这样："><span class="nav-number">2.1.2.</span> <span class="nav-text">举个栗子，如果你要安装sublimeText，你可以这样：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#再优雅点，你可以安装Homebrew的命令行工具homebrew-cask"><span class="nav-number">2.1.3.</span> <span class="nav-text">再优雅点，你可以安装Homebrew的命令行工具homebrew-cask</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用Homebrew安装软件有什么好处么？"><span class="nav-number">2.1.4.</span> <span class="nav-text">用Homebrew安装软件有什么好处么？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chocolatey"><span class="nav-number">2.2.</span> <span class="nav-text">- Chocolatey</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">2.2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#这个时候如果你也要装sublimeText3，你也可以这样！"><span class="nav-number">2.2.2.</span> <span class="nav-text">这个时候如果你也要装sublimeText3，你也可以这样！</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Spotlight-VS-Listary"><span class="nav-number">3.</span> <span class="nav-text">3. Spotlight VS Listary</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spotlight"><span class="nav-number">3.1.</span> <span class="nav-text">- Spotlight</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安利VueJs时刻！"><span class="nav-number">3.1.1.</span> <span class="nav-text">安利VueJs时刻！</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Listary"><span class="nav-number">3.2.</span> <span class="nav-text">- Listary</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#先说说效果"><span class="nav-number">3.2.1.</span> <span class="nav-text">先说说效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载安装"><span class="nav-number">3.2.2.</span> <span class="nav-text">下载安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#界面举栗"><span class="nav-number">3.2.3.</span> <span class="nav-text">界面举栗</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Clover"><span class="nav-number">4.</span> <span class="nav-text">4. Clover</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继续寻觅中……"><span class="nav-number">5.</span> <span class="nav-text">继续寻觅中……</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#历史来源"><span class="nav-number">1.</span> <span class="nav-text">历史来源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ASCII码"><span class="nav-number">1.1.</span> <span class="nav-text">ASCII码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实践见真章"><span class="nav-number">2.</span> <span class="nav-text">实践见真章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#验证下回车符的真实存在"><span class="nav-number">2.1.</span> <span class="nav-text">验证下回车符的真实存在</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何规避"><span class="nav-number">3.</span> <span class="nav-text">如何规避</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
