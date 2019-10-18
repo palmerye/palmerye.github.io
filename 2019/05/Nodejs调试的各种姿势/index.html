@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="blog,">
+  <meta name="keywords" content="Nodejs,">
 
 
 
@@ -86,18 +86,29 @@
 
 
 
-<meta name="description" content="Blog原来是这样来的 博客（英语：Blog，为Web Log的混成词），意指log on the web意即在网络上纪录，是一种由个人管理、张贴新的文章、图片或视频的网站或在线日记，用来纪录、抒发情感或分享信息。 From Wiki.">
-<meta name="keywords" content="blog">
+<meta name="description" content="Node.js 调试的痛点对于绝大部分前端人员，对JavaScript的调试更多停留在浏览器中，类似console.log和debugger，但这种方式对代码侵入性较高，甚至需要刷新页面或重启编译器。转向服务端后，没有浏览器界面，如果仅停留在原来的调试方式，开发效率想必是较低的。因此，前端人员转向服务端开发时，要习惯于命令行及 IDE 等调试手段，走出舒适区，才能准确定位问题，提高开发效率。">
+<meta name="keywords" content="Nodejs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Web + Log = Blog">
-<meta property="og:url" content="http://palmer.arkstack.cn/2017/01/Web-Log-Blog/index.html">
+<meta property="og:title" content="Nodejs调试的各种姿势">
+<meta property="og:url" content="http://palmer.arkstack.cn/2019/05/Nodejs调试的各种姿势/index.html">
 <meta property="og:site_name" content="软硬皆施">
-<meta property="og:description" content="Blog原来是这样来的 博客（英语：Blog，为Web Log的混成词），意指log on the web意即在网络上纪录，是一种由个人管理、张贴新的文章、图片或视频的网站或在线日记，用来纪录、抒发情感或分享信息。 From Wiki.">
+<meta property="og:description" content="Node.js 调试的痛点对于绝大部分前端人员，对JavaScript的调试更多停留在浏览器中，类似console.log和debugger，但这种方式对代码侵入性较高，甚至需要刷新页面或重启编译器。转向服务端后，没有浏览器界面，如果仅停留在原来的调试方式，开发效率想必是较低的。因此，前端人员转向服务端开发时，要习惯于命令行及 IDE 等调试手段，走出舒适区，才能准确定位问题，提高开发效率。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd25265f9ad78d?w=673&h=256&f=png&s=34924">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd253452dfafe6?w=674&h=257&f=png&s=36144">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd25375cf0f310?w=1188&h=378&f=png&s=41820">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd2539f2338697?w=888&h=466&f=png&s=70320">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd253da54e566e?w=436&h=295&f=png&s=21560">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd2541c7f92416?w=690&h=437&f=png&s=51805">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd25474fd14abd?w=802&h=311&f=png&s=57632">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd254e6ded40d6?w=948&h=783&f=png&s=136426">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd25512aecf597?w=609&h=309&f=png&s=31760">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd255462c0dc83?w=948&h=783&f=png&s=140285">
 <meta property="og:updated_time" content="2019-10-18T08:08:37.662Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Web + Log = Blog">
-<meta name="twitter:description" content="Blog原来是这样来的 博客（英语：Blog，为Web Log的混成词），意指log on the web意即在网络上纪录，是一种由个人管理、张贴新的文章、图片或视频的网站或在线日记，用来纪录、抒发情感或分享信息。 From Wiki.">
+<meta name="twitter:title" content="Nodejs调试的各种姿势">
+<meta name="twitter:description" content="Node.js 调试的痛点对于绝大部分前端人员，对JavaScript的调试更多停留在浏览器中，类似console.log和debugger，但这种方式对代码侵入性较高，甚至需要刷新页面或重启编译器。转向服务端后，没有浏览器界面，如果仅停留在原来的调试方式，开发效率想必是较低的。因此，前端人员转向服务端开发时，要习惯于命令行及 IDE 等调试手段，走出舒适区，才能准确定位问题，提高开发效率。">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd25265f9ad78d?w=673&h=256&f=png&s=34924">
 
 
 
@@ -125,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://palmer.arkstack.cn/2017/01/Web-Log-Blog/">
+  <link rel="canonical" href="http://palmer.arkstack.cn/2019/05/Nodejs调试的各种姿势/">
 
 
 
 
 
-  <title> Web + Log = Blog | 软硬皆施 </title>
+  <title> Nodejs调试的各种姿势 | 软硬皆施 </title>
   <meta name="baidu-site-verification" content="ihL4VoNRDr">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.2/gh-fork-ribbon.min.css">
 </head>
@@ -289,7 +300,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://palmer.arkstack.cn/2017/01/Web-Log-Blog/">
+  <link itemprop="mainEntityOfPage" href="http://palmer.arkstack.cn/2019/05/Nodejs调试的各种姿势/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="PalmerYe">
@@ -313,7 +324,7 @@
             
             
               
-                Web + Log = Blog
+                Nodejs调试的各种姿势
               
             
           </h2>
@@ -328,8 +339,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-01T08:13:03+00:00">
-                2017-01-01
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-22T13:22:13+00:00">
+                2019-05-22
               </time>
             
 
@@ -348,7 +359,7 @@
 
           
           
-             <span id="/2017/01/Web-Log-Blog/" class="leancloud_visitors" data-flag-title="Web + Log = Blog">
+             <span id="/2019/05/Nodejs调试的各种姿势/" class="leancloud_visitors" data-flag-title="Nodejs调试的各种姿势">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -375,41 +386,73 @@
       
 
       
-        <h2 id="Blog原来是这样来的"><a href="#Blog原来是这样来的" class="headerlink" title="Blog原来是这样来的"></a>Blog原来是这样来的</h2><blockquote>
-<p>博客（英语：Blog，为Web Log的混成词），意指log on the web意即在网络上纪录，是一种由个人管理、张贴新的文章、图片或视频的网站或在线日记，用来纪录、抒发情感或分享信息。 From Wiki.</p>
-</blockquote>
+        <h2 id="Node-js-调试的痛点"><a href="#Node-js-调试的痛点" class="headerlink" title="Node.js 调试的痛点"></a>Node.js 调试的痛点</h2><p>对于绝大部分前端人员，对<code>JavaScript</code>的调试更多停留在浏览器中，类似<code>console.log</code>和<code>debugger</code>，但这种方式对代码侵入性较高，甚至需要刷新页面或重启编译器。转向服务端后，没有浏览器界面，如果仅停留在原来的调试方式，开发效率想必是较低的。因此，前端人员转向服务端开发时，要习惯于命令行及 IDE 等调试手段，走出舒适区，才能准确定位问题，提高开发效率。</p>
 <a id="more"></a>
-<h2 id="我为什么要写博客"><a href="#我为什么要写博客" class="headerlink" title="我为什么要写博客"></a>我为什么要写博客</h2><h3 id="For-生存"><a href="#For-生存" class="headerlink" title="For 生存"></a>For 生存</h3><blockquote>
-<p>自从看了阮一峰老师的<a href="http://www.ruanyifeng.com/blog/" target="_blank" rel="noopener">Blog</a>，我才知道什么叫全能；频繁的浏览他的Blog，我才意识到全能的背后是文章的高产。</p>
+<h2 id="Node-js-调试的手段"><a href="#Node-js-调试的手段" class="headerlink" title="Node.js 调试的手段"></a>Node.js 调试的手段</h2><blockquote>
+<p>下文中涉及到的依赖库及软件版本</p>
 </blockquote>
-<ol>
-<li>*知识梳理，才知道自己哪里缺胳膊少腿 </li>
-<li>给别人一个爱<del>批评</del>你的机会</li>
-<li>一不小心能帮到同行呢</li>
-<li>信息整合，也许有一天，不需要再这里Google那里Baidu了，Local Search就能找到信息</li>
-<li>扩大在圈子里的影响力 <del>（打这几个字我都有点手抖）</del></li>
-</ol>
-<h3 id="For-生活"><a href="#For-生活" class="headerlink" title="For 生活"></a>For 生活</h3><blockquote>
-<p>有没有发现，年级大了，QQ空间没什么动态更新了，朋友圈发得少了，不易悲，也不易喜。</p>
-</blockquote>
-<ol>
-<li>写一些经历和想法，也许能和visitors产生一些共鸣</li>
-<li>用文字和图片记录下一些生活，常常翻翻，听说这样不会抑郁</li>
-<li>我挺喜欢拍照，拿blog当个web相册也不错</li>
-</ol>
-<h2 id="关于这个博客一些东西"><a href="#关于这个博客一些东西" class="headerlink" title="关于这个博客一些东西"></a>关于这个博客一些东西</h2><ul>
-<li>暂时搭建在github良心的Pages上（<a href="https://github.com/palmerye/palmer-blog" target="_blank" rel="noopener">Repository</a>）<blockquote>
-<p>如果你手滑点进去了，那就手滑star下吧</p>
-</blockquote>
-</li>
-<li>搭建于gh-pages分支。为什么不用<a href="https://github.com/palmerye/palmerye.github.io" target="_blank" rel="noopener">palmerye.github.io</a>?另有他用，其实没多大区别</li>
-<li>Blog工具用的Hexo，主题是Next，自己稍做了一点修改</li>
-<li>首页的封面图是用AI画的矢量图，从PCB到Code，也表示自己从硬件转型到软件的历程，每一段经历都很宝贵，值得珍惜。</li>
-<li>该加的功能都加了，包括站点底下的PV和UV统计</li>
-<li>或许上面👆这条是假的，我们的工作就是不断否定自己</li>
-<li>日子如何，力量也如何。这句话出于《圣经·申命记》33:25</li>
+<ul>
+<li>Node.js - v10.15.3</li>
+<li>Chrome - v72.0.3626</li>
+<li>VS Code - v1.13.0</li>
 </ul>
-<p><strong>关于博客的目的，说到底还是一句话，利人利己 <del>因为我觉得这样很酷</del></strong>。</p>
+<blockquote>
+<p>以下代码段为例，用<code>koa</code>起一个简单的<code>http server</code></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line">app.use(<span class="keyword">async</span> ctx =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    ctx.body = <span class="string">`hello, hiker! <span class="subst">$&#123;time&#125;</span>`</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'nodejs listening 3000.'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="1-console-log"><a href="#1-console-log" class="headerlink" title="1. console.log()"></a>1. console.log()</h3><p>对前端人员非常友好，与浏览器中调试一样，<code>console.log()</code>、<code>console.error()</code>、<code>console.time()</code>等各种<code>console</code>形式，在代码中需要调试的地方直接写上，只是展示形式有所不同，在<code>Node.js</code>中是在终端命令行中打印。这是最简单快速的调试手段，<strong>缺点</strong>也很明显，对原有代码入侵较大，在特定场景中使用较局限。</p>
+<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">app.use(<span class="keyword">async</span> ctx =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.time(<span class="string">'TIME_TAKE'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'this is time'</span>, time);</span><br><span class="line"></span><br><span class="line">    ctx.body = <span class="string">`hello, hiker! <span class="subst">$&#123;time&#125;</span>`</span>;</span><br><span class="line">    <span class="built_in">console</span>.timeEnd(<span class="string">'TIME_TAKE'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'nodejs listening 3000.'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><blockquote>
+<p>终端起服务：<code>node index.js</code>，并浏览器访问<code>localhost:3000</code>, 即可在终端命令行中看到相应打印的日志。</p>
+</blockquote>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd25265f9ad78d?w=673&amp;h=256&amp;f=png&amp;s=34924" alt></p>
+<h3 id="2-Debugger-Protocol-node-inspector"><a href="#2-Debugger-Protocol-node-inspector" class="headerlink" title="2. Debugger Protocol (node-inspector)"></a>2. Debugger Protocol (node-inspector)</h3><blockquote>
+<p><code>Nodejs v6.3+</code> 的版本提供了两个用于调试的协议：<code>v8 Debugger Protocol</code> 和 <code>v8 Inspector Protocol</code> 可以使用第三方的 Client/IDE 等监测和介入 Node(v8) 运行过程，进行调试。</p>
+</blockquote>
+<p><a href="https://github.com/node-inspector/node-inspector" target="_blank" rel="noopener">node-inspector</a>是早期可以基于Chrome，有可视化调试界面的调试工具，用的是<code>v8 Debugger Protocol</code>协议，通过 TCP 端口与 Client/IDE 交互通信。但由于<code>v8 Inspector Protocol</code>的推出，这个工具逐渐被替代，后文会介绍相应替代方案。</p>
+<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g node-inspector</span><br><span class="line"></span><br><span class="line">通过浏览器连接到node-inspector，启动inspector服务：</span><br><span class="line">$ node-inspector</span><br><span class="line"></span><br><span class="line">以debug模式运行node.js应用：</span><br><span class="line">$ node --debug=5858 index.js</span><br><span class="line"></span><br><span class="line">浏览器打开 http://127.0.0.1:8080/debug?port=5858，后台会提供一个类似于 chrome devtools 的 UI 调试界面。</span><br></pre></td></tr></table></figure>
+<h3 id="3-Inspector-Protocol-Chrome-DevTools"><a href="#3-Inspector-Protocol-Chrome-DevTools" class="headerlink" title="3. Inspector Protocol + Chrome DevTools"></a>3. Inspector Protocol + Chrome DevTools</h3><blockquote>
+<p><code>v8 Inspector Protocol</code> 是 <code>nodejs v6.3</code> 新加入的调试协议，通过 <code>websocket</code>与 Client/IDE 交互，同时基于 Chrome/Chromium 浏览器的 devtools 提供了图形化的调试界面。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node --inspect=<span class="number">9222</span> index.js</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果程序执行完会直接结束进程的，那么<code>--inspect</code>会一闪而过，断点信号还没发送出去前就结束了，断点根本不起作用，这种情况可以用<code>--inspect-brk</code>启动调试器，使得脚本可以代码执行之前<code>break</code>。</p>
+</blockquote>
+<h4 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h4><p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd253452dfafe6?w=674&amp;h=257&amp;f=png&amp;s=36144" alt></p>
+<p><code>ws://127.0.0.1:9222/a45dc332-2c8c-4614-bf01-1dbf212ae28a</code>这个不是提供给我们在Chrome浏览器中访问的地址，而是Node.js和Chrome之间进行通信的的地址，通过websocket进行通信，从而将调试结果实时展示在Chrome浏览器中。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd25375cf0f310?w=1188&amp;h=378&amp;f=png&amp;s=41820" alt></p>
+<p>那么如何获取在chrome浏览器中的调试地址？我们可以访问<code>http://localhost:9222/json/list</code>，可以看到相应信息。其中id为UUID，是一个特定的标识，每一个进程都会分配一个uuid，因此每一次调用会有出现不同的结果。<code>devtoolsFrontendUrl</code>则为我们要访问的chrome地址，新窗口打开这个地址即可调试。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd2539f2338697?w=888&amp;h=466&amp;f=png&amp;s=70320" alt></p>
+<h4 id="更便捷的调试入口"><a href="#更便捷的调试入口" class="headerlink" title="更便捷的调试入口"></a>更便捷的调试入口</h4><blockquote>
+<p>上述步骤是不是有点麻烦，不要紧，强大的Chrome提供了更方便的调试入口。</p>
+</blockquote>
+<p><code>node --inspect=9222 index.js</code>起服务后，打开浏览器访问http监听端口页面，并打开调试窗口，可以看到一个绿色的按钮，点开即可下断点调试，是不是很方便？</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd253da54e566e?w=436&amp;h=295&amp;f=png&amp;s=21560" alt></p>
+<blockquote>
+<p>这个绿油油的按钮究竟打开了什么呢？我们可以继续看。访问<code>chrome://inspect/#devices</code>，可以看到当前浏览器监听的所有<code>inspect</code></p>
+</blockquote>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd2541c7f92416?w=690&amp;h=437&amp;f=png&amp;s=51805" alt></p>
+<p>到这里，我们就可以利用Chrome DevTools的各类功能，<code>Sources Panel</code>查看脚本、<code>Profile Panel</code>监测性能等，文中不具体展开。</p>
+<h3 id="4-Inspector-Protocol-VS-Code"><a href="#4-Inspector-Protocol-VS-Code" class="headerlink" title="4. Inspector Protocol + VS Code"></a>4. Inspector Protocol + VS Code</h3><blockquote>
+<p>对服务端开发来讲，浏览器的使用反而不那么频繁，因此在IDE中调试<code>Nodejs</code>显得格外重要。值得高兴的是，市面上各类IDE对<code>Nodejs</code>的调试还算友好，尤其是VS Code。它内置了<code>Node debugger</code>，支持<code>v8 Debugger Protocol</code>和<code>v8 Inspector Protocol</code>两种协议。</p>
+</blockquote>
+<h4 id="launch"><a href="#launch" class="headerlink" title="launch"></a>launch</h4><blockquote>
+</blockquote>
+<p>在VS Code中，打开<code>调试</code>/<code>添加配置</code>/，如下图，添加launch配置，点击开始调试即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;node&quot;,</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">            &quot;name&quot;: &quot;Launch Program&quot;,</span><br><span class="line">            &quot;program&quot;: &quot;$&#123;workspaceFolder&#125;\\index.js&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd25474fd14abd?w=802&amp;h=311&amp;f=png&amp;s=57632" alt></p>
+<p>下图展示了调试窗口，可以看到，我们可以直接在IDE中下断点，左侧小窗口中可以看到当前作用域的变量（可展开树），调用堆栈，所有断点等，右上方亦可逐步调试函数、重启等功能，非常强大。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd254e6ded40d6?w=948&amp;h=783&amp;f=png&amp;s=136426" alt></p>
+<h4 id="Auto-Attach"><a href="#Auto-Attach" class="headerlink" title="Auto Attach"></a>Auto Attach</h4><blockquote>
+<p>同样VS Code提供了自动附加的功能：Auto Attach。不用配置即可快速调试。</p>
+</blockquote>
+<p><code>Ctrl+Shift+p</code>打开Auto Attach功能，然后同样的方式在终端命令行中：<code>node --inspect=9222 .\index.js</code></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd25512aecf597?w=609&amp;h=309&amp;f=png&amp;s=31760" alt></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd255462c0dc83?w=948&amp;h=783&amp;f=png&amp;s=140285" alt></p>
+<h2 id="醉后"><a href="#醉后" class="headerlink" title="醉后"></a>醉后</h2><p>本文总结了<code>Nodejs</code>的调试方法，基本涵盖了所有的调试手段，包括了命令行调试，Chrome浏览器调试，VS Code编辑器调试，并深入部分调试协议，图文结合，可供其他的<code>Nodejs</code>开发者参考，降低开发人员的学习成本，在项目工程应用中，准确定位问题，提高开发效率。</p>
+<h2 id="参考文献："><a href="#参考文献：" class="headerlink" title="参考文献："></a>参考文献：</h2><p><a href="http://nodejs.cn/api/inspector.html" target="_blank" rel="noopener">http://nodejs.cn/api/inspector.html</a></p>
+<p><a href="http://nodejs.cn/api/debugger.html" target="_blank" rel="noopener">http://nodejs.cn/api/debugger.html</a></p>
+<p><a href="http://i5ting.github.io/vsc/#1" target="_blank" rel="noopener">http://i5ting.github.io/vsc/#1</a></p>
 
       
     </div>
@@ -438,7 +481,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/blog/" rel="tag"># blog</a>
+            <a href="/tags/Nodejs/" rel="tag"># Nodejs</a>
           
         </div>
       
@@ -447,15 +490,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/03/DOM操作成本到底高在哪儿/" rel="next" title="DOM操作成本到底高在哪儿？">
+                <i class="fa fa-chevron-left"></i> DOM操作成本到底高在哪儿？
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/扫盲笔记-H5视频直播/" rel="prev" title="扫盲笔记--H5视频直播">
-                扫盲笔记--H5视频直播 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -662,7 +705,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Blog原来是这样来的"><span class="nav-number">1.</span> <span class="nav-text">Blog原来是这样来的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我为什么要写博客"><span class="nav-number">2.</span> <span class="nav-text">我为什么要写博客</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#For-生存"><span class="nav-number">2.1.</span> <span class="nav-text">For 生存</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#For-生活"><span class="nav-number">2.2.</span> <span class="nav-text">For 生活</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于这个博客一些东西"><span class="nav-number">3.</span> <span class="nav-text">关于这个博客一些东西</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-调试的痛点"><span class="nav-number">1.</span> <span class="nav-text">Node.js 调试的痛点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-调试的手段"><span class="nav-number">2.</span> <span class="nav-text">Node.js 调试的手段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-console-log"><span class="nav-number">2.1.</span> <span class="nav-text">1. console.log()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#举例"><span class="nav-number">2.1.1.</span> <span class="nav-text">举例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结果"><span class="nav-number">2.1.2.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Debugger-Protocol-node-inspector"><span class="nav-number">2.2.</span> <span class="nav-text">2. Debugger Protocol (node-inspector)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方式"><span class="nav-number">2.2.1.</span> <span class="nav-text">使用方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Inspector-Protocol-Chrome-DevTools"><span class="nav-number">2.3.</span> <span class="nav-text">3. Inspector Protocol + Chrome DevTools</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#结果-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更便捷的调试入口"><span class="nav-number">2.3.2.</span> <span class="nav-text">更便捷的调试入口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Inspector-Protocol-VS-Code"><span class="nav-number">2.4.</span> <span class="nav-text">4. Inspector Protocol + VS Code</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#launch"><span class="nav-number">2.4.1.</span> <span class="nav-text">launch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Auto-Attach"><span class="nav-number">2.4.2.</span> <span class="nav-text">Auto Attach</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#醉后"><span class="nav-number">3.</span> <span class="nav-text">醉后</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献："><span class="nav-number">4.</span> <span class="nav-text">参考文献：</span></a></li></ol></div>
             
 
           </div>
