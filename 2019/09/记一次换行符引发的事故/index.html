@@ -86,12 +86,12 @@
 
 
 
-<meta name="description" content="那天项目部署的时候，遇到一个很诡异的现象，一度怀疑自己职业生涯到此结束了，后面经排除发现，原来是Linux和Windows下shell脚本换行符的格式问题，导致脚本一直执行不了…（到此，标题所说的事故讲完了…：） 看起来很蠢的问题，溜了 :) …但莎士比亚说过，解决一个问题最好的方式，就是下次不要再犯了。所以我们刨根问底儿，彻底搞清楚换行符在计算机系统中到底是个啥玩意儿。  历史来源">
+<meta name="description" content="那天项目部署的时候，遇到一个很诡异的现象，一度怀疑自己职业生涯到此结束了，后面经排除发现，原来是Linux和Windows下shell脚本换行符的格式问题，导致脚本一直执行不了…（到此，标题所说的事故讲完了…：）   看起来很蠢的问题，溜了 :) …但莎士比亚说过，解决一个问题最好的方式，就是下次不要再犯了。所以我们刨根问底儿，彻底搞清楚换行符在计算机系统中到底是个啥玩意儿。  历史来源">
 <meta property="og:type" content="article">
 <meta property="og:title" content="记一次换行符引发的事故">
 <meta property="og:url" content="http://palmer.arkstack.cn/2019/09/记一次换行符引发的事故/index.html">
 <meta property="og:site_name" content="软硬皆施">
-<meta property="og:description" content="那天项目部署的时候，遇到一个很诡异的现象，一度怀疑自己职业生涯到此结束了，后面经排除发现，原来是Linux和Windows下shell脚本换行符的格式问题，导致脚本一直执行不了…（到此，标题所说的事故讲完了…：） 看起来很蠢的问题，溜了 :) …但莎士比亚说过，解决一个问题最好的方式，就是下次不要再犯了。所以我们刨根问底儿，彻底搞清楚换行符在计算机系统中到底是个啥玩意儿。  历史来源">
+<meta property="og:description" content="那天项目部署的时候，遇到一个很诡异的现象，一度怀疑自己职业生涯到此结束了，后面经排除发现，原来是Linux和Windows下shell脚本换行符的格式问题，导致脚本一直执行不了…（到此，标题所说的事故讲完了…：）   看起来很蠢的问题，溜了 :) …但莎士比亚说过，解决一个问题最好的方式，就是下次不要再犯了。所以我们刨根问底儿，彻底搞清楚换行符在计算机系统中到底是个啥玩意儿。  历史来源">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/29/16cdd1edadf05db1?w=474&h=266&f=png&s=171464">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/29/16cdd56922280953?w=486&h=367&f=png&s=8017">
@@ -100,10 +100,10 @@
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/29/16cdd90fdc095d43?w=464&h=93&f=png&s=8871">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/29/16cdd9bb03dcf40c?w=647&h=367&f=png&s=10072">
 <meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/30/16ce067f129b3bcd?w=540&h=215&f=png&s=23363">
-<meta property="og:updated_time" content="2020-03-03T14:40:09.543Z">
+<meta property="og:updated_time" content="2020-03-10T14:40:47.645Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次换行符引发的事故">
-<meta name="twitter:description" content="那天项目部署的时候，遇到一个很诡异的现象，一度怀疑自己职业生涯到此结束了，后面经排除发现，原来是Linux和Windows下shell脚本换行符的格式问题，导致脚本一直执行不了…（到此，标题所说的事故讲完了…：） 看起来很蠢的问题，溜了 :) …但莎士比亚说过，解决一个问题最好的方式，就是下次不要再犯了。所以我们刨根问底儿，彻底搞清楚换行符在计算机系统中到底是个啥玩意儿。  历史来源">
+<meta name="twitter:description" content="那天项目部署的时候，遇到一个很诡异的现象，一度怀疑自己职业生涯到此结束了，后面经排除发现，原来是Linux和Windows下shell脚本换行符的格式问题，导致脚本一直执行不了…（到此，标题所说的事故讲完了…：）   看起来很蠢的问题，溜了 :) …但莎士比亚说过，解决一个问题最好的方式，就是下次不要再犯了。所以我们刨根问底儿，彻底搞清楚换行符在计算机系统中到底是个啥玩意儿。  历史来源">
 <meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/8/29/16cdd1edadf05db1?w=474&h=266&f=png&s=171464">
 
 
@@ -384,6 +384,8 @@
       
         <blockquote>
 <p>那天项目部署的时候，遇到一个很诡异的现象，一度怀疑自己职业生涯到此结束了，后面经排除发现，原来是<code>Linux</code>和<code>Windows</code>下<code>shell</code>脚本换行符的格式问题，导致脚本一直执行不了…（到此，标题所说的事故讲完了…：）</p>
+</blockquote>
+<blockquote>
 <p>看起来很蠢的问题，溜了 :) …但莎士比亚说过，解决一个问题最好的方式，就是下次不要再犯了。所以我们刨根问底儿，彻底搞清楚换行符在计算机系统中到底是个啥玩意儿。</p>
 </blockquote>
 <h2 id="历史来源"><a href="#历史来源" class="headerlink" title="历史来源"></a>历史来源</h2><p><img src="https://user-gold-cdn.xitu.io/2019/8/29/16cdd1edadf05db1?w=474&amp;h=266&amp;f=png&amp;s=171464" alt></p>
@@ -466,7 +468,7 @@
 <li><code>Windows</code>下新建个<code>win.txt</code>文件，写一句大白话。上面有听讲的同学应该知道，这里的换行符为<code>CRLF</code>。</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">talk is cheap,</span><br><span class="line">show me your code.</span><br></pre></td></tr></table></figure>
-<ol>
+<ol start="2">
 <li>在<code>Linux</code>系统用<code>vim</code>打开刚新建的文件</li>
 </ol>
 <p><img src="https://user-gold-cdn.xitu.io/2019/8/29/16cdd56922280953?w=486&amp;h=367&amp;f=png&amp;s=8017" alt></p>
@@ -474,22 +476,22 @@
 <blockquote>
 <p><code>dos</code>(Disk Operating System 磁盘操作系统)和<code>Windows</code>一样采用的是<code>CRLF</code></p>
 </blockquote>
-<ol>
+<ol start="3">
 <li>使用<code>cat -A</code>选项查看文本所有的字符</li>
 </ol>
 <p><img src="https://user-gold-cdn.xitu.io/2019/8/29/16cdd66cdb8e9c93?w=387&amp;h=76&amp;f=png&amp;s=6786" alt></p>
 <p>可以看到多了<code>^M$</code>，<code>^M</code>这是<code>Linux</code>等系统下规定的特殊标记，占一个字符大小，不是<code>^</code>和<code>M</code>的组合，只能用<code>Ctrl+v，Ctrl+m</code>按出来；而<code>$</code>不是换行符，可以理解为<code>Linux</code>下用来表示文本结束EOF的符号。</p>
-<ol>
+<ol start="4">
 <li>使用<code>cat -v</code>选项显示出非打印字符</li>
 </ol>
 <p><img src="https://user-gold-cdn.xitu.io/2019/8/29/16cdd6a98da94de2?w=389&amp;h=78&amp;f=png&amp;s=7222" alt></p>
-<ol>
+<ol start="5">
 <li>把第一行的回车符去掉再看看</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &apos;1s/^M//&apos; win.txt</span><br></pre></td></tr></table></figure>
 <p><img src="https://user-gold-cdn.xitu.io/2019/8/29/16cdd90fdc095d43?w=464&amp;h=93&amp;f=png&amp;s=8871" alt></p>
 <p>看到第一行的<code>^M</code>不见了，第二行还是保留。</p>
-<ol>
+<ol start="6">
 <li>再重复第一步看看变化</li>
 </ol>
 <p><img src="https://user-gold-cdn.xitu.io/2019/8/29/16cdd9bb03dcf40c?w=647&amp;h=367&amp;f=png&amp;s=10072" alt></p>
@@ -515,7 +517,7 @@
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cat -v win.txt | tr -d &apos;^M&apos;  &gt; linux.txt</span><br><span class="line">或者</span><br><span class="line">cat win.txt |tr -d &apos;\015&apos; &gt; linux.txt</span><br><span class="line">或者</span><br><span class="line">cat win.txt |tr -d &apos;\r&apos; &gt; linux.txt</span><br></pre></td></tr></table></figure>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">vim</span> 编辑器中输入</span><br><span class="line">:%s/^M//g</span><br><span class="line">或者</span><br><span class="line">:<span class="keyword">set</span> fileformat=unix</span><br></pre></td></tr></table></figure>
-<ol>
+<ol start="2">
 <li>终端命令转换</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dos2unix win.txt</span><br></pre></td></tr></table></figure>
