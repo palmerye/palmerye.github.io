@@ -13,7 +13,8 @@ install:
  # - npm install -g gulp
 
 script:
-  - hexo clean && hexo g
+  # - hexo clean && hexo g
+  - npm run generator
 
 after_script:
   - git clone https://${GH_REF} .deploy_git
