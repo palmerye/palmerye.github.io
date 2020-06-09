@@ -1,0 +1,1200 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="ffPV4KDwl6idDzD9KMmrhGrqYT_mudd5dZUf1H6XxVU">
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="BFC,IFC,FFC,GFC,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="CSS中各种布局的背后，实质上是各种*FC的组合。CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 FFC 和 GFC。">
+<meta name="keywords" content="BFC,IFC,FFC,GFC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS中各种布局的背后(*FC)">
+<meta property="og:url" content="http://palmer.arkstack.cn/2018/02/CSS中各种布局的背后(*FC)/index.html">
+<meta property="og:site_name" content="软硬皆施">
+<meta property="og:description" content="CSS中各种布局的背后，实质上是各种*FC的组合。CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 FFC 和 GFC。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://developer.mozilla.org/files/72/boxmodel%20(1">
+<meta property="og:image" content="https://mdn.mozillademos.org/files/3559/venn_blocks.png">
+<meta property="og:image" content="https://developer.mozilla.org/@api/deki/files/6008/=venn_inlines.png">
+<meta property="og:updated_time" content="2020-06-09T15:35:53.162Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS中各种布局的背后(*FC)">
+<meta name="twitter:description" content="CSS中各种布局的背后，实质上是各种*FC的组合。CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 FFC 和 GFC。">
+<meta name="twitter:image" content="https://developer.mozilla.org/files/72/boxmodel%20(1">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://palmer.arkstack.cn/2018/02/CSS中各种布局的背后(*FC)/">
+
+
+
+
+
+  <title> CSS中各种布局的背后(*FC) | 软硬皆施 </title>
+  <meta name="baidu-site-verification" content="ihL4VoNRDr">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.2/gh-fork-ribbon.min.css">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3591c30f9156b35464cb2b78cf0e563e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">PalmerBlog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <h1 class="site-subtitle" itemprop="description">软硬皆施</h1>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-clock-o"></i> <br>
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://palmer.arkstack.cn/2018/02/CSS中各种布局的背后(*FC)/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="PalmerYe">
+    <meta itemprop="description" content>
+    <meta itemprop="image" content="https://github.com/palmerye/pictureBed/raw/master/image/me.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="软硬皆施">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="软硬皆施" src>
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                CSS中各种布局的背后(*FC)
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-25T10:00:12+08:00">
+                2018-02-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2018/02/CSS中各种布局的背后(*FC)/" class="leancloud_visitors" data-flag-title="CSS中各种布局的背后(*FC)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>CSS中各种布局的背后，实质上是各种*FC的组合。CSS2.1 中只有 BFC 和 IFC, CSS3 中还增加了 FFC 和 GFC。</p>
+</blockquote>
+<a id="more"></a>
+<h2 id="盒模型-Box-Model"><a href="#盒模型-Box-Model" class="headerlink" title="盒模型(Box Model)"></a>盒模型(Box Model)</h2><p><img src="https://developer.mozilla.org/files/72/boxmodel%20(1" alt="imgage">.png)</p>
+<blockquote>
+<p>上图为W3C标准盒模型，另外还有一种IE盒模型（IE6以下），唯一的区别就是：前者<code>width = content</code>，后者<code>width = content + padding + border</code></p>
+</blockquote>
+<blockquote>
+<p>若要将IE盒模型转换为标准盒模型，需要在文档顶部加上<code>&lt;!DOCTYPE html&gt;</code>声明；很有意思的是，后来CSS3 中也增加了<code>box-sizing</code>属性，<code>box-sizing: content-box</code>即标准盒模型，<code>box-sizing: border-box</code>即IE盒模型（width包含内边距和边框），W3C反过来又承认了微软，也是有意思。</p>
+</blockquote>
+<h2 id="视觉格式化模型-Visual-Formatting-Model"><a href="#视觉格式化模型-Visual-Formatting-Model" class="headerlink" title="视觉格式化模型(Visual Formatting Model)"></a>视觉格式化模型(Visual Formatting Model)</h2><blockquote>
+<p>视觉格式化模型(visual formatting model)是用来处理文档并将它显示在视觉媒体上的机制，根据上述的盒模型，为文档元素生成盒（Box）。通俗的说，视觉格式化模型就是文档里的盒子布局呈现的一种规则。</p>
+</blockquote>
+<p>影响布局的因素</p>
+<ol>
+<li>盒的尺寸和类型</li>
+<li>定位方案 <code>Positioning Scheme</code> （常规流，浮动和绝对定位）</li>
+<li>文档树中元素之间的关系</li>
+<li>外部信息（如：视口大小，图片的固有尺寸等）</li>
+</ol>
+<h3 id="FC-–-Formatting-Context"><a href="#FC-–-Formatting-Context" class="headerlink" title="FC – Formatting Context"></a>FC – Formatting Context</h3><blockquote>
+<p>FC…是谁在说脏话？！ Formatting Context – 格式化上下文，*FC就是视觉格式化模型，用来描述盒子布局规则。</p>
+</blockquote>
+<h3 id="前方大波概念来袭！"><a href="#前方大波概念来袭！" class="headerlink" title="前方大波概念来袭！"></a>前方大波概念来袭！</h3><blockquote>
+<p>块级元素、块级盒、块容器盒、块盒、匿名块盒、行内级元素、行内级盒、原子行内级盒、原子行内盒、行盒、匿名行内盒、<del>插入盒</del>……要报警了！！！这些真的不是我YY出来的，<a href="https://www.w3.org/TR/CSS22/visuren.html" target="_blank" rel="noopener">W3C</a> 里真的有这么多概念好吗！！！感觉进坑了啊！！！headache…来吧，一个个捋清楚… -_-|||</p>
+</blockquote>
+<ul>
+<li><p><strong>块级元素(Block-level elements)</strong>：当元素的 CSS 属性 <code>display:block / list-item / table</code> 时，它就是是块级元素 block-level ，视觉上呈现为块，竖直排列。每个块级元素生成一个主要的块级盒 (Principal Block-level Box) 来包含其后代盒和生成的内容，同时参与定位体系 (Positioning Scheme) 。某些块级元素还会在主要盒之外产生额外的盒： list-item 元素。这些额外的盒会相对于主要盒来摆放。</p>
+</li>
+<li><p><strong>块级盒(Block-level boxes)</strong>：由块级元素生成，参与块级格式化上下文(BFC)。<strong>描述元素跟它的父元素与兄弟元素之间的表现。</strong></p>
+</li>
+<li><strong>块容器盒(Block container box)</strong>：只包含其它块级盒，或生成一个行内格式化上下文(inline formatting context)，只包含行内盒。有些块级盒，比如表格，不是块容器盒。相反，一些块容器盒，比如非替换行内块及非替换表格单元格，不是块级盒。<strong>描述元素跟它的后代之间的影响。</strong></li>
+<li><strong>块盒(Block boxes)</strong>：同时是块容器盒的块级盒。</li>
+</ul>
+<p><img src="https://mdn.mozillademos.org/files/3559/venn_blocks.png" alt="img"></p>
+<ul>
+<li><strong>匿名块盒(Anonymous block boxes)</strong>：没有名字，不能被 CSS 选择符选中。块容器盒要么只包含行内级盒，要么只包含块级盒，但通常文档会同时包含两者，在这种情况下，将创建匿名块盒来包含毗邻的行内级盒。</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">   I am Block container box</span><br><span class="line">   <span class="tag">&lt;<span class="name">p</span>&gt;</span>I'm Inline-level boxes<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">   I am Block container box</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>行内级元素(Inline-level elements)</strong>：当元素的 CSS 属性 <code>display：inline, inline-block 或 inline-table</code> 时，称它为行内级元素。行内级元素生成行内级盒(inline-level boxes)，参与行内格式化上下文(IFC)。</li>
+<li><strong>行内级盒(Inline-level boxes)</strong>：所有 <code>display:inline</code> 的非替换元素生成的盒是行内盒。</li>
+<li><strong>原子行内级盒(atomic inline-level boxes)</strong>：不参与生成行内格式化上下文的行内级盒称为原子行内级盒(atomic inline-level boxes)。</li>
+<li><strong>原子行内盒(atomic inline boxes)</strong>：注意：起初原子行内级盒(atomic inline-level boxes)被称为原子行内盒(atomic inline boxes)。很不幸，它们并非行内盒。规范的勘误表修正了这个错误。不管怎样，当再看到原子行内盒时可以放心的当成原子行内级盒，因为只是改了名字。原子行内盒在行内格式化上下文里不能分成多行。</li>
+<li><strong>行盒(Line boxes)</strong>：行盒由行内格式化上下文(IFC)产生的盒，用于表示一行。在块盒里面，行盒从块盒一边排版到另一边。 当有浮动时, 行盒从左浮动的最右边排版到右浮动的最左边。</li>
+</ul>
+<p><img src="https://developer.mozilla.org/@api/deki/files/6008/=venn_inlines.png" alt="img"></p>
+<ul>
+<li><strong>匿名行内盒(Anonymous inline boxes)</strong>：匿名行内盒最常见的例子是块盒直接包含文本。</li>
+<li><del>插入盒(Run-in boxes)</del>：插入盒(Run-in boxes)从 CSS 2.1 标准中移除了，因为可操作的实现定义不足。 可能 CSS3 会引入，但是这是实验性质，不能用于生产环境。 </li>
+</ul>
+<h3 id="定位方案-Positioning-schemes"><a href="#定位方案-Positioning-schemes" class="headerlink" title="定位方案(Positioning schemes)"></a>定位方案(Positioning schemes)</h3><h4 id="常规流-Normal-flow"><a href="#常规流-Normal-flow" class="headerlink" title="- 常规流(Normal flow)"></a>- 常规流(Normal flow)</h4><blockquote>
+<p>CSS2.1中，常规流包括块级盒的块格式化，行内盒的行内格式化，以及块级盒和行内级盒的相对定位。</p>
+</blockquote>
+<h4 id="浮动-Floats"><a href="#浮动-Floats" class="headerlink" title="- 浮动(Floats)"></a>- 浮动(Floats)</h4><blockquote>
+<p>在浮动模型中，盒首先根据常规流布局，然后从常规流中脱离并尽可能地向左或向右位移。内容可以布局在浮动周围。</p>
+</blockquote>
+<h4 id="绝对定位-Absolute-positioning"><a href="#绝对定位-Absolute-positioning" class="headerlink" title="- 绝对定位(Absolute positioning)"></a>- 绝对定位(Absolute positioning)</h4><blockquote>
+<p>在绝对定位模型中，盒完全从常规流中脱离（对后面的同胞元素无影响）并根据包含块来分配位置。</p>
+</blockquote>
+<h2 id="BFC-–-Block-Formatting-Context"><a href="#BFC-–-Block-Formatting-Context" class="headerlink" title="BFC – Block Formatting Context"></a>BFC – Block Formatting Context</h2><h3 id="触发条件"><a href="#触发条件" class="headerlink" title="触发条件"></a>触发条件</h3><ol>
+<li>根元素或其它包含它的元素</li>
+<li>浮动 <code>float: left/right/inherit</code></li>
+<li>绝对定位元素 <code>position: absolute/fixed</code></li>
+<li>行内块 <code>display: inline-block</code></li>
+<li>表格单元格 <code>display: table-cell</code></li>
+<li>表格标题 <code>display: table-caption</code></li>
+<li>溢出元素 <code>overflow: hidden/scroll/auto/inherit</code></li>
+<li>弹性盒子 <code>display: flex/inline-flex</code></li>
+</ol>
+<h3 id="布局规则"><a href="#布局规则" class="headerlink" title="布局规则"></a>布局规则</h3><ol>
+<li>内部的Box会在垂直方向，一个接一个地放置。</li>
+<li>Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠。</li>
+<li>每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)。即使存在浮动也是如此。</li>
+<li>BFC的区域不会与float box重叠。</li>
+<li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此。</li>
+<li>计算BFC的高度时，浮动元素也参与计算</li>
+</ol>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<li>闭合浮动：浮动区域不叠加到BFC区域上</li>
+<li>防止与浮动元素重叠</li>
+<li>防止margin collapse</li>
+<li>float 元素高度塌陷</li>
+<li>…</li>
+</ul>
+<h2 id="IFC-–-Inline-Formatting-Contexts"><a href="#IFC-–-Inline-Formatting-Contexts" class="headerlink" title="IFC – Inline Formatting Contexts"></a>IFC – Inline Formatting Contexts</h2><h3 id="触发条件-1"><a href="#触发条件-1" class="headerlink" title="触发条件"></a>触发条件</h3><p>一个块级元素中<strong>仅</strong>包含内联级别元素</p>
+<h3 id="布局规则-1"><a href="#布局规则-1" class="headerlink" title="布局规则"></a>布局规则</h3><ul>
+<li><p>内部的盒子会在水平方向，一个接一个地放置。</p>
+</li>
+<li><p>这些盒子垂直方向的起点从包含块盒子的顶部开始。</p>
+</li>
+<li><p>摆放这些盒子的时候，它们在水平方向上的 padding、border、margin 所占用的空间都会被考虑在内。</p>
+</li>
+<li><p>在垂直方向上，这些框可能会以不同形式来对齐（vertical-align）：它们可能会使用底部或顶部对齐，也可能通过其内部的文本基线（baseline）对齐。</p>
+</li>
+<li><p>能把在一行上的框都完全包含进去的一个矩形区域，被称为该行的行框（line box）。行框的宽度是由包含块（containing box）和存在的浮动来决定。</p>
+</li>
+<li><p>IFC中的 line box 一般左右边都贴紧其包含块，但是会因为float元素的存在发生变化。float 元素会位于IFC与与 line box 之间，使得 line box 宽度缩短。</p>
+</li>
+<li><p>IFC 中的 line box 高度由 CSS 行高计算规则来确定，同个 IFC 下的多个 line box 高度可能会不同（比如一行包含了较高的图片，而另一行只有文本）</p>
+</li>
+<li><p>当 inline-level boxes 的总宽度少于包含它们的 line box 时，其水平渲染规则由 text-align 属性来确定，如果取值为 justify，那么浏览器会对 inline-boxes（注意不是inline-table 和 inline-block boxes）中的文字和空格做出拉伸。</p>
+</li>
+<li><p>当一个 inline box 超过 line box 的宽度时，它会被分割成多个boxes，这些 boxes 被分布在多个 line box 里。如果一个 inline box 不能被分割（比如只包含单个字符，或 word-breaking 机制被禁用，或该行内框受 white-space 属性值为 nowrap 或 pre 的影响），那么这个 inline box 将溢出这个 line box。</p>
+</li>
+</ul>
+<h3 id="应用场景-1"><a href="#应用场景-1" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<li><p>水平居中：当一个块要在环境中水平居中时，设置其为 inline-block 则会在外层产生 IFC，通过设置父容器 text-align:center 则可以使其水平居中。</p>
+</li>
+<li><p>垂直居中：创建一个IFC，用其中一个元素撑开父元素的高度，然后设置其 vertical-align:middle，其他行内元素则可以在此父元素下垂直居中。</p>
+</li>
+</ul>
+<h2 id="FFC-–-Flex-Formatting-Contexts"><a href="#FFC-–-Flex-Formatting-Contexts" class="headerlink" title="FFC – Flex Formatting Contexts"></a>FFC – Flex Formatting Contexts</h2><h3 id="触发条件-2"><a href="#触发条件-2" class="headerlink" title="触发条件"></a>触发条件</h3><p>当 <code>display</code> 的值为 <code>flex</code> 或 <code>inline-flex</code> 时，将生成弹性容器（Flex Containers）, 一个弹性容器为其内容建立了一个新的弹性格式化上下文环境（FFC）</p>
+<h3 id="布局规则-2"><a href="#布局规则-2" class="headerlink" title="布局规则"></a>布局规则</h3><ul>
+<li>设置为 <code>flex</code> 的容器被渲染为一个块级元素</li>
+<li>设置为 <code>inline-flex</code> 的容器则渲染为一个行内元素</li>
+<li>弹性容器中的每一个子元素都是一个弹性项目。弹性项目可以是任意数量的。弹性容器外和弹性项目内的一切元素都不受影响。简单地说，Flexbox 定义了弹性容器内弹性项目该如何布局</li>
+</ul>
+<h2 id="GFC-–-GridLayout-Formatting-Contexts"><a href="#GFC-–-GridLayout-Formatting-Contexts" class="headerlink" title="GFC – GridLayout Formatting Contexts"></a>GFC – GridLayout Formatting Contexts</h2><h3 id="触发条件-3"><a href="#触发条件-3" class="headerlink" title="触发条件"></a>触发条件</h3><p>当为一个元素设置<code>display</code>值为<code>grid</code>的时候，此元素将会获得一个独立的渲染区域</p>
+<h3 id="布局规则-3"><a href="#布局规则-3" class="headerlink" title="布局规则"></a>布局规则</h3><p>通过在网格容器（grid container）上定义网格定义行（grid definition rows）和网格定义列（grid definition columns）属性各在网格项目（grid item）上定义网格行（grid row）和网格列（grid columns）为每一个网格项目（grid item）定义位置和空间</p>
+<hr>
+<p>参考：</p>
+<p><a href="https://www.w3.org/TR/CSS22/visuren.html" target="_blank" rel="noopener">Visual formatting model</a></p>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/CSS/Visual_formatting_model" target="_blank" rel="noopener">视觉格式化模型</a></p>
+<p><a href="https://www.cnblogs.com/lhb25/p/inside-block-formatting-ontext.html" target="_blank" rel="noopener">BFC 神奇背后的原理</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="https://github.com/palmerye/pictureBed/raw/master/wechat-qrcode.png" alt="PalmerYe wechat" style="width: 200px; max-width: 100%;">
+    <div>世界很大，圈子很小，欢迎关注，相互进步。</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/BFC/" rel="tag"># BFC</a>
+          
+            <a href="/tags/IFC/" rel="tag"># IFC</a>
+          
+            <a href="/tags/FFC/" rel="tag"># FFC</a>
+          
+            <a href="/tags/GFC/" rel="tag"># GFC</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/Travis CI助力Blog持续输出/" rel="next" title="Travis CI助力Blog持续输出">
+                <i class="fa fa-chevron-left"></i> Travis CI助力Blog持续输出
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/DOM操作成本到底高在哪儿/" rel="prev" title="DOM操作成本到底高在哪儿？">
+                DOM操作成本到底高在哪儿？ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTIxMi81Nzc5"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="https://github.com/palmerye/pictureBed/raw/master/image/me.jpg" alt="PalmerYe">
+          <p class="site-author-name" itemprop="name">PalmerYe</p>
+          <p class="site-description motion-element" itemprop="description">日子如何，力量就如何</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/palmerye" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2548546880" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/palmerye.github.io" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/palmerye/pictureBed/raw/master/wechat-qrcode.png" target="_blank" title="微信">
+                  
+                    <i class="fa fa-fw fa-weixin"></i>
+                  
+                  微信
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://toutiao.io/subjects/46457" target="_blank" rel="external nofollow">开发者头条独家号</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://javascript.ruanyifeng.com/" target="_blank" rel="external nofollow">JavaScript 标准参考教程</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yangmingming.me/" target="_blank" rel="external nofollow">小伙伴_yangmm</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://aleonchen.com/" target="_blank" rel="external nofollow">小伙伴_aleon</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://7le.top/" target="_blank" rel="external nofollow">小伙伴_7le</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#盒模型-Box-Model"><span class="nav-number">1.</span> <span class="nav-text">盒模型(Box Model)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#视觉格式化模型-Visual-Formatting-Model"><span class="nav-number">2.</span> <span class="nav-text">视觉格式化模型(Visual Formatting Model)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FC-–-Formatting-Context"><span class="nav-number">2.1.</span> <span class="nav-text">FC – Formatting Context</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前方大波概念来袭！"><span class="nav-number">2.2.</span> <span class="nav-text">前方大波概念来袭！</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#定位方案-Positioning-schemes"><span class="nav-number">2.3.</span> <span class="nav-text">定位方案(Positioning schemes)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常规流-Normal-flow"><span class="nav-number">2.3.1.</span> <span class="nav-text">- 常规流(Normal flow)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#浮动-Floats"><span class="nav-number">2.3.2.</span> <span class="nav-text">- 浮动(Floats)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#绝对定位-Absolute-positioning"><span class="nav-number">2.3.3.</span> <span class="nav-text">- 绝对定位(Absolute positioning)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC-–-Block-Formatting-Context"><span class="nav-number">3.</span> <span class="nav-text">BFC – Block Formatting Context</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#触发条件"><span class="nav-number">3.1.</span> <span class="nav-text">触发条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局规则"><span class="nav-number">3.2.</span> <span class="nav-text">布局规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景"><span class="nav-number">3.3.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IFC-–-Inline-Formatting-Contexts"><span class="nav-number">4.</span> <span class="nav-text">IFC – Inline Formatting Contexts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#触发条件-1"><span class="nav-number">4.1.</span> <span class="nav-text">触发条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局规则-1"><span class="nav-number">4.2.</span> <span class="nav-text">布局规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#应用场景-1"><span class="nav-number">4.3.</span> <span class="nav-text">应用场景</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#FFC-–-Flex-Formatting-Contexts"><span class="nav-number">5.</span> <span class="nav-text">FFC – Flex Formatting Contexts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#触发条件-2"><span class="nav-number">5.1.</span> <span class="nav-text">触发条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局规则-2"><span class="nav-number">5.2.</span> <span class="nav-text">布局规则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GFC-–-GridLayout-Formatting-Contexts"><span class="nav-number">6.</span> <span class="nav-text">GFC – GridLayout Formatting Contexts</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#触发条件-3"><span class="nav-number">6.1.</span> <span class="nav-text">触发条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局规则-3"><span class="nav-number">6.2.</span> <span class="nav-text">布局规则</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-angellist"></i>
+  </span>
+  <a class="theme-link" href="https://github.com/palmerye" target="view_window" style="cursor: pointer" rel="external nofollow">
+    PalmerYe
+  </a>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a>
+</div>
+
+<span id="busuanzi_container_site_pv">
+  PV <span id="busuanzi_value_site_pv"></span>
+</span>
+<span id="busuanzi_container_site_uv">
+  &nbsp&nbsp | &nbsp&nbsp UV <span id="busuanzi_value_site_uv"></span>
+</span>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("NXWLky4LTDguctQ8g9SUsDYM-gzGzoHsz", "auLUiVI8n4oh3HrxbGkiLpA8");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  <a class="github-fork-ribbon left-bottom fixed" href="https://github.com/palmerye/palmerye.github.io" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+</body>
+</html>

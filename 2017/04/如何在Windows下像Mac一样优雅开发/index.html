@@ -1,0 +1,1159 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="ffPV4KDwl6idDzD9KMmrhGrqYT_mudd5dZUf1H6XxVU">
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="iterm2,oh-my-zsh,Cmder,Homebrew,Chocolatey,spotlight,Listary,Clover,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="起因：之前一直用Mac开发，换了家公司，只许用Windows下开发，说实话，一开始我是拒绝的，可自从看到了这几个工具以后……   下文大标题说明：（Mac下的工具）VS（Windows下的工具），Mac下的工具说明会简要点，毕竟看文章的基本上都是实在受不了Windows的重度Mac开发者。  1. item2 VS Cmder 终端工具">
+<meta name="keywords" content="iterm2,oh-my-zsh,Cmder,Homebrew,Chocolatey,spotlight,Listary,Clover">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何在Windows下像Mac一样优雅开发">
+<meta property="og:url" content="http://palmer.arkstack.cn/2017/04/如何在Windows下像Mac一样优雅开发/index.html">
+<meta property="og:site_name" content="软硬皆施">
+<meta property="og:description" content="起因：之前一直用Mac开发，换了家公司，只许用Windows下开发，说实话，一开始我是拒绝的，可自从看到了这几个工具以后……   下文大标题说明：（Mac下的工具）VS（Windows下的工具），Mac下的工具说明会简要点，毕竟看文章的基本上都是实在受不了Windows的重度Mac开发者。  1. item2 VS Cmder 终端工具">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/win-mac/iterm.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/win-mac/cmder.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/win-mac/spotlight.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/win-mac/listary1.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/win-mac/listary2.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/win-mac/clover.jpg">
+<meta property="og:updated_time" content="2020-06-09T15:35:53.201Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="如何在Windows下像Mac一样优雅开发">
+<meta name="twitter:description" content="起因：之前一直用Mac开发，换了家公司，只许用Windows下开发，说实话，一开始我是拒绝的，可自从看到了这几个工具以后……   下文大标题说明：（Mac下的工具）VS（Windows下的工具），Mac下的工具说明会简要点，毕竟看文章的基本上都是实在受不了Windows的重度Mac开发者。  1. item2 VS Cmder 终端工具">
+<meta name="twitter:image" content="https://github.com/palmerye/pictureBed/raw/master/win-mac/iterm.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://palmer.arkstack.cn/2017/04/如何在Windows下像Mac一样优雅开发/">
+
+
+
+
+
+  <title> 如何在Windows下像Mac一样优雅开发 | 软硬皆施 </title>
+  <meta name="baidu-site-verification" content="ihL4VoNRDr">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.2/gh-fork-ribbon.min.css">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3591c30f9156b35464cb2b78cf0e563e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">PalmerBlog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <h1 class="site-subtitle" itemprop="description">软硬皆施</h1>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-clock-o"></i> <br>
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://palmer.arkstack.cn/2017/04/如何在Windows下像Mac一样优雅开发/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="PalmerYe">
+    <meta itemprop="description" content>
+    <meta itemprop="image" content="https://github.com/palmerye/pictureBed/raw/master/image/me.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="软硬皆施">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="软硬皆施" src>
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                如何在Windows下像Mac一样优雅开发
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-18T00:03:08+08:00">
+                2017-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2017/04/如何在Windows下像Mac一样优雅开发/" class="leancloud_visitors" data-flag-title="如何在Windows下像Mac一样优雅开发">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>起因：之前一直用Mac开发，换了家公司，只许用Windows下开发，说实话，一开始我是拒绝的，可自从看到了这几个工具以后……</p>
+</blockquote>
+<blockquote>
+<p>下文大标题说明：（Mac下的工具）VS（Windows下的工具），Mac下的工具说明会简要点，毕竟看文章的基本上都是实在受不了Windows的重度Mac开发者。</p>
+</blockquote>
+<h2 id="1-item2-VS-Cmder"><a href="#1-item2-VS-Cmder" class="headerlink" title="1. item2 VS Cmder"></a>1. item2 VS Cmder</h2><blockquote>
+<p>终端工具</p>
+</blockquote>
+<a id="more"></a>
+<h3 id="iterm2"><a href="#iterm2" class="headerlink" title="- iterm2"></a>- iterm2</h3><p><a href="http://www.iterm2.com/documentation.html" target="_blank" rel="noopener">iterm2</a>是Mac下最好用的终端工具，听说没有之一。配合<a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="noopener">oh-my-zsh</a>,你的终端居然可以这样！震惊！！（UC震惊部）<br><img src="https://github.com/palmerye/pictureBed/raw/master/win-mac/iterm.png" alt="image"></p>
+<blockquote>
+<p>池建强大大有一篇文章<a href="http://macshuo.com/?p=676" target="_blank" rel="noopener">《终极 Shell》</a>讲mac下的终端，讲的比较好，贴这。大家可以做取舍。</p>
+</blockquote>
+<h3 id="Cmder"><a href="#Cmder" class="headerlink" title="- Cmder"></a>- Cmder</h3><blockquote>
+<p>如果你用过Windows自带的cmd，简直想shi有没有！页面丑就算了！没有tab！窗口不能缩放！不能用鼠标复制文本！！@#￥%&amp;*￥%…%￥</p>
+</blockquote>
+<p><a href="https://github.com/cmderdev/cmder" target="_blank" rel="noopener">Cmder</a>绝对是一款Windows环境下的cmd替代者，支持了大部分的Linux命令。</p>
+<ul>
+<li>支持tab标签</li>
+<li>集成git</li>
+<li>支持绝大Unix/Linux命令</li>
+<li>但是安装之后一般都会有以下几个问题：<ul>
+<li>中文乱码问题</li>
+<li>文字重叠问题</li>
+<li>λ其实可以替换成$</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://github.com/palmerye/pictureBed/raw/master/win-mac/cmder.png" alt="image"></p>
+<h2 id="2-Homebrew-VS-Chocolatey"><a href="#2-Homebrew-VS-Chocolatey" class="headerlink" title="2. Homebrew VS Chocolatey"></a>2. Homebrew VS Chocolatey</h2><blockquote>
+<p>包管理工具</p>
+</blockquote>
+<h3 id="Homebrew"><a href="#Homebrew" class="headerlink" title="- Homebrew"></a>- Homebrew</h3><p>为什么要用Homebrew？<a href="https://brew.sh/index_zh-cn.html" target="_blank" rel="noopener">官网</a>讲得很露骨，一款macOS缺失的软件包管理器</p>
+<h4 id="安装Homebrew：命令行输入"><a href="#安装Homebrew：命令行输入" class="headerlink" title="安装Homebrew：命令行输入"></a>安装Homebrew：命令行输入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="举个栗子，如果你要安装sublimeText，你可以这样："><a href="#举个栗子，如果你要安装sublimeText，你可以这样：" class="headerlink" title="举个栗子，如果你要安装sublimeText，你可以这样："></a>举个栗子，如果你要安装sublimeText，你可以这样：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install sublime-text</span><br></pre></td></tr></table></figure>
+<h4 id="再优雅点，你可以安装Homebrew的命令行工具homebrew-cask"><a href="#再优雅点，你可以安装Homebrew的命令行工具homebrew-cask" class="headerlink" title="再优雅点，你可以安装Homebrew的命令行工具homebrew-cask"></a>再优雅点，你可以安装Homebrew的命令行工具homebrew-cask</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">brew tap phinze/homebrew-cask &amp;&amp; brew install brew-cask</span><br><span class="line"></span><br><span class="line">然后你可以这样愉快地安装一堆软件</span><br><span class="line"></span><br><span class="line">brew cask install sublime-text skitch dropbox google-chrome</span><br></pre></td></tr></table></figure>
+<h4 id="用Homebrew安装软件有什么好处么？"><a href="#用Homebrew安装软件有什么好处么？" class="headerlink" title="用Homebrew安装软件有什么好处么？"></a>用Homebrew安装软件有什么好处么？</h4><ul>
+<li>将软件包安装到<strong>独立</strong>目录，并将其文件软链接至 /usr/local</li>
+<li>不会将文件安装到它本身目录之外，所以您可将 Homebrew 安装到任意位置</li>
+<li>完全基于git和ruby，所以自由修改的同时你仍可以轻松撤销你的变更或与上游<strong>更新</strong>合并</li>
+</ul>
+<h3 id="Chocolatey"><a href="#Chocolatey" class="headerlink" title="- Chocolatey"></a>- Chocolatey</h3><p>Chocolatey<a href="https://chocolatey.org/" target="_blank" rel="noopener">官网</a>是这么介绍自己的，The package manager for Windows.</p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>嘿嘿，这个时候打开上面提到的cmder命令行工具，输入:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@powershell -NoProfile -ExecutionPolicy Bypass -Command &quot;iex ((New-Object System.Net.WebClient).DownloadString(&apos;https://chocolatey.org/install.ps1&apos;))&quot; &amp;&amp; SET &quot;PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="这个时候如果你也要装sublimeText3，你也可以这样！"><a href="#这个时候如果你也要装sublimeText3，你也可以这样！" class="headerlink" title="这个时候如果你也要装sublimeText3，你也可以这样！"></a>这个时候如果你也要装sublimeText3，你也可以这样！</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">choco install SublimeText3</span><br></pre></td></tr></table></figure>
+<p>是不是很酷！好处同上，具体的配置自行琢磨，这个时候已经和Mac下的体验很接近了。让我们再近一步！~</p>
+<h2 id="3-Spotlight-VS-Listary"><a href="#3-Spotlight-VS-Listary" class="headerlink" title="3. Spotlight VS Listary"></a>3. Spotlight VS Listary</h2><blockquote>
+<p>文件浏览增强工具</p>
+</blockquote>
+<h3 id="Spotlight"><a href="#Spotlight" class="headerlink" title="- Spotlight"></a>- Spotlight</h3><p>自从升级到macOS Sierra后，其实mac自带的Spotlight已经很强大了，至于类似Alfred的神器，我倒觉得一般用户没必要折腾了，当然你想更Geek点，可以折腾下<a href="https://www.alfredapp.com/" target="_blank" rel="noopener">Alfred</a>，毕竟那样看起来很酷！</p>
+<h4 id="安利VueJs时刻！"><a href="#安利VueJs时刻！" class="headerlink" title="安利VueJs时刻！"></a>安利VueJs时刻！</h4><p><img src="https://github.com/palmerye/pictureBed/raw/master/win-mac/spotlight.png" alt="image"></p>
+<h3 id="Listary"><a href="#Listary" class="headerlink" title="- Listary"></a>- Listary</h3><blockquote>
+<p><a href="http://www.listary.com/" target="_blank" rel="noopener">Listary</a>的出现，让突然从Mac转向Windows开发的我产生的强烈排斥心理得到了一定的缓解！</p>
+</blockquote>
+<h4 id="先说说效果"><a href="#先说说效果" class="headerlink" title="先说说效果"></a>先说说效果</h4><p>经过我的配置，我想要打开某一软件或者文件，双击Ctrl，弹出Listary小窗，输入几个模糊关键字，回车！仿佛置身于Mac有没有！！</p>
+<h4 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h4><p><a href="http://www.listary.com/" target="_blank" rel="noopener">官网</a>有free版和Pro版，至于破解还是支持正版…</p>
+<h4 id="界面举栗"><a href="#界面举栗" class="headerlink" title="界面举栗"></a>界面举栗</h4><p><img src="https://github.com/palmerye/pictureBed/raw/master/win-mac/listary1.png" alt="image"></p>
+<p><img src="https://github.com/palmerye/pictureBed/raw/master/win-mac/listary2.png" alt="image"></p>
+<p>如果你是Mac用户，我想是无缝衔接的，配置快捷键后，效率也是极高的！</p>
+<h2 id="4-Clover"><a href="#4-Clover" class="headerlink" title="4. Clover"></a>4. Clover</h2><blockquote>
+<p>给Windows资源管理器加上Tab标签</p>
+</blockquote>
+<ul>
+<li>不知道Windows用户有没有注意到，每次打开我的电脑，会弹出一个新的窗口，再打开，再弹！再打开！再弹！循环个几次，桌面上会有一堆“我的电脑”窗口，是的，一堆……一堆……堆……</li>
+<li>所以你需要一个类似chrome标签一样的工具，帮你窗口整合。这就是[Clover]<strong>唯一</strong>的作用。</li>
+<li>Clover<a href="http://cn.ejie.me/" target="_blank" rel="noopener">下载地址</a></li>
+<li>同样的，你可以将常用的地址存为标签，类似浏览器收藏夹，方便下次打开。</li>
+</ul>
+<p><img src="https://github.com/palmerye/pictureBed/raw/master/win-mac/clover.jpg" alt="image"></p>
+<h2 id="继续寻觅中……"><a href="#继续寻觅中……" class="headerlink" title="继续寻觅中……"></a>继续寻觅中……</h2><p>对我来说，应该是对于绝大部分开发者来说，开发环境的舒适是很重要的，想方设法提高效率，我倒觉得折腾这些工具也是挺有必要的。</p>
+<blockquote>
+<p>应该会持续更新吧，毕竟Windows下坑还很多。</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="https://github.com/palmerye/pictureBed/raw/master/wechat-qrcode.png" alt="PalmerYe wechat" style="width: 200px; max-width: 100%;">
+    <div>世界很大，圈子很小，欢迎关注，相互进步。</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iterm2/" rel="tag"># iterm2</a>
+          
+            <a href="/tags/oh-my-zsh/" rel="tag"># oh-my-zsh</a>
+          
+            <a href="/tags/Cmder/" rel="tag"># Cmder</a>
+          
+            <a href="/tags/Homebrew/" rel="tag"># Homebrew</a>
+          
+            <a href="/tags/Chocolatey/" rel="tag"># Chocolatey</a>
+          
+            <a href="/tags/spotlight/" rel="tag"># spotlight</a>
+          
+            <a href="/tags/Listary/" rel="tag"># Listary</a>
+          
+            <a href="/tags/Clover/" rel="tag"># Clover</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/Git工作流之一--集中式工作流/" rel="next" title="Git工作流之一(集中式工作流)">
+                <i class="fa fa-chevron-left"></i> Git工作流之一(集中式工作流)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/RevealJs-slides演示工具-中文文档/" rel="prev" title="RevealJs(slides演示工具)中文文档">
+                RevealJs(slides演示工具)中文文档 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTIxMi81Nzc5"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="https://github.com/palmerye/pictureBed/raw/master/image/me.jpg" alt="PalmerYe">
+          <p class="site-author-name" itemprop="name">PalmerYe</p>
+          <p class="site-description motion-element" itemprop="description">日子如何，力量就如何</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/palmerye" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2548546880" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/palmerye.github.io" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/palmerye/pictureBed/raw/master/wechat-qrcode.png" target="_blank" title="微信">
+                  
+                    <i class="fa fa-fw fa-weixin"></i>
+                  
+                  微信
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://toutiao.io/subjects/46457" target="_blank" rel="external nofollow">开发者头条独家号</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://javascript.ruanyifeng.com/" target="_blank" rel="external nofollow">JavaScript 标准参考教程</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yangmingming.me/" target="_blank" rel="external nofollow">小伙伴_yangmm</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://aleonchen.com/" target="_blank" rel="external nofollow">小伙伴_aleon</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://7le.top/" target="_blank" rel="external nofollow">小伙伴_7le</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-item2-VS-Cmder"><span class="nav-number">1.</span> <span class="nav-text">1. item2 VS Cmder</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#iterm2"><span class="nav-number">1.1.</span> <span class="nav-text">- iterm2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cmder"><span class="nav-number">1.2.</span> <span class="nav-text">- Cmder</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Homebrew-VS-Chocolatey"><span class="nav-number">2.</span> <span class="nav-text">2. Homebrew VS Chocolatey</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Homebrew"><span class="nav-number">2.1.</span> <span class="nav-text">- Homebrew</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Homebrew：命令行输入"><span class="nav-number">2.1.1.</span> <span class="nav-text">安装Homebrew：命令行输入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#举个栗子，如果你要安装sublimeText，你可以这样："><span class="nav-number">2.1.2.</span> <span class="nav-text">举个栗子，如果你要安装sublimeText，你可以这样：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#再优雅点，你可以安装Homebrew的命令行工具homebrew-cask"><span class="nav-number">2.1.3.</span> <span class="nav-text">再优雅点，你可以安装Homebrew的命令行工具homebrew-cask</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#用Homebrew安装软件有什么好处么？"><span class="nav-number">2.1.4.</span> <span class="nav-text">用Homebrew安装软件有什么好处么？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chocolatey"><span class="nav-number">2.2.</span> <span class="nav-text">- Chocolatey</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装"><span class="nav-number">2.2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#这个时候如果你也要装sublimeText3，你也可以这样！"><span class="nav-number">2.2.2.</span> <span class="nav-text">这个时候如果你也要装sublimeText3，你也可以这样！</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Spotlight-VS-Listary"><span class="nav-number">3.</span> <span class="nav-text">3. Spotlight VS Listary</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spotlight"><span class="nav-number">3.1.</span> <span class="nav-text">- Spotlight</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安利VueJs时刻！"><span class="nav-number">3.1.1.</span> <span class="nav-text">安利VueJs时刻！</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Listary"><span class="nav-number">3.2.</span> <span class="nav-text">- Listary</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#先说说效果"><span class="nav-number">3.2.1.</span> <span class="nav-text">先说说效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#下载安装"><span class="nav-number">3.2.2.</span> <span class="nav-text">下载安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#界面举栗"><span class="nav-number">3.2.3.</span> <span class="nav-text">界面举栗</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Clover"><span class="nav-number">4.</span> <span class="nav-text">4. Clover</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继续寻觅中……"><span class="nav-number">5.</span> <span class="nav-text">继续寻觅中……</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-angellist"></i>
+  </span>
+  <a class="theme-link" href="https://github.com/palmerye" target="view_window" style="cursor: pointer" rel="external nofollow">
+    PalmerYe
+  </a>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a>
+</div>
+
+<span id="busuanzi_container_site_pv">
+  PV <span id="busuanzi_value_site_pv"></span>
+</span>
+<span id="busuanzi_container_site_uv">
+  &nbsp&nbsp | &nbsp&nbsp UV <span id="busuanzi_value_site_uv"></span>
+</span>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("NXWLky4LTDguctQ8g9SUsDYM-gzGzoHsz", "auLUiVI8n4oh3HrxbGkiLpA8");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  <a class="github-fork-ribbon left-bottom fixed" href="https://github.com/palmerye/palmerye.github.io" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+</body>
+</html>
