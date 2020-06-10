@@ -1,0 +1,1142 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="ffPV4KDwl6idDzD9KMmrhGrqYT_mudd5dZUf1H6XxVU">
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="Nodejs,">
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0">
+
+
+
+
+
+
+<meta name="description" content="Node.js 调试的痛点对于绝大部分前端人员，对JavaScript的调试更多停留在浏览器中，类似console.log和debugger，但这种方式对代码侵入性较高，甚至需要刷新页面或重启编译器。转向服务端后，没有浏览器界面，如果仅停留在原来的调试方式，开发效率想必是较低的。因此，前端人员转向服务端开发时，要习惯于命令行及 IDE 等调试手段，走出舒适区，才能准确定位问题，提高开发效率。">
+<meta name="keywords" content="Nodejs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nodejs调试的各种姿势">
+<meta property="og:url" content="http://palmer.arkstack.cn/2019/05/Nodejs调试的各种姿势/index.html">
+<meta property="og:site_name" content="软硬皆施">
+<meta property="og:description" content="Node.js 调试的痛点对于绝大部分前端人员，对JavaScript的调试更多停留在浏览器中，类似console.log和debugger，但这种方式对代码侵入性较高，甚至需要刷新页面或重启编译器。转向服务端后，没有浏览器界面，如果仅停留在原来的调试方式，开发效率想必是较低的。因此，前端人员转向服务端开发时，要习惯于命令行及 IDE 等调试手段，走出舒适区，才能准确定位问题，提高开发效率。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd25265f9ad78d?w=673&h=256&f=png&s=34924">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd253452dfafe6?w=674&h=257&f=png&s=36144">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd25375cf0f310?w=1188&h=378&f=png&s=41820">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd2539f2338697?w=888&h=466&f=png&s=70320">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd253da54e566e?w=436&h=295&f=png&s=21560">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd2541c7f92416?w=690&h=437&f=png&s=51805">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd25474fd14abd?w=802&h=311&f=png&s=57632">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd254e6ded40d6?w=948&h=783&f=png&s=136426">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd25512aecf597?w=609&h=309&f=png&s=31760">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd255462c0dc83?w=948&h=783&f=png&s=140285">
+<meta property="og:updated_time" content="2020-06-10T03:06:53.480Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Nodejs调试的各种姿势">
+<meta name="twitter:description" content="Node.js 调试的痛点对于绝大部分前端人员，对JavaScript的调试更多停留在浏览器中，类似console.log和debugger，但这种方式对代码侵入性较高，甚至需要刷新页面或重启编译器。转向服务端后，没有浏览器界面，如果仅停留在原来的调试方式，开发效率想必是较低的。因此，前端人员转向服务端开发时，要习惯于命令行及 IDE 等调试手段，走出舒适区，才能准确定位问题，提高开发效率。">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd25265f9ad78d?w=673&h=256&f=png&s=34924">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://palmer.arkstack.cn/2019/05/Nodejs调试的各种姿势/">
+
+
+
+
+
+  <title> Nodejs调试的各种姿势 | 软硬皆施 </title>
+  <meta name="baidu-site-verification" content="ihL4VoNRDr">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.2/gh-fork-ribbon.min.css">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?3591c30f9156b35464cb2b78cf0e563e";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">PalmerBlog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <h1 class="site-subtitle" itemprop="description">软硬皆施</h1>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-clock-o"></i> <br>
+            
+            时间轴
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://palmer.arkstack.cn/2019/05/Nodejs调试的各种姿势/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="PalmerYe">
+    <meta itemprop="description" content>
+    <meta itemprop="image" content="https://github.com/palmerye/pictureBed/raw/master/image/me.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="软硬皆施">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="软硬皆施" src>
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                Nodejs调试的各种姿势
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-22T13:22:13+00:00">
+                2019-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+             <span id="/2019/05/Nodejs调试的各种姿势/" class="leancloud_visitors" data-flag-title="Nodejs调试的各种姿势">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Node-js-调试的痛点"><a href="#Node-js-调试的痛点" class="headerlink" title="Node.js 调试的痛点"></a>Node.js 调试的痛点</h2><p>对于绝大部分前端人员，对<code>JavaScript</code>的调试更多停留在浏览器中，类似<code>console.log</code>和<code>debugger</code>，但这种方式对代码侵入性较高，甚至需要刷新页面或重启编译器。转向服务端后，没有浏览器界面，如果仅停留在原来的调试方式，开发效率想必是较低的。因此，前端人员转向服务端开发时，要习惯于命令行及 IDE 等调试手段，走出舒适区，才能准确定位问题，提高开发效率。</p>
+<a id="more"></a>
+<h2 id="Node-js-调试的手段"><a href="#Node-js-调试的手段" class="headerlink" title="Node.js 调试的手段"></a>Node.js 调试的手段</h2><blockquote>
+<p>下文中涉及到的依赖库及软件版本</p>
+</blockquote>
+<ul>
+<li>Node.js - v10.15.3</li>
+<li>Chrome - v72.0.3626</li>
+<li>VS Code - v1.13.0</li>
+</ul>
+<blockquote>
+<p>以下代码段为例，用<code>koa</code>起一个简单的<code>http server</code></p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line">app.use(<span class="keyword">async</span> ctx =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    ctx.body = <span class="string">`hello, hiker! <span class="subst">$&#123;time&#125;</span>`</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'nodejs listening 3000.'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h3 id="1-console-log"><a href="#1-console-log" class="headerlink" title="1. console.log()"></a>1. console.log()</h3><p>对前端人员非常友好，与浏览器中调试一样，<code>console.log()</code>、<code>console.error()</code>、<code>console.time()</code>等各种<code>console</code>形式，在代码中需要调试的地方直接写上，只是展示形式有所不同，在<code>Node.js</code>中是在终端命令行中打印。这是最简单快速的调试手段，<strong>缺点</strong>也很明显，对原有代码入侵较大，在特定场景中使用较局限。</p>
+<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">app.use(<span class="keyword">async</span> ctx =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.time(<span class="string">'TIME_TAKE'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'this is time'</span>, time);</span><br><span class="line"></span><br><span class="line">    ctx.body = <span class="string">`hello, hiker! <span class="subst">$&#123;time&#125;</span>`</span>;</span><br><span class="line">    <span class="built_in">console</span>.timeEnd(<span class="string">'TIME_TAKE'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'nodejs listening 3000.'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><blockquote>
+<p>终端起服务：<code>node index.js</code>，并浏览器访问<code>localhost:3000</code>, 即可在终端命令行中看到相应打印的日志。</p>
+</blockquote>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd25265f9ad78d?w=673&amp;h=256&amp;f=png&amp;s=34924" alt></p>
+<h3 id="2-Debugger-Protocol-node-inspector"><a href="#2-Debugger-Protocol-node-inspector" class="headerlink" title="2. Debugger Protocol (node-inspector)"></a>2. Debugger Protocol (node-inspector)</h3><blockquote>
+<p><code>Nodejs v6.3+</code> 的版本提供了两个用于调试的协议：<code>v8 Debugger Protocol</code> 和 <code>v8 Inspector Protocol</code> 可以使用第三方的 Client/IDE 等监测和介入 Node(v8) 运行过程，进行调试。</p>
+</blockquote>
+<p><a href="https://github.com/node-inspector/node-inspector" target="_blank" rel="noopener">node-inspector</a>是早期可以基于Chrome，有可视化调试界面的调试工具，用的是<code>v8 Debugger Protocol</code>协议，通过 TCP 端口与 Client/IDE 交互通信。但由于<code>v8 Inspector Protocol</code>的推出，这个工具逐渐被替代，后文会介绍相应替代方案。</p>
+<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g node-inspector</span><br><span class="line"></span><br><span class="line">通过浏览器连接到node-inspector，启动inspector服务：</span><br><span class="line">$ node-inspector</span><br><span class="line"></span><br><span class="line">以debug模式运行node.js应用：</span><br><span class="line">$ node --debug=5858 index.js</span><br><span class="line"></span><br><span class="line">浏览器打开 http://127.0.0.1:8080/debug?port=5858，后台会提供一个类似于 chrome devtools 的 UI 调试界面。</span><br></pre></td></tr></table></figure>
+<h3 id="3-Inspector-Protocol-Chrome-DevTools"><a href="#3-Inspector-Protocol-Chrome-DevTools" class="headerlink" title="3. Inspector Protocol + Chrome DevTools"></a>3. Inspector Protocol + Chrome DevTools</h3><blockquote>
+<p><code>v8 Inspector Protocol</code> 是 <code>nodejs v6.3</code> 新加入的调试协议，通过 <code>websocket</code>与 Client/IDE 交互，同时基于 Chrome/Chromium 浏览器的 devtools 提供了图形化的调试界面。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node --inspect=<span class="number">9222</span> index.js</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果程序执行完会直接结束进程的，那么<code>--inspect</code>会一闪而过，断点信号还没发送出去前就结束了，断点根本不起作用，这种情况可以用<code>--inspect-brk</code>启动调试器，使得脚本可以代码执行之前<code>break</code>。</p>
+</blockquote>
+<h4 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h4><p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd253452dfafe6?w=674&amp;h=257&amp;f=png&amp;s=36144" alt></p>
+<p><code>ws://127.0.0.1:9222/a45dc332-2c8c-4614-bf01-1dbf212ae28a</code>这个不是提供给我们在Chrome浏览器中访问的地址，而是Node.js和Chrome之间进行通信的的地址，通过websocket进行通信，从而将调试结果实时展示在Chrome浏览器中。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd25375cf0f310?w=1188&amp;h=378&amp;f=png&amp;s=41820" alt></p>
+<p>那么如何获取在chrome浏览器中的调试地址？我们可以访问<code>http://localhost:9222/json/list</code>，可以看到相应信息。其中id为UUID，是一个特定的标识，每一个进程都会分配一个uuid，因此每一次调用会有出现不同的结果。<code>devtoolsFrontendUrl</code>则为我们要访问的chrome地址，新窗口打开这个地址即可调试。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd2539f2338697?w=888&amp;h=466&amp;f=png&amp;s=70320" alt></p>
+<h4 id="更便捷的调试入口"><a href="#更便捷的调试入口" class="headerlink" title="更便捷的调试入口"></a>更便捷的调试入口</h4><blockquote>
+<p>上述步骤是不是有点麻烦，不要紧，强大的Chrome提供了更方便的调试入口。</p>
+</blockquote>
+<p><code>node --inspect=9222 index.js</code>起服务后，打开浏览器访问http监听端口页面，并打开调试窗口，可以看到一个绿色的按钮，点开即可下断点调试，是不是很方便？</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd253da54e566e?w=436&amp;h=295&amp;f=png&amp;s=21560" alt></p>
+<blockquote>
+<p>这个绿油油的按钮究竟打开了什么呢？我们可以继续看。访问<code>chrome://inspect/#devices</code>，可以看到当前浏览器监听的所有<code>inspect</code></p>
+</blockquote>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd2541c7f92416?w=690&amp;h=437&amp;f=png&amp;s=51805" alt></p>
+<p>到这里，我们就可以利用Chrome DevTools的各类功能，<code>Sources Panel</code>查看脚本、<code>Profile Panel</code>监测性能等，文中不具体展开。</p>
+<h3 id="4-Inspector-Protocol-VS-Code"><a href="#4-Inspector-Protocol-VS-Code" class="headerlink" title="4. Inspector Protocol + VS Code"></a>4. Inspector Protocol + VS Code</h3><blockquote>
+<p>对服务端开发来讲，浏览器的使用反而不那么频繁，因此在IDE中调试<code>Nodejs</code>显得格外重要。值得高兴的是，市面上各类IDE对<code>Nodejs</code>的调试还算友好，尤其是VS Code。它内置了<code>Node debugger</code>，支持<code>v8 Debugger Protocol</code>和<code>v8 Inspector Protocol</code>两种协议。</p>
+</blockquote>
+<h4 id="launch"><a href="#launch" class="headerlink" title="launch"></a>launch</h4><blockquote>
+</blockquote>
+<p>在VS Code中，打开<code>调试</code>/<code>添加配置</code>/，如下图，添加launch配置，点击开始调试即可。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;node&quot;,</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">            &quot;name&quot;: &quot;Launch Program&quot;,</span><br><span class="line">            &quot;program&quot;: &quot;$&#123;workspaceFolder&#125;\\index.js&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd25474fd14abd?w=802&amp;h=311&amp;f=png&amp;s=57632" alt></p>
+<p>下图展示了调试窗口，可以看到，我们可以直接在IDE中下断点，左侧小窗口中可以看到当前作用域的变量（可展开树），调用堆栈，所有断点等，右上方亦可逐步调试函数、重启等功能，非常强大。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd254e6ded40d6?w=948&amp;h=783&amp;f=png&amp;s=136426" alt></p>
+<h4 id="Auto-Attach"><a href="#Auto-Attach" class="headerlink" title="Auto Attach"></a>Auto Attach</h4><blockquote>
+<p>同样VS Code提供了自动附加的功能：Auto Attach。不用配置即可快速调试。</p>
+</blockquote>
+<p><code>Ctrl+Shift+p</code>打开Auto Attach功能，然后同样的方式在终端命令行中：<code>node --inspect=9222 .\index.js</code></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd25512aecf597?w=609&amp;h=309&amp;f=png&amp;s=31760" alt></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd255462c0dc83?w=948&amp;h=783&amp;f=png&amp;s=140285" alt></p>
+<h2 id="醉后"><a href="#醉后" class="headerlink" title="醉后"></a>醉后</h2><p>本文总结了<code>Nodejs</code>的调试方法，基本涵盖了所有的调试手段，包括了命令行调试，Chrome浏览器调试，VS Code编辑器调试，并深入部分调试协议，图文结合，可供其他的<code>Nodejs</code>开发者参考，降低开发人员的学习成本，在项目工程应用中，准确定位问题，提高开发效率。</p>
+<h2 id="参考文献："><a href="#参考文献：" class="headerlink" title="参考文献："></a>参考文献：</h2><p><a href="http://nodejs.cn/api/inspector.html" target="_blank" rel="noopener">http://nodejs.cn/api/inspector.html</a></p>
+<p><a href="http://nodejs.cn/api/debugger.html" target="_blank" rel="noopener">http://nodejs.cn/api/debugger.html</a></p>
+<p><a href="http://i5ting.github.io/vsc/#1" target="_blank" rel="noopener">http://i5ting.github.io/vsc/#1</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="https://github.com/palmerye/pictureBed/raw/master/wechat-qrcode.png" alt="PalmerYe wechat" style="width: 200px; max-width: 100%;">
+    <div>世界很大，圈子很小，欢迎关注，相互进步。</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Nodejs/" rel="tag"># Nodejs</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/DOM操作成本到底高在哪儿/" rel="next" title="DOM操作成本到底高在哪儿？">
+                <i class="fa fa-chevron-left"></i> DOM操作成本到底高在哪儿？
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/记一次换行符引发的事故/" rel="prev" title="记一次换行符引发的事故">
+                记一次换行符引发的事故 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_tqq"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_renren"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_kaixin001"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript">
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="lv-container" data-id="city" data-uid="MTAyMC8yOTIxMi81Nzc5"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="https://github.com/palmerye/pictureBed/raw/master/image/me.jpg" alt="PalmerYe">
+          <p class="site-author-name" itemprop="name">PalmerYe</p>
+          <p class="site-description motion-element" itemprop="description">日子如何，力量就如何</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/palmerye" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2548546880" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/palmerye.github.io" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/palmerye/pictureBed/raw/master/wechat-qrcode.png" target="_blank" title="微信">
+                  
+                    <i class="fa fa-fw fa-weixin"></i>
+                  
+                  微信
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://toutiao.io/subjects/46457" target="_blank" rel="external nofollow">开发者头条独家号</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://javascript.ruanyifeng.com/" target="_blank" rel="external nofollow">JavaScript 标准参考教程</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://yangmingming.me/" target="_blank" rel="external nofollow">小伙伴_yangmm</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://aleonchen.com/" target="_blank" rel="external nofollow">小伙伴_aleon</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://7le.top/" target="_blank" rel="external nofollow">小伙伴_7le</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-调试的痛点"><span class="nav-number">1.</span> <span class="nav-text">Node.js 调试的痛点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-调试的手段"><span class="nav-number">2.</span> <span class="nav-text">Node.js 调试的手段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-console-log"><span class="nav-number">2.1.</span> <span class="nav-text">1. console.log()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#举例"><span class="nav-number">2.1.1.</span> <span class="nav-text">举例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结果"><span class="nav-number">2.1.2.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Debugger-Protocol-node-inspector"><span class="nav-number">2.2.</span> <span class="nav-text">2. Debugger Protocol (node-inspector)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方式"><span class="nav-number">2.2.1.</span> <span class="nav-text">使用方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Inspector-Protocol-Chrome-DevTools"><span class="nav-number">2.3.</span> <span class="nav-text">3. Inspector Protocol + Chrome DevTools</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#结果-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更便捷的调试入口"><span class="nav-number">2.3.2.</span> <span class="nav-text">更便捷的调试入口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Inspector-Protocol-VS-Code"><span class="nav-number">2.4.</span> <span class="nav-text">4. Inspector Protocol + VS Code</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#launch"><span class="nav-number">2.4.1.</span> <span class="nav-text">launch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Auto-Attach"><span class="nav-number">2.4.2.</span> <span class="nav-text">Auto Attach</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#醉后"><span class="nav-number">3.</span> <span class="nav-text">醉后</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献："><span class="nav-number">4.</span> <span class="nav-text">参考文献：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-angellist"></i>
+  </span>
+  <a class="theme-link" href="https://github.com/palmerye" target="view_window" style="cursor: pointer" rel="external nofollow">
+    PalmerYe
+  </a>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="http://hexo.io" rel="external nofollow">Hexo</a>
+</div>
+
+<span id="busuanzi_container_site_pv">
+  PV <span id="busuanzi_value_site_pv"></span>
+</span>
+<span id="busuanzi_container_site_uv">
+  &nbsp&nbsp | &nbsp&nbsp UV <span id="busuanzi_value_site_uv"></span>
+</span>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("NXWLky4LTDguctQ8g9SUsDYM-gzGzoHsz", "auLUiVI8n4oh3HrxbGkiLpA8");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  <a class="github-fork-ribbon left-bottom fixed" href="https://github.com/palmerye/palmerye.github.io" data-ribbon="Fork me on GitHub" title="Fork me on GitHub">Fork me on GitHub</a>
+</body>
+</html>
