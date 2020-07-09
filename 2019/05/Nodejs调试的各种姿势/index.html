@@ -94,21 +94,21 @@
 <meta property="og:site_name" content="软硬皆施">
 <meta property="og:description" content="Node.js 调试的痛点对于绝大部分前端人员，对JavaScript的调试更多停留在浏览器中，类似console.log和debugger，但这种方式对代码侵入性较高，甚至需要刷新页面或重启编译器。转向服务端后，没有浏览器界面，如果仅停留在原来的调试方式，开发效率想必是较低的。因此，前端人员转向服务端开发时，要习惯于命令行及 IDE 等调试手段，走出舒适区，才能准确定位问题，提高开发效率。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd25265f9ad78d?w=673&h=256&f=png&s=34924">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd253452dfafe6?w=674&h=257&f=png&s=36144">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd25375cf0f310?w=1188&h=378&f=png&s=41820">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd2539f2338697?w=888&h=466&f=png&s=70320">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd253da54e566e?w=436&h=295&f=png&s=21560">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd2541c7f92416?w=690&h=437&f=png&s=51805">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd25474fd14abd?w=802&h=311&f=png&s=57632">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd254e6ded40d6?w=948&h=783&f=png&s=136426">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd25512aecf597?w=609&h=309&f=png&s=31760">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd255462c0dc83?w=948&h=783&f=png&s=140285">
-<meta property="og:updated_time" content="2020-07-09T11:27:45.756Z">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16cd25265f9ad78d.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16cd253452dfafe6.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16cd25375cf0f310.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16cd2539f2338697.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16cd253da54e566e.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16cd2541c7f92416.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16cd25474fd14abd.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16cd254e6ded40d6.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16cd25512aecf597.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16cd255462c0dc83.png">
+<meta property="og:updated_time" content="2020-07-09T12:04:27.747Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nodejs调试的各种姿势">
 <meta name="twitter:description" content="Node.js 调试的痛点对于绝大部分前端人员，对JavaScript的调试更多停留在浏览器中，类似console.log和debugger，但这种方式对代码侵入性较高，甚至需要刷新页面或重启编译器。转向服务端后，没有浏览器界面，如果仅停留在原来的调试方式，开发效率想必是较低的。因此，前端人员转向服务端开发时，要习惯于命令行及 IDE 等调试手段，走出舒适区，才能准确定位问题，提高开发效率。">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd25265f9ad78d?w=673&h=256&f=png&s=34924">
+<meta name="twitter:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16cd25265f9ad78d.png">
 
 
 
@@ -405,7 +405,7 @@
 <h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><blockquote>
 <p>终端起服务：<code>node index.js</code>，并浏览器访问<code>localhost:3000</code>, 即可在终端命令行中看到相应打印的日志。</p>
 </blockquote>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd25265f9ad78d?w=673&amp;h=256&amp;f=png&amp;s=34924" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cd25265f9ad78d.png" alt></p>
 <h3 id="2-Debugger-Protocol-node-inspector"><a href="#2-Debugger-Protocol-node-inspector" class="headerlink" title="2. Debugger Protocol (node-inspector)"></a>2. Debugger Protocol (node-inspector)</h3><blockquote>
 <p><code>Nodejs v6.3+</code> 的版本提供了两个用于调试的协议：<code>v8 Debugger Protocol</code> 和 <code>v8 Inspector Protocol</code> 可以使用第三方的 Client/IDE 等监测和介入 Node(v8) 运行过程，进行调试。</p>
 </blockquote>
@@ -418,20 +418,20 @@
 <blockquote>
 <p>如果程序执行完会直接结束进程的，那么<code>--inspect</code>会一闪而过，断点信号还没发送出去前就结束了，断点根本不起作用，这种情况可以用<code>--inspect-brk</code>启动调试器，使得脚本可以代码执行之前<code>break</code>。</p>
 </blockquote>
-<h4 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h4><p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd253452dfafe6?w=674&amp;h=257&amp;f=png&amp;s=36144" alt></p>
+<h4 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h4><p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cd253452dfafe6.png" alt></p>
 <p><code>ws://127.0.0.1:9222/a45dc332-2c8c-4614-bf01-1dbf212ae28a</code>这个不是提供给我们在Chrome浏览器中访问的地址，而是Node.js和Chrome之间进行通信的的地址，通过websocket进行通信，从而将调试结果实时展示在Chrome浏览器中。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd25375cf0f310?w=1188&amp;h=378&amp;f=png&amp;s=41820" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cd25375cf0f310.png" alt></p>
 <p>那么如何获取在chrome浏览器中的调试地址？我们可以访问<code>http://localhost:9222/json/list</code>，可以看到相应信息。其中id为UUID，是一个特定的标识，每一个进程都会分配一个uuid，因此每一次调用会有出现不同的结果。<code>devtoolsFrontendUrl</code>则为我们要访问的chrome地址，新窗口打开这个地址即可调试。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd2539f2338697?w=888&amp;h=466&amp;f=png&amp;s=70320" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cd2539f2338697.png" alt></p>
 <h4 id="更便捷的调试入口"><a href="#更便捷的调试入口" class="headerlink" title="更便捷的调试入口"></a>更便捷的调试入口</h4><blockquote>
 <p>上述步骤是不是有点麻烦，不要紧，强大的Chrome提供了更方便的调试入口。</p>
 </blockquote>
 <p><code>node --inspect=9222 index.js</code>起服务后，打开浏览器访问http监听端口页面，并打开调试窗口，可以看到一个绿色的按钮，点开即可下断点调试，是不是很方便？</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd253da54e566e?w=436&amp;h=295&amp;f=png&amp;s=21560" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cd253da54e566e.png" alt></p>
 <blockquote>
 <p>这个绿油油的按钮究竟打开了什么呢？我们可以继续看。访问<code>chrome://inspect/#devices</code>，可以看到当前浏览器监听的所有<code>inspect</code></p>
 </blockquote>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd2541c7f92416?w=690&amp;h=437&amp;f=png&amp;s=51805" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cd2541c7f92416.png" alt></p>
 <p>到这里，我们就可以利用Chrome DevTools的各类功能，<code>Sources Panel</code>查看脚本、<code>Profile Panel</code>监测性能等，文中不具体展开。</p>
 <h3 id="4-Inspector-Protocol-VS-Code"><a href="#4-Inspector-Protocol-VS-Code" class="headerlink" title="4. Inspector Protocol + VS Code"></a>4. Inspector Protocol + VS Code</h3><blockquote>
 <p>对服务端开发来讲，浏览器的使用反而不那么频繁，因此在IDE中调试<code>Nodejs</code>显得格外重要。值得高兴的是，市面上各类IDE对<code>Nodejs</code>的调试还算友好，尤其是VS Code。它内置了<code>Node debugger</code>，支持<code>v8 Debugger Protocol</code>和<code>v8 Inspector Protocol</code>两种协议。</p>
@@ -440,15 +440,15 @@
 </blockquote>
 <p>在VS Code中，打开<code>调试</code>/<code>添加配置</code>/，如下图，添加launch配置，点击开始调试即可。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;node&quot;,</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">            &quot;name&quot;: &quot;Launch Program&quot;,</span><br><span class="line">            &quot;program&quot;: &quot;$&#123;workspaceFolder&#125;\\index.js&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd25474fd14abd?w=802&amp;h=311&amp;f=png&amp;s=57632" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cd25474fd14abd.png" alt></p>
 <p>下图展示了调试窗口，可以看到，我们可以直接在IDE中下断点，左侧小窗口中可以看到当前作用域的变量（可展开树），调用堆栈，所有断点等，右上方亦可逐步调试函数、重启等功能，非常强大。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd254e6ded40d6?w=948&amp;h=783&amp;f=png&amp;s=136426" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cd254e6ded40d6.png" alt></p>
 <h4 id="Auto-Attach"><a href="#Auto-Attach" class="headerlink" title="Auto Attach"></a>Auto Attach</h4><blockquote>
 <p>同样VS Code提供了自动附加的功能：Auto Attach。不用配置即可快速调试。</p>
 </blockquote>
 <p><code>Ctrl+Shift+p</code>打开Auto Attach功能，然后同样的方式在终端命令行中：<code>node --inspect=9222 .\index.js</code></p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd25512aecf597?w=609&amp;h=309&amp;f=png&amp;s=31760" alt></p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd255462c0dc83?w=948&amp;h=783&amp;f=png&amp;s=140285" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cd25512aecf597.png" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cd255462c0dc83.png" alt></p>
 <h2 id="醉后"><a href="#醉后" class="headerlink" title="醉后"></a>醉后</h2><p>本文总结了<code>Nodejs</code>的调试方法，基本涵盖了所有的调试手段，包括了命令行调试，Chrome浏览器调试，VS Code编辑器调试，并深入部分调试协议，图文结合，可供其他的<code>Nodejs</code>开发者参考，降低开发人员的学习成本，在项目工程应用中，准确定位问题，提高开发效率。</p>
 <h2 id="参考文献："><a href="#参考文献：" class="headerlink" title="参考文献："></a>参考文献：</h2><p><a href="http://nodejs.cn/api/inspector.html" target="_blank" rel="noopener">http://nodejs.cn/api/inspector.html</a></p>
 <p><a href="http://nodejs.cn/api/debugger.html" target="_blank" rel="noopener">http://nodejs.cn/api/debugger.html</a></p>
@@ -500,7 +500,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/09/记一次换行符引发的事故/" rel="prev" title="记一次换行符引发的事故">
+              <a href="/2019/08/记一次换行符引发的事故/" rel="prev" title="记一次换行符引发的事故">
                 记一次换行符引发的事故 <i class="fa fa-chevron-right"></i>
               </a>
             

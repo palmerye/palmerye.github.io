@@ -93,22 +93,22 @@
 <meta property="og:site_name" content="软硬皆施">
 <meta property="og:description" content="背景是在某项目中的其中一个页面，接入现场真实数据后，加载时间很长，长达10几秒，严重影响用户体验。  排查原因 在chrome的DevTools中，清缓存硬加载，可模拟用户第一次访问页面的场景。根据Network中的若干指标，对性能瓶颈初步判断：  requests：在HTTP / 1.0或HTTP / 1.1连接上，Chrome每个主机最多允许六个同时TCP连接，所以请求数过多会导致TTFB等">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb705ee0cabdca?w=1715&h=958&f=png&s=170697">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb7069c64abdd8?w=798&h=273&f=jpeg&s=63900">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb706ea07cde48?w=500&h=500&f=png&s=25422">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb70716163cc27?w=936&h=499&f=png&s=38664">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb7077465f16af?w=1466&h=670&f=png&s=89229">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb7079d8778db4?w=378&h=382&f=png&s=94562">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb7083b5dea792?w=1461&h=825&f=png&s=158104">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb7088c845bb9c?w=1461&h=825&f=png&s=140257">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb708ec04d6764?w=1460&h=825&f=png&s=149432">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb70941836bae9?w=1393&h=693&f=png&s=196906">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb709772e83263?w=1390&h=697&f=png&s=190624">
-<meta property="og:updated_time" content="2020-07-09T11:27:45.760Z">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16eb705ee0cabdca.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16eb7069c64abdd8.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16eb706ea07cde48.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16eb70716163cc27.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16eb7077465f16af.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16eb7079d8778db4.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16eb7083b5dea792.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16eb7088c845bb9c.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16eb708ec04d6764.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16eb70941836bae9.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16eb709772e83263.png">
+<meta property="og:updated_time" content="2020-07-09T12:04:27.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="懒加载在前端性能优化的应用及原理">
 <meta name="twitter:description" content="背景是在某项目中的其中一个页面，接入现场真实数据后，加载时间很长，长达10几秒，严重影响用户体验。  排查原因 在chrome的DevTools中，清缓存硬加载，可模拟用户第一次访问页面的场景。根据Network中的若干指标，对性能瓶颈初步判断：  requests：在HTTP / 1.0或HTTP / 1.1连接上，Chrome每个主机最多允许六个同时TCP连接，所以请求数过多会导致TTFB等">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb705ee0cabdca?w=1715&h=958&f=png&s=170697">
+<meta name="twitter:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16eb705ee0cabdca.png">
 
 
 
@@ -389,7 +389,7 @@
         <blockquote>
 <p>背景是在某项目中的其中一个页面，接入现场真实数据后，加载时间很长，长达10几秒，严重影响用户体验。</p>
 </blockquote>
-<h2 id="排查原因"><a href="#排查原因" class="headerlink" title="排查原因"></a>排查原因</h2><p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb705ee0cabdca?w=1715&amp;h=958&amp;f=png&amp;s=170697" alt></p>
+<h2 id="排查原因"><a href="#排查原因" class="headerlink" title="排查原因"></a>排查原因</h2><p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb705ee0cabdca.png" alt></p>
 <p>在<code>chrome</code>的<code>DevTools</code>中，清缓存硬加载，可模拟用户第一次访问页面的场景。根据<code>Network</code>中的若干指标，对性能瓶颈初步判断：</p>
 <ul>
 <li><code>requests</code>：在<code>HTTP / 1.0</code>或<code>HTTP / 1.1</code>连接上，<code>Chrome</code>每个主机最多允许六个同时<code>TCP</code>连接，所以请求数过多会导致<code>TTFB</code>等待时间过长。</li>
@@ -402,7 +402,7 @@
 <li><code>ajax</code>接口时间过长，主要在后端接口的优化，Nodejs（BFF层）基于微服务的能力，所以要加快服务调用速度，减少服务调用数量，在业务上进行优化（缓存、批量接口、非必要数据异步请求…），当然自身代码层的运行效率也要考虑。</li>
 <li>请求资源过大过多的问题，可优化img这类图片为懒加载（下文会提到），当大数据塞到数组对象里遍历渲染的时候，对不可见的组件进行懒加载，节省性能及页面渲染时间的开支；压缩图片格式，例如<a href="https://www.zhihu.com/question/27201061/answer/35637827" target="_blank" rel="noopener">WebP格式</a>；</li>
 </ol>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb7069c64abdd8?w=798&amp;h=273&amp;f=jpeg&amp;s=63900" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb7069c64abdd8.png" alt></p>
 <blockquote>
 <p>对比 PNG 原图、PNG 无损压缩、PNG 转 WebP（无损）、PNG 转 WebP（有损）的压缩效果图</p>
 </blockquote>
@@ -427,8 +427,8 @@
 <h5 id="getBoundingClientRect"><a href="#getBoundingClientRect" class="headerlink" title="getBoundingClientRect"></a>getBoundingClientRect</h5><blockquote>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect" target="_blank" rel="noopener">MDN</a>中的定义：<code>Element.getBoundingClientRect()</code>方法返回元素的大小及其相对于视口的位置。</p>
 </blockquote>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb706ea07cde48?w=500&amp;h=500&amp;f=png&amp;s=25422" alt></p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb70716163cc27?w=936&amp;h=499&amp;f=png&amp;s=38664" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb706ea07cde48.png" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb70716163cc27.png" alt></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取元素的getBoundingClientRect属性</span></span><br><span class="line"><span class="keyword">const</span> rect = Element.getBoundingClientRect();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(rect.top &lt; <span class="built_in">document</span>.documentElement.clientHeight) &#123;</span><br><span class="line">    <span class="comment">// 将top值与页面的clientHeight进行对比，若小于则为可视区域</span></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>PS：该方案需要监听<code>scroll</code>事件，注意节流处理。</p>
 <h5 id="Intersection-Observer"><a href="#Intersection-Observer" class="headerlink" title="Intersection Observer"></a>Intersection Observer</h5><blockquote>
@@ -436,10 +436,10 @@
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">    root: <span class="built_in">document</span>.querySelector(<span class="string">'#scrollArea'</span>), </span><br><span class="line">    rootMargin: <span class="string">'0px'</span>, </span><br><span class="line">    threshold: <span class="number">1.0</span> <span class="comment">// 目标(target)元素与根(root)元素之间的交叉度是交叉比(intersection ratio), 取值在0.0和1.0之间</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> observer = <span class="keyword">new</span> IntersectionObserver(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 回调函数，当目标元素和根元素交叉时触发</span></span><br><span class="line">    ...</span><br><span class="line">&#125;, options);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> target = <span class="built_in">document</span>.querySelector(<span class="string">'#listItem'</span>);</span><br><span class="line"><span class="comment">// 添加目标元素，与根元素进行交叉状态比对</span></span><br><span class="line">observer.observe(target);</span><br></pre></td></tr></table></figure>
 <p>PS：该方案较前者的优点就是不需要监听，其实兼容性在chrome中还不错。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb7077465f16af?w=1466&amp;h=670&amp;f=png&amp;s=89229" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb7077465f16af.png" alt></p>
 <h3 id="vue-组件懒加载"><a href="#vue-组件懒加载" class="headerlink" title="vue 组件懒加载"></a>vue 组件懒加载</h3><p>这里的懒加载判断依据和图片类似，同样是要判断可视或者即将可视的时机，来控制组件的加载与否。当加载条件为<code>false</code>时，不做渲染，为<code>true</code>时则渲染，这里用<code>v-if</code>指令就可以实现。</p>
 <p>在条件切换的同时，最好加入类似骨架屏的页面，来过渡用户体验。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb7079d8778db4?w=378&amp;h=382&amp;f=png&amp;s=94562" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb7079d8778db4.png" alt></p>
 <h3 id="项目实践"><a href="#项目实践" class="headerlink" title="项目实践"></a>项目实践</h3><blockquote>
 <p>社区里这样的方案有很多，评估后决定采用 <a href="https://github.com/hilongjw/vue-lazyload" target="_blank" rel="noopener">vue-lazyload</a>，star 5.7k，recent updates is 2 months ago，很稳。 </p>
 </blockquote>
@@ -447,16 +447,16 @@
 <p>这里简单提一下该方案的组件懒加载方案，在<a href="https://github.com/hilongjw/vue-lazyload/blob/52f45720cd59dba018785760fe5f4132face9445/src/lazy-component.js#L11-L16" target="_blank" rel="noopener">源码</a>L11-L16，利用<code>render</code>来生成组件的内容<code>this.$slots.default</code>，十分巧妙。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">render (h) &#123;</span><br><span class="line">   if (this.show === false) &#123;</span><br><span class="line">        return h(this.tag)</span><br><span class="line">   &#125;</span><br><span class="line">   return h(this.tag, null, this.$slots.default)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="组件应用"><a href="#组件应用" class="headerlink" title="组件应用"></a>组件应用</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 原代码</span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"camera-card-img"</span> :style=<span class="string">"&#123;'backgroundImage': 'url(' + data._thumbnails + ')'&#125;"</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加入图片懒加载逻辑</span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"camera-card-img"</span> v-lazy:background-image=<span class="string">"data._thumbnails"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;lazy-component&gt;</span><br><span class="line">    <span class="comment">// 需要懒加载的组件</span></span><br><span class="line">    ...</span><br><span class="line">&lt;<span class="regexp">/lazy-component&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="优化结果"><a href="#优化结果" class="headerlink" title="优化结果"></a>优化结果</h2><h3 id="调用真实数据，控制变量，优化前："><a href="#调用真实数据，控制变量，优化前：" class="headerlink" title="调用真实数据，控制变量，优化前："></a>调用真实数据，控制变量，优化前：</h3><p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb7083b5dea792?w=1461&amp;h=825&amp;f=png&amp;s=158104" alt></p>
+<h2 id="优化结果"><a href="#优化结果" class="headerlink" title="优化结果"></a>优化结果</h2><h3 id="调用真实数据，控制变量，优化前："><a href="#调用真实数据，控制变量，优化前：" class="headerlink" title="调用真实数据，控制变量，优化前："></a>调用真实数据，控制变量，优化前：</h3><p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb7083b5dea792.png" alt></p>
 <p>52 requests, 19 img</p>
-<h3 id="加入图片懒加载："><a href="#加入图片懒加载：" class="headerlink" title="加入图片懒加载："></a>加入图片懒加载：</h3><p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb7088c845bb9c?w=1461&amp;h=825&amp;f=png&amp;s=140257" alt></p>
+<h3 id="加入图片懒加载："><a href="#加入图片懒加载：" class="headerlink" title="加入图片懒加载："></a>加入图片懒加载：</h3><p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb7088c845bb9c.png" alt></p>
 <p>38 requests, 12 img</p>
 <p>当浏览器继续滚动的时候，图片依次加载，可以看到network中的request逐步增加至52，说明加载了剩余图片。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb708ec04d6764?w=1460&amp;h=825&amp;f=png&amp;s=149432" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb708ec04d6764.png" alt></p>
 <p>组件懒加载也是同样的效果，数据量小可能页面finish时间差感知不明显，可以加大模拟量至上千：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb70941836bae9?w=1393&amp;h=693&amp;f=png&amp;s=196906" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb70941836bae9.png" alt></p>
 <p><code>Finish</code>时间10s，</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb709772e83263?w=1390&amp;h=697&amp;f=png&amp;s=190624" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb709772e83263.png" alt></p>
 <p><code>Finish</code>时间4s，速度提升显著。</p>
 <p>PS：这里前后请求数不变的原因，是作者在模拟数据的时候重复了若干次真实数据，导致资源地址都是重复的，浏览器会缓存请求，所以导致请求数不变。</p>
 <h2 id="后续计划"><a href="#后续计划" class="headerlink" title="后续计划"></a>后续计划</h2><p>其实可以看到，数据量大的时候，加载速度依旧很慢，还需要继续优化，可以从以下几个方向：</p>
@@ -498,7 +498,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/记一次换行符引发的事故/" rel="next" title="记一次换行符引发的事故">
+              <a href="/2019/08/记一次换行符引发的事故/" rel="next" title="记一次换行符引发的事故">
                 <i class="fa fa-chevron-left"></i> 记一次换行符引发的事故
               </a>
             

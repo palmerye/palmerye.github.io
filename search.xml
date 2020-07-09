@@ -428,7 +428,7 @@
 <h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><blockquote>
 <p>终端起服务：<code>node index.js</code>，并浏览器访问<code>localhost:3000</code>, 即可在终端命令行中看到相应打印的日志。</p>
 </blockquote>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd25265f9ad78d?w=673&amp;h=256&amp;f=png&amp;s=34924" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cd25265f9ad78d.png" alt></p>
 <h3 id="2-Debugger-Protocol-node-inspector"><a href="#2-Debugger-Protocol-node-inspector" class="headerlink" title="2. Debugger Protocol (node-inspector)"></a>2. Debugger Protocol (node-inspector)</h3><blockquote>
 <p><code>Nodejs v6.3+</code> 的版本提供了两个用于调试的协议：<code>v8 Debugger Protocol</code> 和 <code>v8 Inspector Protocol</code> 可以使用第三方的 Client/IDE 等监测和介入 Node(v8) 运行过程，进行调试。</p>
 </blockquote>
@@ -441,20 +441,20 @@
 <blockquote>
 <p>如果程序执行完会直接结束进程的，那么<code>--inspect</code>会一闪而过，断点信号还没发送出去前就结束了，断点根本不起作用，这种情况可以用<code>--inspect-brk</code>启动调试器，使得脚本可以代码执行之前<code>break</code>。</p>
 </blockquote>
-<h4 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h4><p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd253452dfafe6?w=674&amp;h=257&amp;f=png&amp;s=36144" alt></p>
+<h4 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h4><p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cd253452dfafe6.png" alt></p>
 <p><code>ws://127.0.0.1:9222/a45dc332-2c8c-4614-bf01-1dbf212ae28a</code>这个不是提供给我们在Chrome浏览器中访问的地址，而是Node.js和Chrome之间进行通信的的地址，通过websocket进行通信，从而将调试结果实时展示在Chrome浏览器中。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd25375cf0f310?w=1188&amp;h=378&amp;f=png&amp;s=41820" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cd25375cf0f310.png" alt></p>
 <p>那么如何获取在chrome浏览器中的调试地址？我们可以访问<code>http://localhost:9222/json/list</code>，可以看到相应信息。其中id为UUID，是一个特定的标识，每一个进程都会分配一个uuid，因此每一次调用会有出现不同的结果。<code>devtoolsFrontendUrl</code>则为我们要访问的chrome地址，新窗口打开这个地址即可调试。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd2539f2338697?w=888&amp;h=466&amp;f=png&amp;s=70320" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cd2539f2338697.png" alt></p>
 <h4 id="更便捷的调试入口"><a href="#更便捷的调试入口" class="headerlink" title="更便捷的调试入口"></a>更便捷的调试入口</h4><blockquote>
 <p>上述步骤是不是有点麻烦，不要紧，强大的Chrome提供了更方便的调试入口。</p>
 </blockquote>
 <p><code>node --inspect=9222 index.js</code>起服务后，打开浏览器访问http监听端口页面，并打开调试窗口，可以看到一个绿色的按钮，点开即可下断点调试，是不是很方便？</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd253da54e566e?w=436&amp;h=295&amp;f=png&amp;s=21560" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cd253da54e566e.png" alt></p>
 <blockquote>
 <p>这个绿油油的按钮究竟打开了什么呢？我们可以继续看。访问<code>chrome://inspect/#devices</code>，可以看到当前浏览器监听的所有<code>inspect</code></p>
 </blockquote>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd2541c7f92416?w=690&amp;h=437&amp;f=png&amp;s=51805" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cd2541c7f92416.png" alt></p>
 <p>到这里，我们就可以利用Chrome DevTools的各类功能，<code>Sources Panel</code>查看脚本、<code>Profile Panel</code>监测性能等，文中不具体展开。</p>
 <h3 id="4-Inspector-Protocol-VS-Code"><a href="#4-Inspector-Protocol-VS-Code" class="headerlink" title="4. Inspector Protocol + VS Code"></a>4. Inspector Protocol + VS Code</h3><blockquote>
 <p>对服务端开发来讲，浏览器的使用反而不那么频繁，因此在IDE中调试<code>Nodejs</code>显得格外重要。值得高兴的是，市面上各类IDE对<code>Nodejs</code>的调试还算友好，尤其是VS Code。它内置了<code>Node debugger</code>，支持<code>v8 Debugger Protocol</code>和<code>v8 Inspector Protocol</code>两种协议。</p>
@@ -463,15 +463,15 @@
 </blockquote>
 <p>在VS Code中，打开<code>调试</code>/<code>添加配置</code>/，如下图，添加launch配置，点击开始调试即可。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;node&quot;,</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">            &quot;name&quot;: &quot;Launch Program&quot;,</span><br><span class="line">            &quot;program&quot;: &quot;$&#123;workspaceFolder&#125;\\index.js&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd25474fd14abd?w=802&amp;h=311&amp;f=png&amp;s=57632" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cd25474fd14abd.png" alt></p>
 <p>下图展示了调试窗口，可以看到，我们可以直接在IDE中下断点，左侧小窗口中可以看到当前作用域的变量（可展开树），调用堆栈，所有断点等，右上方亦可逐步调试函数、重启等功能，非常强大。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd254e6ded40d6?w=948&amp;h=783&amp;f=png&amp;s=136426" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cd254e6ded40d6.png" alt></p>
 <h4 id="Auto-Attach"><a href="#Auto-Attach" class="headerlink" title="Auto Attach"></a>Auto Attach</h4><blockquote>
 <p>同样VS Code提供了自动附加的功能：Auto Attach。不用配置即可快速调试。</p>
 </blockquote>
 <p><code>Ctrl+Shift+p</code>打开Auto Attach功能，然后同样的方式在终端命令行中：<code>node --inspect=9222 .\index.js</code></p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd25512aecf597?w=609&amp;h=309&amp;f=png&amp;s=31760" alt></p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd255462c0dc83?w=948&amp;h=783&amp;f=png&amp;s=140285" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cd25512aecf597.png" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cd255462c0dc83.png" alt></p>
 <h2 id="醉后"><a href="#醉后" class="headerlink" title="醉后"></a>醉后</h2><p>本文总结了<code>Nodejs</code>的调试方法，基本涵盖了所有的调试手段，包括了命令行调试，Chrome浏览器调试，VS Code编辑器调试，并深入部分调试协议，图文结合，可供其他的<code>Nodejs</code>开发者参考，降低开发人员的学习成本，在项目工程应用中，准确定位问题，提高开发效率。</p>
 <h2 id="参考文献："><a href="#参考文献：" class="headerlink" title="参考文献："></a>参考文献：</h2><p><a href="http://nodejs.cn/api/inspector.html" target="_blank" rel="noopener">http://nodejs.cn/api/inspector.html</a></p>
 <p><a href="http://nodejs.cn/api/debugger.html" target="_blank" rel="noopener">http://nodejs.cn/api/debugger.html</a></p>
@@ -1213,7 +1213,7 @@
     <content><![CDATA[<blockquote>
 <p>背景是在某项目中的其中一个页面，接入现场真实数据后，加载时间很长，长达10几秒，严重影响用户体验。</p>
 </blockquote>
-<h2 id="排查原因"><a href="#排查原因" class="headerlink" title="排查原因"></a>排查原因</h2><p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb705ee0cabdca?w=1715&amp;h=958&amp;f=png&amp;s=170697" alt></p>
+<h2 id="排查原因"><a href="#排查原因" class="headerlink" title="排查原因"></a>排查原因</h2><p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb705ee0cabdca.png" alt></p>
 <p>在<code>chrome</code>的<code>DevTools</code>中，清缓存硬加载，可模拟用户第一次访问页面的场景。根据<code>Network</code>中的若干指标，对性能瓶颈初步判断：</p>
 <ul>
 <li><code>requests</code>：在<code>HTTP / 1.0</code>或<code>HTTP / 1.1</code>连接上，<code>Chrome</code>每个主机最多允许六个同时<code>TCP</code>连接，所以请求数过多会导致<code>TTFB</code>等待时间过长。</li>
@@ -1226,7 +1226,7 @@
 <li><code>ajax</code>接口时间过长，主要在后端接口的优化，Nodejs（BFF层）基于微服务的能力，所以要加快服务调用速度，减少服务调用数量，在业务上进行优化（缓存、批量接口、非必要数据异步请求…），当然自身代码层的运行效率也要考虑。</li>
 <li>请求资源过大过多的问题，可优化img这类图片为懒加载（下文会提到），当大数据塞到数组对象里遍历渲染的时候，对不可见的组件进行懒加载，节省性能及页面渲染时间的开支；压缩图片格式，例如<a href="https://www.zhihu.com/question/27201061/answer/35637827" target="_blank" rel="noopener">WebP格式</a>；</li>
 </ol>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb7069c64abdd8?w=798&amp;h=273&amp;f=jpeg&amp;s=63900" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb7069c64abdd8.png" alt></p>
 <blockquote>
 <p>对比 PNG 原图、PNG 无损压缩、PNG 转 WebP（无损）、PNG 转 WebP（有损）的压缩效果图</p>
 </blockquote>
@@ -1251,8 +1251,8 @@
 <h5 id="getBoundingClientRect"><a href="#getBoundingClientRect" class="headerlink" title="getBoundingClientRect"></a>getBoundingClientRect</h5><blockquote>
 <p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect" target="_blank" rel="noopener">MDN</a>中的定义：<code>Element.getBoundingClientRect()</code>方法返回元素的大小及其相对于视口的位置。</p>
 </blockquote>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb706ea07cde48?w=500&amp;h=500&amp;f=png&amp;s=25422" alt></p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb70716163cc27?w=936&amp;h=499&amp;f=png&amp;s=38664" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb706ea07cde48.png" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb70716163cc27.png" alt></p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 获取元素的getBoundingClientRect属性</span></span><br><span class="line"><span class="keyword">const</span> rect = Element.getBoundingClientRect();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(rect.top &lt; <span class="built_in">document</span>.documentElement.clientHeight) &#123;</span><br><span class="line">    <span class="comment">// 将top值与页面的clientHeight进行对比，若小于则为可视区域</span></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>PS：该方案需要监听<code>scroll</code>事件，注意节流处理。</p>
 <h5 id="Intersection-Observer"><a href="#Intersection-Observer" class="headerlink" title="Intersection Observer"></a>Intersection Observer</h5><blockquote>
@@ -1260,10 +1260,10 @@
 </blockquote>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">    root: <span class="built_in">document</span>.querySelector(<span class="string">'#scrollArea'</span>), </span><br><span class="line">    rootMargin: <span class="string">'0px'</span>, </span><br><span class="line">    threshold: <span class="number">1.0</span> <span class="comment">// 目标(target)元素与根(root)元素之间的交叉度是交叉比(intersection ratio), 取值在0.0和1.0之间</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> observer = <span class="keyword">new</span> IntersectionObserver(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 回调函数，当目标元素和根元素交叉时触发</span></span><br><span class="line">    ...</span><br><span class="line">&#125;, options);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> target = <span class="built_in">document</span>.querySelector(<span class="string">'#listItem'</span>);</span><br><span class="line"><span class="comment">// 添加目标元素，与根元素进行交叉状态比对</span></span><br><span class="line">observer.observe(target);</span><br></pre></td></tr></table></figure>
 <p>PS：该方案较前者的优点就是不需要监听，其实兼容性在chrome中还不错。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb7077465f16af?w=1466&amp;h=670&amp;f=png&amp;s=89229" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb7077465f16af.png" alt></p>
 <h3 id="vue-组件懒加载"><a href="#vue-组件懒加载" class="headerlink" title="vue 组件懒加载"></a>vue 组件懒加载</h3><p>这里的懒加载判断依据和图片类似，同样是要判断可视或者即将可视的时机，来控制组件的加载与否。当加载条件为<code>false</code>时，不做渲染，为<code>true</code>时则渲染，这里用<code>v-if</code>指令就可以实现。</p>
 <p>在条件切换的同时，最好加入类似骨架屏的页面，来过渡用户体验。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb7079d8778db4?w=378&amp;h=382&amp;f=png&amp;s=94562" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb7079d8778db4.png" alt></p>
 <h3 id="项目实践"><a href="#项目实践" class="headerlink" title="项目实践"></a>项目实践</h3><blockquote>
 <p>社区里这样的方案有很多，评估后决定采用 <a href="https://github.com/hilongjw/vue-lazyload" target="_blank" rel="noopener">vue-lazyload</a>，star 5.7k，recent updates is 2 months ago，很稳。 </p>
 </blockquote>
@@ -1271,16 +1271,16 @@
 <p>这里简单提一下该方案的组件懒加载方案，在<a href="https://github.com/hilongjw/vue-lazyload/blob/52f45720cd59dba018785760fe5f4132face9445/src/lazy-component.js#L11-L16" target="_blank" rel="noopener">源码</a>L11-L16，利用<code>render</code>来生成组件的内容<code>this.$slots.default</code>，十分巧妙。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">render (h) &#123;</span><br><span class="line">   if (this.show === false) &#123;</span><br><span class="line">        return h(this.tag)</span><br><span class="line">   &#125;</span><br><span class="line">   return h(this.tag, null, this.$slots.default)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="组件应用"><a href="#组件应用" class="headerlink" title="组件应用"></a>组件应用</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 原代码</span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"camera-card-img"</span> :style=<span class="string">"&#123;'backgroundImage': 'url(' + data._thumbnails + ')'&#125;"</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加入图片懒加载逻辑</span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"camera-card-img"</span> v-lazy:background-image=<span class="string">"data._thumbnails"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;lazy-component&gt;</span><br><span class="line">    <span class="comment">// 需要懒加载的组件</span></span><br><span class="line">    ...</span><br><span class="line">&lt;<span class="regexp">/lazy-component&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="优化结果"><a href="#优化结果" class="headerlink" title="优化结果"></a>优化结果</h2><h3 id="调用真实数据，控制变量，优化前："><a href="#调用真实数据，控制变量，优化前：" class="headerlink" title="调用真实数据，控制变量，优化前："></a>调用真实数据，控制变量，优化前：</h3><p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb7083b5dea792?w=1461&amp;h=825&amp;f=png&amp;s=158104" alt></p>
+<h2 id="优化结果"><a href="#优化结果" class="headerlink" title="优化结果"></a>优化结果</h2><h3 id="调用真实数据，控制变量，优化前："><a href="#调用真实数据，控制变量，优化前：" class="headerlink" title="调用真实数据，控制变量，优化前："></a>调用真实数据，控制变量，优化前：</h3><p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb7083b5dea792.png" alt></p>
 <p>52 requests, 19 img</p>
-<h3 id="加入图片懒加载："><a href="#加入图片懒加载：" class="headerlink" title="加入图片懒加载："></a>加入图片懒加载：</h3><p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb7088c845bb9c?w=1461&amp;h=825&amp;f=png&amp;s=140257" alt></p>
+<h3 id="加入图片懒加载："><a href="#加入图片懒加载：" class="headerlink" title="加入图片懒加载："></a>加入图片懒加载：</h3><p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb7088c845bb9c.png" alt></p>
 <p>38 requests, 12 img</p>
 <p>当浏览器继续滚动的时候，图片依次加载，可以看到network中的request逐步增加至52，说明加载了剩余图片。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb708ec04d6764?w=1460&amp;h=825&amp;f=png&amp;s=149432" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb708ec04d6764.png" alt></p>
 <p>组件懒加载也是同样的效果，数据量小可能页面finish时间差感知不明显，可以加大模拟量至上千：</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb70941836bae9?w=1393&amp;h=693&amp;f=png&amp;s=196906" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb70941836bae9.png" alt></p>
 <p><code>Finish</code>时间10s，</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb709772e83263?w=1390&amp;h=697&amp;f=png&amp;s=190624" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb709772e83263.png" alt></p>
 <p><code>Finish</code>时间4s，速度提升显著。</p>
 <p>PS：这里前后请求数不变的原因，是作者在模拟数据的时候重复了若干次真实数据，导致资源地址都是重复的，浏览器会缓存请求，所以导致请求数不变。</p>
 <h2 id="后续计划"><a href="#后续计划" class="headerlink" title="后续计划"></a>后续计划</h2><p>其实可以看到，数据量大的时候，加载速度依旧很慢，还需要继续优化，可以从以下几个方向：</p>
@@ -1475,14 +1475,14 @@
   </entry>
   <entry>
     <title>记一次换行符引发的事故</title>
-    <url>/2019/09/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%8D%A2%E8%A1%8C%E7%AC%A6%E5%BC%95%E5%8F%91%E7%9A%84%E4%BA%8B%E6%95%85/</url>
+    <url>/2019/08/%E8%AE%B0%E4%B8%80%E6%AC%A1%E6%8D%A2%E8%A1%8C%E7%AC%A6%E5%BC%95%E5%8F%91%E7%9A%84%E4%BA%8B%E6%95%85/</url>
     <content><![CDATA[<blockquote>
 <p>那天项目部署的时候，遇到一个很诡异的现象，一度怀疑自己职业生涯到此结束了，后面经排除发现，原来是<code>Linux</code>和<code>Windows</code>下<code>shell</code>脚本换行符的格式问题，导致脚本一直执行不了…（到此，标题所说的事故讲完了…：）</p>
 </blockquote>
 <blockquote>
 <p>看起来很蠢的问题，溜了 :) …但莎士比亚说过，解决一个问题最好的方式，就是下次不要再犯了。所以我们刨根问底儿，彻底搞清楚换行符在计算机系统中到底是个啥玩意儿。</p>
 </blockquote>
-<h2 id="历史来源"><a href="#历史来源" class="headerlink" title="历史来源"></a>历史来源</h2><p><img src="https://user-gold-cdn.xitu.io/2019/8/29/16cdd1edadf05db1?w=474&amp;h=266&amp;f=png&amp;s=171464" alt></p>
+<h2 id="历史来源"><a href="#历史来源" class="headerlink" title="历史来源"></a>历史来源</h2><p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cdd1edadf05db1.png" alt></p>
 <a id="more"></a>
 <p>在计算机出现之前，有一种通信设备叫电传打字机（Teletype Mode），每秒输出10个字符，平均每个字符0.1秒，但有个问题，就是打完一行换行的时候，要消耗0.2秒，在这个时间段内，如果有新字符传来，就将丢失，所以有人为了解决这个问题，在每一行后面加两个字符表示该行结束。</p>
 <p>那这里就涉及到两个动作：</p>
@@ -1565,7 +1565,7 @@
 <ol start="2">
 <li>在<code>Linux</code>系统用<code>vim</code>打开刚新建的文件</li>
 </ol>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/29/16cdd56922280953?w=486&amp;h=367&amp;f=png&amp;s=8017" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cdd56922280953.png" alt></p>
 <p>这看起来不是挺正常的么？和<code>Windows</code>上显示的一样啊。注意这里<code>vim</code>查看文件的时候，会检测换行符，如果所有的换行符都是<code>CRLF</code>，那么它会自动以<code>dos</code>格式来显示文本内容，最下面<code>[dos]</code>里也体现了这一点。</p>
 <blockquote>
 <p><code>dos</code>(Disk Operating System 磁盘操作系统)和<code>Windows</code>一样采用的是<code>CRLF</code></p>
@@ -1573,22 +1573,20 @@
 <ol start="3">
 <li>使用<code>cat -A</code>选项查看文本所有的字符</li>
 </ol>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/29/16cdd66cdb8e9c93?w=387&amp;h=76&amp;f=png&amp;s=6786" alt></p>
-<p>可以看到多了<code>^M$</code>，<code>^M</code>这是<code>Linux</code>等系统下规定的特殊标记，占一个字符大小，不是<code>^</code>和<code>M</code>的组合，只能用<code>Ctrl+v，Ctrl+m</code>按出来；而<code>$</code>不是换行符，可以理解为<code>Linux</code>下用来表示文本结束EOF的符号。</p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cdd66cdb8e9c93.png" alt><br>可以看到多了<code>^M$</code>，<code>^M</code>这是<code>Linux</code>等系统下规定的特殊标记，占一个字符大小，不是<code>^</code>和<code>M</code>的组合，只能用<code>Ctrl+v，Ctrl+m</code>按出来；而<code>$</code>不是换行符，可以理解为<code>Linux</code>下用来表示文本结束EOF的符号。</p>
 <ol start="4">
 <li>使用<code>cat -v</code>选项显示出非打印字符</li>
 </ol>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/29/16cdd6a98da94de2?w=389&amp;h=78&amp;f=png&amp;s=7222" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cdd6a98da94de2.png" alt></p>
 <ol start="5">
 <li>把第一行的回车符去掉再看看</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sed -i &apos;1s/^M//&apos; win.txt</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/29/16cdd90fdc095d43?w=464&amp;h=93&amp;f=png&amp;s=8871" alt></p>
-<p>看到第一行的<code>^M</code>不见了，第二行还是保留。</p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cdd90fdc095d43.png" alt><br>看到第一行的<code>^M</code>不见了，第二行还是保留。</p>
 <ol start="6">
 <li>再重复第一步看看变化</li>
 </ol>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/29/16cdd9bb03dcf40c?w=647&amp;h=367&amp;f=png&amp;s=10072" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cdd9bb03dcf40c.png" alt></p>
 <p>结果展示<code>vim</code>中多了<code>^M</code>这个符号，左下角也没了<code>[dos]</code>的标识，这里回应了第二点提到的现象，表示<code>vim</code>用<code>Linux</code>来显示文本内容。</p>
 <p>到这一步为止，我们证实了<code>Windows</code>和<code>Linux</code>环境下不同换行规则带来的差异。</p>
 <h3 id="验证下回车符的真实存在"><a href="#验证下回车符的真实存在" class="headerlink" title="验证下回车符的真实存在"></a>验证下回车符的真实存在</h3><blockquote>
@@ -1604,7 +1602,7 @@
 <p>我们要知道<code>cat</code>普通模式下输出文本内容，会将<code>^M</code>理解为回车。</p>
 </blockquote>
 <p>这就可以解释了，遇到回车符，就像打印探头从右回到了左，<code>ypm</code>这里的四个字符，刚好覆盖了<code>talk</code>四个字符。这就直观解释了什么是回车。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/30/16ce067f129b3bcd?w=540&amp;h=215&amp;f=png&amp;s=23363" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16ce067f129b3bcd.png" alt></p>
 <h2 id="如何规避"><a href="#如何规避" class="headerlink" title="如何规避"></a>如何规避</h2><p>谈到如何规避这个差异，其实不同方向上有不同方法，比如针对<code>^M</code>、强制转换文本格式，但个人觉得，能解决其根本问题的，还是在不同系统间，代码编辑的时候，注意到这个格式问题，各大IDE都有自己的解决方案。</p>
 <ol>
 <li>去除回车符号</li>
