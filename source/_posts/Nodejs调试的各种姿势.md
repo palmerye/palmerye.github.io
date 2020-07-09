@@ -60,7 +60,7 @@ app.listen(3000, () => {
 > 终端起服务：`node index.js`，并浏览器访问`localhost:3000`, 即可在终端命令行中看到相应打印的日志。
 
 
-![](https://github.com/palmerye/pictureBed/blob/master/blog/16cd25265f9ad78d.png)
+![](https://github.com/palmerye/pictureBed/raw/master/blog/16cd25265f9ad78d.png)
 
 ### 2. Debugger Protocol (node-inspector)
 
@@ -95,17 +95,17 @@ $ node --inspect=9222 index.js
 #### 结果
 
 
-![](https://github.com/palmerye/pictureBed/blob/master/blog/16cd253452dfafe6.png)
+![](https://github.com/palmerye/pictureBed/raw/master/blog/16cd253452dfafe6.png)
 
 `ws://127.0.0.1:9222/a45dc332-2c8c-4614-bf01-1dbf212ae28a`这个不是提供给我们在Chrome浏览器中访问的地址，而是Node.js和Chrome之间进行通信的的地址，通过websocket进行通信，从而将调试结果实时展示在Chrome浏览器中。
 
 
-![](https://github.com/palmerye/pictureBed/blob/master/blog/16cd25375cf0f310.png)
+![](https://github.com/palmerye/pictureBed/raw/master/blog/16cd25375cf0f310.png)
 
 那么如何获取在chrome浏览器中的调试地址？我们可以访问`http://localhost:9222/json/list`，可以看到相应信息。其中id为UUID，是一个特定的标识，每一个进程都会分配一个uuid，因此每一次调用会有出现不同的结果。`devtoolsFrontendUrl`则为我们要访问的chrome地址，新窗口打开这个地址即可调试。
 
 
-![](https://github.com/palmerye/pictureBed/blob/master/blog/16cd2539f2338697.png)
+![](https://github.com/palmerye/pictureBed/raw/master/blog/16cd2539f2338697.png)
 
 #### 更便捷的调试入口
 
@@ -114,12 +114,12 @@ $ node --inspect=9222 index.js
 `node --inspect=9222 index.js`起服务后，打开浏览器访问http监听端口页面，并打开调试窗口，可以看到一个绿色的按钮，点开即可下断点调试，是不是很方便？
 
 
-![](https://github.com/palmerye/pictureBed/blob/master/blog/16cd253da54e566e.png)
+![](https://github.com/palmerye/pictureBed/raw/master/blog/16cd253da54e566e.png)
 
 > 这个绿油油的按钮究竟打开了什么呢？我们可以继续看。访问`chrome://inspect/#devices`，可以看到当前浏览器监听的所有`inspect`
 
 
-![](https://github.com/palmerye/pictureBed/blob/master/blog/16cd2541c7f92416.png)
+![](https://github.com/palmerye/pictureBed/raw/master/blog/16cd2541c7f92416.png)
 
 到这里，我们就可以利用Chrome DevTools的各类功能，`Sources Panel`查看脚本、`Profile Panel`监测性能等，文中不具体展开。
 
@@ -148,12 +148,12 @@ $ node --inspect=9222 index.js
 ```
 
 
-![](https://github.com/palmerye/pictureBed/blob/master/blog/16cd25474fd14abd.png)
+![](https://github.com/palmerye/pictureBed/raw/master/blog/16cd25474fd14abd.png)
 
 下图展示了调试窗口，可以看到，我们可以直接在IDE中下断点，左侧小窗口中可以看到当前作用域的变量（可展开树），调用堆栈，所有断点等，右上方亦可逐步调试函数、重启等功能，非常强大。
 
 
-![](https://github.com/palmerye/pictureBed/blob/master/blog/16cd254e6ded40d6.png)
+![](https://github.com/palmerye/pictureBed/raw/master/blog/16cd254e6ded40d6.png)
 
 #### Auto Attach
 
@@ -162,10 +162,10 @@ $ node --inspect=9222 index.js
 `Ctrl+Shift+p`打开Auto Attach功能，然后同样的方式在终端命令行中：`node --inspect=9222 .\index.js`
 
 
-![](https://github.com/palmerye/pictureBed/blob/master/blog/16cd25512aecf597.png)
+![](https://github.com/palmerye/pictureBed/raw/master/blog/16cd25512aecf597.png)
 
 
-![](https://github.com/palmerye/pictureBed/blob/master/blog/16cd255462c0dc83.png)
+![](https://github.com/palmerye/pictureBed/raw/master/blog/16cd255462c0dc83.png)
 
 ## 醉后
 
