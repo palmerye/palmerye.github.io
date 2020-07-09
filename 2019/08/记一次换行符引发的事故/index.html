@@ -93,18 +93,18 @@
 <meta property="og:site_name" content="软硬皆施">
 <meta property="og:description" content="那天项目部署的时候，遇到一个很诡异的现象，一度怀疑自己职业生涯到此结束了，后面经排除发现，原来是Linux和Windows下shell脚本换行符的格式问题，导致脚本一直执行不了…（到此，标题所说的事故讲完了…：）   看起来很蠢的问题，溜了 :) …但莎士比亚说过，解决一个问题最好的方式，就是下次不要再犯了。所以我们刨根问底儿，彻底搞清楚换行符在计算机系统中到底是个啥玩意儿。  历史来源">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16cdd1edadf05db1.png">
-<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16cdd56922280953.png">
-<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16cdd66cdb8e9c93.png">
-<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16cdd6a98da94de2.png">
-<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16cdd90fdc095d43.png">
-<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16cdd9bb03dcf40c.png">
-<meta property="og:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16ce067f129b3bcd.png">
-<meta property="og:updated_time" content="2020-07-09T12:04:27.751Z">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/blog/16cdd1edadf05db1.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/blog/16cdd56922280953.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/blog/16cdd66cdb8e9c93.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/blog/16cdd6a98da94de2.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/blog/16cdd90fdc095d43.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/blog/16cdd9bb03dcf40c.png">
+<meta property="og:image" content="https://github.com/palmerye/pictureBed/raw/master/blog/16ce067f129b3bcd.png">
+<meta property="og:updated_time" content="2020-07-09T12:26:57.692Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="记一次换行符引发的事故">
 <meta name="twitter:description" content="那天项目部署的时候，遇到一个很诡异的现象，一度怀疑自己职业生涯到此结束了，后面经排除发现，原来是Linux和Windows下shell脚本换行符的格式问题，导致脚本一直执行不了…（到此，标题所说的事故讲完了…：）   看起来很蠢的问题，溜了 :) …但莎士比亚说过，解决一个问题最好的方式，就是下次不要再犯了。所以我们刨根问底儿，彻底搞清楚换行符在计算机系统中到底是个啥玩意儿。  历史来源">
-<meta name="twitter:image" content="https://github.com/palmerye/pictureBed/blob/master/blog/16cdd1edadf05db1.png">
+<meta name="twitter:image" content="https://github.com/palmerye/pictureBed/raw/master/blog/16cdd1edadf05db1.png">
 
 
 
@@ -388,7 +388,7 @@
 <blockquote>
 <p>看起来很蠢的问题，溜了 :) …但莎士比亚说过，解决一个问题最好的方式，就是下次不要再犯了。所以我们刨根问底儿，彻底搞清楚换行符在计算机系统中到底是个啥玩意儿。</p>
 </blockquote>
-<h2 id="历史来源"><a href="#历史来源" class="headerlink" title="历史来源"></a>历史来源</h2><p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cdd1edadf05db1.png" alt></p>
+<h2 id="历史来源"><a href="#历史来源" class="headerlink" title="历史来源"></a>历史来源</h2><p><img src="https://github.com/palmerye/pictureBed/raw/master/blog/16cdd1edadf05db1.png" alt></p>
 <a id="more"></a>
 <p>在计算机出现之前，有一种通信设备叫电传打字机（Teletype Mode），每秒输出10个字符，平均每个字符0.1秒，但有个问题，就是打完一行换行的时候，要消耗0.2秒，在这个时间段内，如果有新字符传来，就将丢失，所以有人为了解决这个问题，在每一行后面加两个字符表示该行结束。</p>
 <p>那这里就涉及到两个动作：</p>
@@ -471,7 +471,7 @@
 <ol start="2">
 <li>在<code>Linux</code>系统用<code>vim</code>打开刚新建的文件</li>
 </ol>
-<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cdd56922280953.png" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/raw/master/blog/16cdd56922280953.png" alt></p>
 <p>这看起来不是挺正常的么？和<code>Windows</code>上显示的一样啊。注意这里<code>vim</code>查看文件的时候，会检测换行符，如果所有的换行符都是<code>CRLF</code>，那么它会自动以<code>dos</code>格式来显示文本内容，最下面<code>[dos]</code>里也体现了这一点。</p>
 <blockquote>
 <p><code>dos</code>(Disk Operating System 磁盘操作系统)和<code>Windows</code>一样采用的是<code>CRLF</code></p>
@@ -479,20 +479,20 @@
 <ol start="3">
 <li>使用<code>cat -A</code>选项查看文本所有的字符</li>
 </ol>
-<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cdd66cdb8e9c93.png" alt><br>可以看到多了<code>^M$</code>，<code>^M</code>这是<code>Linux</code>等系统下规定的特殊标记，占一个字符大小，不是<code>^</code>和<code>M</code>的组合，只能用<code>Ctrl+v，Ctrl+m</code>按出来；而<code>$</code>不是换行符，可以理解为<code>Linux</code>下用来表示文本结束EOF的符号。</p>
+<p><img src="https://github.com/palmerye/pictureBed/raw/master/blog/16cdd66cdb8e9c93.png" alt><br>可以看到多了<code>^M$</code>，<code>^M</code>这是<code>Linux</code>等系统下规定的特殊标记，占一个字符大小，不是<code>^</code>和<code>M</code>的组合，只能用<code>Ctrl+v，Ctrl+m</code>按出来；而<code>$</code>不是换行符，可以理解为<code>Linux</code>下用来表示文本结束EOF的符号。</p>
 <ol start="4">
 <li>使用<code>cat -v</code>选项显示出非打印字符</li>
 </ol>
-<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cdd6a98da94de2.png" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/raw/master/blog/16cdd6a98da94de2.png" alt></p>
 <ol start="5">
 <li>把第一行的回车符去掉再看看</li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sed -i &apos;1s/^M//&apos; win.txt</span><br></pre></td></tr></table></figure>
-<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cdd90fdc095d43.png" alt><br>看到第一行的<code>^M</code>不见了，第二行还是保留。</p>
+<p><img src="https://github.com/palmerye/pictureBed/raw/master/blog/16cdd90fdc095d43.png" alt><br>看到第一行的<code>^M</code>不见了，第二行还是保留。</p>
 <ol start="6">
 <li>再重复第一步看看变化</li>
 </ol>
-<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cdd9bb03dcf40c.png" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/raw/master/blog/16cdd9bb03dcf40c.png" alt></p>
 <p>结果展示<code>vim</code>中多了<code>^M</code>这个符号，左下角也没了<code>[dos]</code>的标识，这里回应了第二点提到的现象，表示<code>vim</code>用<code>Linux</code>来显示文本内容。</p>
 <p>到这一步为止，我们证实了<code>Windows</code>和<code>Linux</code>环境下不同换行规则带来的差异。</p>
 <h3 id="验证下回车符的真实存在"><a href="#验证下回车符的真实存在" class="headerlink" title="验证下回车符的真实存在"></a>验证下回车符的真实存在</h3><blockquote>
@@ -508,7 +508,7 @@
 <p>我们要知道<code>cat</code>普通模式下输出文本内容，会将<code>^M</code>理解为回车。</p>
 </blockquote>
 <p>这就可以解释了，遇到回车符，就像打印探头从右回到了左，<code>ypm</code>这里的四个字符，刚好覆盖了<code>talk</code>四个字符。这就直观解释了什么是回车。</p>
-<p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16ce067f129b3bcd.png" alt></p>
+<p><img src="https://github.com/palmerye/pictureBed/raw/master/blog/16ce067f129b3bcd.png" alt></p>
 <h2 id="如何规避"><a href="#如何规避" class="headerlink" title="如何规避"></a>如何规避</h2><p>谈到如何规避这个差异，其实不同方向上有不同方法，比如针对<code>^M</code>、强制转换文本格式，但个人觉得，能解决其根本问题的，还是在不同系统间，代码编辑的时候，注意到这个格式问题，各大IDE都有自己的解决方案。</p>
 <ol>
 <li>去除回车符号</li>

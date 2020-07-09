@@ -382,7 +382,7 @@
           <blockquote>
 <p>背景是在某项目中的其中一个页面，接入现场真实数据后，加载时间很长，长达10几秒，严重影响用户体验。</p>
 </blockquote>
-<h2 id="排查原因"><a href="#排查原因" class="headerlink" title="排查原因"></a>排查原因</h2><p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16eb705ee0cabdca.png" alt></p>
+<h2 id="排查原因"><a href="#排查原因" class="headerlink" title="排查原因"></a>排查原因</h2><p><img src="https://github.com/palmerye/pictureBed/raw/master/blog/16eb705ee0cabdca.png" alt></p>
 <p>在<code>chrome</code>的<code>DevTools</code>中，清缓存硬加载，可模拟用户第一次访问页面的场景。根据<code>Network</code>中的若干指标，对性能瓶颈初步判断：</p>
 <ul>
 <li><code>requests</code>：在<code>HTTP / 1.0</code>或<code>HTTP / 1.1</code>连接上，<code>Chrome</code>每个主机最多允许六个同时<code>TCP</code>连接，所以请求数过多会导致<code>TTFB</code>等待时间过长。</li>
@@ -527,7 +527,7 @@
 <blockquote>
 <p>看起来很蠢的问题，溜了 :) …但莎士比亚说过，解决一个问题最好的方式，就是下次不要再犯了。所以我们刨根问底儿，彻底搞清楚换行符在计算机系统中到底是个啥玩意儿。</p>
 </blockquote>
-<h2 id="历史来源"><a href="#历史来源" class="headerlink" title="历史来源"></a>历史来源</h2><p><img src="https://github.com/palmerye/pictureBed/blob/master/blog/16cdd1edadf05db1.png" alt></p>
+<h2 id="历史来源"><a href="#历史来源" class="headerlink" title="历史来源"></a>历史来源</h2><p><img src="https://github.com/palmerye/pictureBed/raw/master/blog/16cdd1edadf05db1.png" alt></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/08/记一次换行符引发的事故/#more" rel="contents">
