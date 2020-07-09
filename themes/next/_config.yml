@@ -197,10 +197,8 @@ links_title: Links
 links_layout: block
 #links_layout: inline
 links:
-  开发者头条独家号: https://toutiao.io/subjects/46457
-  JavaScript 标准参考教程: http://javascript.ruanyifeng.com/
-  小伙伴_yangmm: http://yangmingming.me/
-  小伙伴_aleon: http://aleonchen.com/
+  segmentfault: https://segmentfault.com/u/palmerye
+  掘金: https://juejin.im/user/58d8d00561ff4b00606a2396/activities
   小伙伴_7le: http://7le.top/
 
 
