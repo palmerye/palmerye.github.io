@@ -1208,6 +1208,92 @@
       </tags>
   </entry>
   <entry>
+    <title>懒加载在前端性能优化的应用及原理</title>
+    <url>/2019/11/%E6%87%92%E5%8A%A0%E8%BD%BD%E5%9C%A8%E5%89%8D%E7%AB%AF%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E7%9A%84%E5%BA%94%E7%94%A8%E5%8F%8A%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<blockquote>
+<p>背景是在某项目中的其中一个页面，接入现场真实数据后，加载时间很长，长达10几秒，严重影响用户体验。</p>
+</blockquote>
+<h2 id="排查原因"><a href="#排查原因" class="headerlink" title="排查原因"></a>排查原因</h2><p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb705ee0cabdca?w=1715&amp;h=958&amp;f=png&amp;s=170697" alt></p>
+<p>在<code>chrome</code>的<code>DevTools</code>中，清缓存硬加载，可模拟用户第一次访问页面的场景。根据<code>Network</code>中的若干指标，对性能瓶颈初步判断：</p>
+<ul>
+<li><code>requests</code>：在<code>HTTP / 1.0</code>或<code>HTTP / 1.1</code>连接上，<code>Chrome</code>每个主机最多允许六个同时<code>TCP</code>连接，所以请求数过多会导致<code>TTFB</code>等待时间过长。</li>
+<li><code>xhr</code>：<code>ajax</code>接口时间过长，瓶颈在于后端接口。</li>
+<li><code>Finish</code>：<code>Finish</code>时间远远大于<code>DOMContentLoaded</code>和<code>Load</code>时间，说明页面中的请求资源很大<a id="more"></a>
+<h2 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h2></li>
+</ul>
+<ol>
+<li>对于请求数过多的瓶颈，简单来说就是要减少请求数量。自上而下讨论，客户端（浏览器）页面要减少请求数量，将首屏不可见的资源放在首屏之后请求，将一些阻塞页面渲染的请求预加载或者懒加载；利用<code>HTTP 2</code>的多路复用特性，合并请求；服务端渲染。</li>
+<li><code>ajax</code>接口时间过长，主要在后端接口的优化，Nodejs（BFF层）基于微服务的能力，所以要加快服务调用速度，减少服务调用数量，在业务上进行优化（缓存、批量接口、非必要数据异步请求…），当然自身代码层的运行效率也要考虑。</li>
+<li>请求资源过大过多的问题，可优化img这类图片为懒加载（下文会提到），当大数据塞到数组对象里遍历渲染的时候，对不可见的组件进行懒加载，节省性能及页面渲染时间的开支；压缩图片格式，例如<a href="https://www.zhihu.com/question/27201061/answer/35637827" target="_blank" rel="noopener">WebP格式</a>；</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb7069c64abdd8?w=798&amp;h=273&amp;f=jpeg&amp;s=63900" alt></p>
+<blockquote>
+<p>对比 PNG 原图、PNG 无损压缩、PNG 转 WebP（无损）、PNG 转 WebP（有损）的压缩效果图</p>
+</blockquote>
+<ol start="4">
+<li>从用户体验角度出发，<code>loading</code>动画、图片的渐进式渲染（浏览器对一张图片的加载顺序基本上是下载了多少展示多少，让用户感觉很刻板生硬，渐进式渲染就是图片的内容从模糊到清晰的过程）、预加载（预见性的加载一些不可见区域的资源，提高用户在快速滚动浏览器时候的体验）。</li>
+</ol>
+<h2 id="懒加载的实践应用"><a href="#懒加载的实践应用" class="headerlink" title="懒加载的实践应用"></a>懒加载的实践应用</h2><blockquote>
+<p>上述优化方向中，作者优化了<code>Nodejs</code>层的<code>api</code>接口时间，缓存了部分业务逻辑，剥离了部分底层接口使其异步获取；同时选择懒加载优化方向，对前端组件及图片资源的加载进行优化。优化结果，肉眼可见。</p>
+</blockquote>
+<p>懒加载并不是一个新鲜的名词，顾名思义，就是懒，现在不加载，稍后再加载，换个词说就是，按需加载。因为很多场景下，暂时看不见用不到的资源是不需要同时加载的，浪费时间开支同时，也消耗了不必要的<code>CPU</code>、<code>IO</code>等资源。例如图片懒加载在<code>jQuery</code>时代就已经十分普及，在<code>react</code>、<code>vue</code>等前端<code>MV*</code>框架的出现后，组件懒加载，<code>SPA</code>单页应用中的路由懒加载，<code>webpack</code>中对初始化不需要加载的代码块进行懒加载，从而优化性能…以下作者重点介绍下图片懒加载及<code>vue</code>组件懒加载。</p>
+<h3 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a>图片懒加载</h3><blockquote>
+<p>对于一些视频图片web应用，图片懒加载几乎是必须要做的，可以大大提升用户体验。</p>
+</blockquote>
+<h4 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h4><ol>
+<li>将需要懒加载的<code>img</code>标签的<code>src</code>设置缩略图或者不设置<code>src</code>，这里的占位图可以是缺省图，loading图；</li>
+<li>判断该img标签是否在浏览器可视区域，如果在可视区域，则将真实的图片url设置到img标签的src属性；</li>
+<li>用户滚动浏览器，遍历需要懒加载的标签，根据步骤2判断并执行；</li>
+</ol>
+<h4 id="判断元素是否在浏览器可视区域"><a href="#判断元素是否在浏览器可视区域" class="headerlink" title="判断元素是否在浏览器可视区域"></a>判断元素是否在浏览器可视区域</h4><blockquote>
+<p>作者认为这是懒加载最重要的环节</p>
+</blockquote>
+<h5 id="getBoundingClientRect"><a href="#getBoundingClientRect" class="headerlink" title="getBoundingClientRect"></a>getBoundingClientRect</h5><blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect" target="_blank" rel="noopener">MDN</a>中的定义：<code>Element.getBoundingClientRect()</code>方法返回元素的大小及其相对于视口的位置。</p>
+</blockquote>
+<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb706ea07cde48?w=500&amp;h=500&amp;f=png&amp;s=25422" alt></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb70716163cc27?w=936&amp;h=499&amp;f=png&amp;s=38664" alt></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 获取元素的getBoundingClientRect属性</span></span><br><span class="line"><span class="keyword">const</span> rect = Element.getBoundingClientRect();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(rect.top &lt; <span class="built_in">document</span>.documentElement.clientHeight) &#123;</span><br><span class="line">    <span class="comment">// 将top值与页面的clientHeight进行对比，若小于则为可视区域</span></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>PS：该方案需要监听<code>scroll</code>事件，注意节流处理。</p>
+<h5 id="Intersection-Observer"><a href="#Intersection-Observer" class="headerlink" title="Intersection Observer"></a>Intersection Observer</h5><blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Intersection_Observer_API" target="_blank" rel="noopener">MDN</a>中的定义：<code>IntersectionObserver</code>接口 (从属于<code>Intersection Observer API</code>) 提供了一种异步观察目标元素与其祖先元素或顶级文档视窗(<code>viewport</code>)交叉状态的方法。Intersection Observer API 允许你配置一个回调函数，每当目标(target)元素与设备视窗或者其他指定元素发生交集的时候执行。设备视窗或者其他元素我们称它为根元素或根(root)。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">    root: <span class="built_in">document</span>.querySelector(<span class="string">'#scrollArea'</span>), </span><br><span class="line">    rootMargin: <span class="string">'0px'</span>, </span><br><span class="line">    threshold: <span class="number">1.0</span> <span class="comment">// 目标(target)元素与根(root)元素之间的交叉度是交叉比(intersection ratio), 取值在0.0和1.0之间</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> observer = <span class="keyword">new</span> IntersectionObserver(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 回调函数，当目标元素和根元素交叉时触发</span></span><br><span class="line">    ...</span><br><span class="line">&#125;, options);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> target = <span class="built_in">document</span>.querySelector(<span class="string">'#listItem'</span>);</span><br><span class="line"><span class="comment">// 添加目标元素，与根元素进行交叉状态比对</span></span><br><span class="line">observer.observe(target);</span><br></pre></td></tr></table></figure>
+<p>PS：该方案较前者的优点就是不需要监听，其实兼容性在chrome中还不错。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb7077465f16af?w=1466&amp;h=670&amp;f=png&amp;s=89229" alt></p>
+<h3 id="vue-组件懒加载"><a href="#vue-组件懒加载" class="headerlink" title="vue 组件懒加载"></a>vue 组件懒加载</h3><p>这里的懒加载判断依据和图片类似，同样是要判断可视或者即将可视的时机，来控制组件的加载与否。当加载条件为<code>false</code>时，不做渲染，为<code>true</code>时则渲染，这里用<code>v-if</code>指令就可以实现。</p>
+<p>在条件切换的同时，最好加入类似骨架屏的页面，来过渡用户体验。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb7079d8778db4?w=378&amp;h=382&amp;f=png&amp;s=94562" alt></p>
+<h3 id="项目实践"><a href="#项目实践" class="headerlink" title="项目实践"></a>项目实践</h3><blockquote>
+<p>社区里这样的方案有很多，评估后决定采用 <a href="https://github.com/hilongjw/vue-lazyload" target="_blank" rel="noopener">vue-lazyload</a>，star 5.7k，recent updates is 2 months ago，很稳。 </p>
+</blockquote>
+<h4 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h4><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm i vue-lazyload -S</span><br><span class="line"></span><br><span class="line">// 在入口js中引入依赖，注册在vue实例上</span><br><span class="line">import VueLazyload from &apos;vue-lazyload&apos;</span><br><span class="line"></span><br><span class="line">Vue.use(VueLazyload, &#123;</span><br><span class="line">  lazyComponent: true</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这里简单提一下该方案的组件懒加载方案，在<a href="https://github.com/hilongjw/vue-lazyload/blob/52f45720cd59dba018785760fe5f4132face9445/src/lazy-component.js#L11-L16" target="_blank" rel="noopener">源码</a>L11-L16，利用<code>render</code>来生成组件的内容<code>this.$slots.default</code>，十分巧妙。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">render (h) &#123;</span><br><span class="line">   if (this.show === false) &#123;</span><br><span class="line">        return h(this.tag)</span><br><span class="line">   &#125;</span><br><span class="line">   return h(this.tag, null, this.$slots.default)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="组件应用"><a href="#组件应用" class="headerlink" title="组件应用"></a>组件应用</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 原代码</span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"camera-card-img"</span> :style=<span class="string">"&#123;'backgroundImage': 'url(' + data._thumbnails + ')'&#125;"</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加入图片懒加载逻辑</span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"camera-card-img"</span> v-lazy:background-image=<span class="string">"data._thumbnails"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;lazy-component&gt;</span><br><span class="line">    <span class="comment">// 需要懒加载的组件</span></span><br><span class="line">    ...</span><br><span class="line">&lt;<span class="regexp">/lazy-component&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="优化结果"><a href="#优化结果" class="headerlink" title="优化结果"></a>优化结果</h2><h3 id="调用真实数据，控制变量，优化前："><a href="#调用真实数据，控制变量，优化前：" class="headerlink" title="调用真实数据，控制变量，优化前："></a>调用真实数据，控制变量，优化前：</h3><p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb7083b5dea792?w=1461&amp;h=825&amp;f=png&amp;s=158104" alt></p>
+<p>52 requests, 19 img</p>
+<h3 id="加入图片懒加载："><a href="#加入图片懒加载：" class="headerlink" title="加入图片懒加载："></a>加入图片懒加载：</h3><p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb7088c845bb9c?w=1461&amp;h=825&amp;f=png&amp;s=140257" alt></p>
+<p>38 requests, 12 img</p>
+<p>当浏览器继续滚动的时候，图片依次加载，可以看到network中的request逐步增加至52，说明加载了剩余图片。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb708ec04d6764?w=1460&amp;h=825&amp;f=png&amp;s=149432" alt></p>
+<p>组件懒加载也是同样的效果，数据量小可能页面finish时间差感知不明显，可以加大模拟量至上千：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb70941836bae9?w=1393&amp;h=693&amp;f=png&amp;s=196906" alt></p>
+<p><code>Finish</code>时间10s，</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb709772e83263?w=1390&amp;h=697&amp;f=png&amp;s=190624" alt></p>
+<p><code>Finish</code>时间4s，速度提升显著。</p>
+<p>PS：这里前后请求数不变的原因，是作者在模拟数据的时候重复了若干次真实数据，导致资源地址都是重复的，浏览器会缓存请求，所以导致请求数不变。</p>
+<h2 id="后续计划"><a href="#后续计划" class="headerlink" title="后续计划"></a>后续计划</h2><p>其实可以看到，数据量大的时候，加载速度依旧很慢，还需要继续优化，可以从以下几个方向：</p>
+<ul>
+<li>缩略图格式（压缩资源大小）</li>
+<li>优化webpack打包，从代码块层面按需加载组件</li>
+<li>懒加载依然”不够懒”</li>
+<li>解决火焰图中看到的占据很长时间，阻塞页面渲染的请求</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>优化无止境，常常是花了大力气，收效甚微。需要考虑时间和资源成本，优先解决投入产出比高的优化方向。以上是作者在实际项目中遇到的优化问题，仅供大家参考。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>扫盲笔记--H5视频直播</title>
     <url>/2017/02/%E6%89%AB%E7%9B%B2%E7%AC%94%E8%AE%B0-H5%E8%A7%86%E9%A2%91%E7%9B%B4%E6%92%AD/</url>
     <content><![CDATA[<blockquote>

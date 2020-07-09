@@ -70,7 +70,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Nodejs,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -86,29 +86,29 @@
 
 
 
-<meta name="description" content="Node.js 调试的痛点对于绝大部分前端人员，对JavaScript的调试更多停留在浏览器中，类似console.log和debugger，但这种方式对代码侵入性较高，甚至需要刷新页面或重启编译器。转向服务端后，没有浏览器界面，如果仅停留在原来的调试方式，开发效率想必是较低的。因此，前端人员转向服务端开发时，要习惯于命令行及 IDE 等调试手段，走出舒适区，才能准确定位问题，提高开发效率。">
-<meta name="keywords" content="Nodejs">
+<meta name="description" content="背景是在某项目中的其中一个页面，接入现场真实数据后，加载时间很长，长达10几秒，严重影响用户体验。  排查原因 在chrome的DevTools中，清缓存硬加载，可模拟用户第一次访问页面的场景。根据Network中的若干指标，对性能瓶颈初步判断：  requests：在HTTP / 1.0或HTTP / 1.1连接上，Chrome每个主机最多允许六个同时TCP连接，所以请求数过多会导致TTFB等">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Nodejs调试的各种姿势">
-<meta property="og:url" content="http://palmer.arkstack.cn/2019/05/Nodejs调试的各种姿势/index.html">
+<meta property="og:title" content="懒加载在前端性能优化的应用及原理">
+<meta property="og:url" content="http://palmer.arkstack.cn/2019/11/懒加载在前端性能优化的应用及原理/index.html">
 <meta property="og:site_name" content="软硬皆施">
-<meta property="og:description" content="Node.js 调试的痛点对于绝大部分前端人员，对JavaScript的调试更多停留在浏览器中，类似console.log和debugger，但这种方式对代码侵入性较高，甚至需要刷新页面或重启编译器。转向服务端后，没有浏览器界面，如果仅停留在原来的调试方式，开发效率想必是较低的。因此，前端人员转向服务端开发时，要习惯于命令行及 IDE 等调试手段，走出舒适区，才能准确定位问题，提高开发效率。">
+<meta property="og:description" content="背景是在某项目中的其中一个页面，接入现场真实数据后，加载时间很长，长达10几秒，严重影响用户体验。  排查原因 在chrome的DevTools中，清缓存硬加载，可模拟用户第一次访问页面的场景。根据Network中的若干指标，对性能瓶颈初步判断：  requests：在HTTP / 1.0或HTTP / 1.1连接上，Chrome每个主机最多允许六个同时TCP连接，所以请求数过多会导致TTFB等">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd25265f9ad78d?w=673&h=256&f=png&s=34924">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd253452dfafe6?w=674&h=257&f=png&s=36144">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd25375cf0f310?w=1188&h=378&f=png&s=41820">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd2539f2338697?w=888&h=466&f=png&s=70320">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd253da54e566e?w=436&h=295&f=png&s=21560">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd2541c7f92416?w=690&h=437&f=png&s=51805">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd25474fd14abd?w=802&h=311&f=png&s=57632">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd254e6ded40d6?w=948&h=783&f=png&s=136426">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd25512aecf597?w=609&h=309&f=png&s=31760">
-<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd255462c0dc83?w=948&h=783&f=png&s=140285">
-<meta property="og:updated_time" content="2020-07-09T11:27:45.756Z">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb705ee0cabdca?w=1715&h=958&f=png&s=170697">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb7069c64abdd8?w=798&h=273&f=jpeg&s=63900">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb706ea07cde48?w=500&h=500&f=png&s=25422">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb70716163cc27?w=936&h=499&f=png&s=38664">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb7077465f16af?w=1466&h=670&f=png&s=89229">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb7079d8778db4?w=378&h=382&f=png&s=94562">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb7083b5dea792?w=1461&h=825&f=png&s=158104">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb7088c845bb9c?w=1461&h=825&f=png&s=140257">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb708ec04d6764?w=1460&h=825&f=png&s=149432">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb70941836bae9?w=1393&h=693&f=png&s=196906">
+<meta property="og:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb709772e83263?w=1390&h=697&f=png&s=190624">
+<meta property="og:updated_time" content="2020-07-09T11:27:45.760Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Nodejs调试的各种姿势">
-<meta name="twitter:description" content="Node.js 调试的痛点对于绝大部分前端人员，对JavaScript的调试更多停留在浏览器中，类似console.log和debugger，但这种方式对代码侵入性较高，甚至需要刷新页面或重启编译器。转向服务端后，没有浏览器界面，如果仅停留在原来的调试方式，开发效率想必是较低的。因此，前端人员转向服务端开发时，要习惯于命令行及 IDE 等调试手段，走出舒适区，才能准确定位问题，提高开发效率。">
-<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/8/27/16cd25265f9ad78d?w=673&h=256&f=png&s=34924">
+<meta name="twitter:title" content="懒加载在前端性能优化的应用及原理">
+<meta name="twitter:description" content="背景是在某项目中的其中一个页面，接入现场真实数据后，加载时间很长，长达10几秒，严重影响用户体验。  排查原因 在chrome的DevTools中，清缓存硬加载，可模拟用户第一次访问页面的场景。根据Network中的若干指标，对性能瓶颈初步判断：  requests：在HTTP / 1.0或HTTP / 1.1连接上，Chrome每个主机最多允许六个同时TCP连接，所以请求数过多会导致TTFB等">
+<meta name="twitter:image" content="https://user-gold-cdn.xitu.io/2019/11/29/16eb705ee0cabdca?w=1715&h=958&f=png&s=170697">
 
 
 
@@ -136,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://palmer.arkstack.cn/2019/05/Nodejs调试的各种姿势/">
+  <link rel="canonical" href="http://palmer.arkstack.cn/2019/11/懒加载在前端性能优化的应用及原理/">
 
 
 
 
 
-  <title> Nodejs调试的各种姿势 | 软硬皆施 </title>
+  <title> 懒加载在前端性能优化的应用及原理 | 软硬皆施 </title>
   <meta name="baidu-site-verification" content="ihL4VoNRDr">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-fork-ribbon-css/0.2.2/gh-fork-ribbon.min.css">
 </head>
@@ -300,7 +300,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://palmer.arkstack.cn/2019/05/Nodejs调试的各种姿势/">
+  <link itemprop="mainEntityOfPage" href="http://palmer.arkstack.cn/2019/11/懒加载在前端性能优化的应用及原理/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="PalmerYe">
@@ -324,7 +324,7 @@
             
             
               
-                Nodejs调试的各种姿势
+                懒加载在前端性能优化的应用及原理
               
             
           </h2>
@@ -339,8 +339,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-22T13:22:13+00:00">
-                2019-05-22
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-29T13:22:13+00:00">
+                2019-11-29
               </time>
             
 
@@ -359,7 +359,7 @@
 
           
           
-             <span id="/2019/05/Nodejs调试的各种姿势/" class="leancloud_visitors" data-flag-title="Nodejs调试的各种姿势">
+             <span id="/2019/11/懒加载在前端性能优化的应用及原理/" class="leancloud_visitors" data-flag-title="懒加载在前端性能优化的应用及原理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -386,73 +386,87 @@
       
 
       
-        <h2 id="Node-js-调试的痛点"><a href="#Node-js-调试的痛点" class="headerlink" title="Node.js 调试的痛点"></a>Node.js 调试的痛点</h2><p>对于绝大部分前端人员，对<code>JavaScript</code>的调试更多停留在浏览器中，类似<code>console.log</code>和<code>debugger</code>，但这种方式对代码侵入性较高，甚至需要刷新页面或重启编译器。转向服务端后，没有浏览器界面，如果仅停留在原来的调试方式，开发效率想必是较低的。因此，前端人员转向服务端开发时，要习惯于命令行及 IDE 等调试手段，走出舒适区，才能准确定位问题，提高开发效率。</p>
-<a id="more"></a>
-<h2 id="Node-js-调试的手段"><a href="#Node-js-调试的手段" class="headerlink" title="Node.js 调试的手段"></a>Node.js 调试的手段</h2><blockquote>
-<p>下文中涉及到的依赖库及软件版本</p>
+        <blockquote>
+<p>背景是在某项目中的其中一个页面，接入现场真实数据后，加载时间很长，长达10几秒，严重影响用户体验。</p>
 </blockquote>
+<h2 id="排查原因"><a href="#排查原因" class="headerlink" title="排查原因"></a>排查原因</h2><p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb705ee0cabdca?w=1715&amp;h=958&amp;f=png&amp;s=170697" alt></p>
+<p>在<code>chrome</code>的<code>DevTools</code>中，清缓存硬加载，可模拟用户第一次访问页面的场景。根据<code>Network</code>中的若干指标，对性能瓶颈初步判断：</p>
 <ul>
-<li>Node.js - v10.15.3</li>
-<li>Chrome - v72.0.3626</li>
-<li>VS Code - v1.13.0</li>
+<li><code>requests</code>：在<code>HTTP / 1.0</code>或<code>HTTP / 1.1</code>连接上，<code>Chrome</code>每个主机最多允许六个同时<code>TCP</code>连接，所以请求数过多会导致<code>TTFB</code>等待时间过长。</li>
+<li><code>xhr</code>：<code>ajax</code>接口时间过长，瓶颈在于后端接口。</li>
+<li><code>Finish</code>：<code>Finish</code>时间远远大于<code>DOMContentLoaded</code>和<code>Load</code>时间，说明页面中的请求资源很大<a id="more"></a>
+<h2 id="优化方向"><a href="#优化方向" class="headerlink" title="优化方向"></a>优化方向</h2></li>
 </ul>
+<ol>
+<li>对于请求数过多的瓶颈，简单来说就是要减少请求数量。自上而下讨论，客户端（浏览器）页面要减少请求数量，将首屏不可见的资源放在首屏之后请求，将一些阻塞页面渲染的请求预加载或者懒加载；利用<code>HTTP 2</code>的多路复用特性，合并请求；服务端渲染。</li>
+<li><code>ajax</code>接口时间过长，主要在后端接口的优化，Nodejs（BFF层）基于微服务的能力，所以要加快服务调用速度，减少服务调用数量，在业务上进行优化（缓存、批量接口、非必要数据异步请求…），当然自身代码层的运行效率也要考虑。</li>
+<li>请求资源过大过多的问题，可优化img这类图片为懒加载（下文会提到），当大数据塞到数组对象里遍历渲染的时候，对不可见的组件进行懒加载，节省性能及页面渲染时间的开支；压缩图片格式，例如<a href="https://www.zhihu.com/question/27201061/answer/35637827" target="_blank" rel="noopener">WebP格式</a>；</li>
+</ol>
+<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb7069c64abdd8?w=798&amp;h=273&amp;f=jpeg&amp;s=63900" alt></p>
 <blockquote>
-<p>以下代码段为例，用<code>koa</code>起一个简单的<code>http server</code></p>
+<p>对比 PNG 原图、PNG 无损压缩、PNG 转 WebP（无损）、PNG 转 WebP（有损）的压缩效果图</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Koa = <span class="built_in">require</span>(<span class="string">'koa'</span>);</span><br><span class="line"><span class="keyword">const</span> app = <span class="keyword">new</span> Koa();</span><br><span class="line"></span><br><span class="line">app.use(<span class="keyword">async</span> ctx =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">    ctx.body = <span class="string">`hello, hiker! <span class="subst">$&#123;time&#125;</span>`</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'nodejs listening 3000.'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h3 id="1-console-log"><a href="#1-console-log" class="headerlink" title="1. console.log()"></a>1. console.log()</h3><p>对前端人员非常友好，与浏览器中调试一样，<code>console.log()</code>、<code>console.error()</code>、<code>console.time()</code>等各种<code>console</code>形式，在代码中需要调试的地方直接写上，只是展示形式有所不同，在<code>Node.js</code>中是在终端命令行中打印。这是最简单快速的调试手段，<strong>缺点</strong>也很明显，对原有代码入侵较大，在特定场景中使用较局限。</p>
-<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">app.use(<span class="keyword">async</span> ctx =&gt; &#123;</span><br><span class="line">    <span class="keyword">const</span> time = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">console</span>.time(<span class="string">'TIME_TAKE'</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'this is time'</span>, time);</span><br><span class="line"></span><br><span class="line">    ctx.body = <span class="string">`hello, hiker! <span class="subst">$&#123;time&#125;</span>`</span>;</span><br><span class="line">    <span class="built_in">console</span>.timeEnd(<span class="string">'TIME_TAKE'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">3000</span>, () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'nodejs listening 3000.'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h4><blockquote>
-<p>终端起服务：<code>node index.js</code>，并浏览器访问<code>localhost:3000</code>, 即可在终端命令行中看到相应打印的日志。</p>
+<ol start="4">
+<li>从用户体验角度出发，<code>loading</code>动画、图片的渐进式渲染（浏览器对一张图片的加载顺序基本上是下载了多少展示多少，让用户感觉很刻板生硬，渐进式渲染就是图片的内容从模糊到清晰的过程）、预加载（预见性的加载一些不可见区域的资源，提高用户在快速滚动浏览器时候的体验）。</li>
+</ol>
+<h2 id="懒加载的实践应用"><a href="#懒加载的实践应用" class="headerlink" title="懒加载的实践应用"></a>懒加载的实践应用</h2><blockquote>
+<p>上述优化方向中，作者优化了<code>Nodejs</code>层的<code>api</code>接口时间，缓存了部分业务逻辑，剥离了部分底层接口使其异步获取；同时选择懒加载优化方向，对前端组件及图片资源的加载进行优化。优化结果，肉眼可见。</p>
 </blockquote>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd25265f9ad78d?w=673&amp;h=256&amp;f=png&amp;s=34924" alt></p>
-<h3 id="2-Debugger-Protocol-node-inspector"><a href="#2-Debugger-Protocol-node-inspector" class="headerlink" title="2. Debugger Protocol (node-inspector)"></a>2. Debugger Protocol (node-inspector)</h3><blockquote>
-<p><code>Nodejs v6.3+</code> 的版本提供了两个用于调试的协议：<code>v8 Debugger Protocol</code> 和 <code>v8 Inspector Protocol</code> 可以使用第三方的 Client/IDE 等监测和介入 Node(v8) 运行过程，进行调试。</p>
+<p>懒加载并不是一个新鲜的名词，顾名思义，就是懒，现在不加载，稍后再加载，换个词说就是，按需加载。因为很多场景下，暂时看不见用不到的资源是不需要同时加载的，浪费时间开支同时，也消耗了不必要的<code>CPU</code>、<code>IO</code>等资源。例如图片懒加载在<code>jQuery</code>时代就已经十分普及，在<code>react</code>、<code>vue</code>等前端<code>MV*</code>框架的出现后，组件懒加载，<code>SPA</code>单页应用中的路由懒加载，<code>webpack</code>中对初始化不需要加载的代码块进行懒加载，从而优化性能…以下作者重点介绍下图片懒加载及<code>vue</code>组件懒加载。</p>
+<h3 id="图片懒加载"><a href="#图片懒加载" class="headerlink" title="图片懒加载"></a>图片懒加载</h3><blockquote>
+<p>对于一些视频图片web应用，图片懒加载几乎是必须要做的，可以大大提升用户体验。</p>
 </blockquote>
-<p><a href="https://github.com/node-inspector/node-inspector" target="_blank" rel="noopener">node-inspector</a>是早期可以基于Chrome，有可视化调试界面的调试工具，用的是<code>v8 Debugger Protocol</code>协议，通过 TCP 端口与 Client/IDE 交互通信。但由于<code>v8 Inspector Protocol</code>的推出，这个工具逐渐被替代，后文会介绍相应替代方案。</p>
-<h4 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g node-inspector</span><br><span class="line"></span><br><span class="line">通过浏览器连接到node-inspector，启动inspector服务：</span><br><span class="line">$ node-inspector</span><br><span class="line"></span><br><span class="line">以debug模式运行node.js应用：</span><br><span class="line">$ node --debug=5858 index.js</span><br><span class="line"></span><br><span class="line">浏览器打开 http://127.0.0.1:8080/debug?port=5858，后台会提供一个类似于 chrome devtools 的 UI 调试界面。</span><br></pre></td></tr></table></figure>
-<h3 id="3-Inspector-Protocol-Chrome-DevTools"><a href="#3-Inspector-Protocol-Chrome-DevTools" class="headerlink" title="3. Inspector Protocol + Chrome DevTools"></a>3. Inspector Protocol + Chrome DevTools</h3><blockquote>
-<p><code>v8 Inspector Protocol</code> 是 <code>nodejs v6.3</code> 新加入的调试协议，通过 <code>websocket</code>与 Client/IDE 交互，同时基于 Chrome/Chromium 浏览器的 devtools 提供了图形化的调试界面。</p>
+<h4 id="原理解析"><a href="#原理解析" class="headerlink" title="原理解析"></a>原理解析</h4><ol>
+<li>将需要懒加载的<code>img</code>标签的<code>src</code>设置缩略图或者不设置<code>src</code>，这里的占位图可以是缺省图，loading图；</li>
+<li>判断该img标签是否在浏览器可视区域，如果在可视区域，则将真实的图片url设置到img标签的src属性；</li>
+<li>用户滚动浏览器，遍历需要懒加载的标签，根据步骤2判断并执行；</li>
+</ol>
+<h4 id="判断元素是否在浏览器可视区域"><a href="#判断元素是否在浏览器可视区域" class="headerlink" title="判断元素是否在浏览器可视区域"></a>判断元素是否在浏览器可视区域</h4><blockquote>
+<p>作者认为这是懒加载最重要的环节</p>
 </blockquote>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ node --inspect=<span class="number">9222</span> index.js</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>如果程序执行完会直接结束进程的，那么<code>--inspect</code>会一闪而过，断点信号还没发送出去前就结束了，断点根本不起作用，这种情况可以用<code>--inspect-brk</code>启动调试器，使得脚本可以代码执行之前<code>break</code>。</p>
+<h5 id="getBoundingClientRect"><a href="#getBoundingClientRect" class="headerlink" title="getBoundingClientRect"></a>getBoundingClientRect</h5><blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Element/getBoundingClientRect" target="_blank" rel="noopener">MDN</a>中的定义：<code>Element.getBoundingClientRect()</code>方法返回元素的大小及其相对于视口的位置。</p>
 </blockquote>
-<h4 id="结果-1"><a href="#结果-1" class="headerlink" title="结果"></a>结果</h4><p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd253452dfafe6?w=674&amp;h=257&amp;f=png&amp;s=36144" alt></p>
-<p><code>ws://127.0.0.1:9222/a45dc332-2c8c-4614-bf01-1dbf212ae28a</code>这个不是提供给我们在Chrome浏览器中访问的地址，而是Node.js和Chrome之间进行通信的的地址，通过websocket进行通信，从而将调试结果实时展示在Chrome浏览器中。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd25375cf0f310?w=1188&amp;h=378&amp;f=png&amp;s=41820" alt></p>
-<p>那么如何获取在chrome浏览器中的调试地址？我们可以访问<code>http://localhost:9222/json/list</code>，可以看到相应信息。其中id为UUID，是一个特定的标识，每一个进程都会分配一个uuid，因此每一次调用会有出现不同的结果。<code>devtoolsFrontendUrl</code>则为我们要访问的chrome地址，新窗口打开这个地址即可调试。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd2539f2338697?w=888&amp;h=466&amp;f=png&amp;s=70320" alt></p>
-<h4 id="更便捷的调试入口"><a href="#更便捷的调试入口" class="headerlink" title="更便捷的调试入口"></a>更便捷的调试入口</h4><blockquote>
-<p>上述步骤是不是有点麻烦，不要紧，强大的Chrome提供了更方便的调试入口。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb706ea07cde48?w=500&amp;h=500&amp;f=png&amp;s=25422" alt></p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb70716163cc27?w=936&amp;h=499&amp;f=png&amp;s=38664" alt></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取元素的getBoundingClientRect属性</span></span><br><span class="line"><span class="keyword">const</span> rect = Element.getBoundingClientRect();</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(rect.top &lt; <span class="built_in">document</span>.documentElement.clientHeight) &#123;</span><br><span class="line">    <span class="comment">// 将top值与页面的clientHeight进行对比，若小于则为可视区域</span></span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>PS：该方案需要监听<code>scroll</code>事件，注意节流处理。</p>
+<h5 id="Intersection-Observer"><a href="#Intersection-Observer" class="headerlink" title="Intersection Observer"></a>Intersection Observer</h5><blockquote>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Intersection_Observer_API" target="_blank" rel="noopener">MDN</a>中的定义：<code>IntersectionObserver</code>接口 (从属于<code>Intersection Observer API</code>) 提供了一种异步观察目标元素与其祖先元素或顶级文档视窗(<code>viewport</code>)交叉状态的方法。Intersection Observer API 允许你配置一个回调函数，每当目标(target)元素与设备视窗或者其他指定元素发生交集的时候执行。设备视窗或者其他元素我们称它为根元素或根(root)。</p>
 </blockquote>
-<p><code>node --inspect=9222 index.js</code>起服务后，打开浏览器访问http监听端口页面，并打开调试窗口，可以看到一个绿色的按钮，点开即可下断点调试，是不是很方便？</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd253da54e566e?w=436&amp;h=295&amp;f=png&amp;s=21560" alt></p>
-<blockquote>
-<p>这个绿油油的按钮究竟打开了什么呢？我们可以继续看。访问<code>chrome://inspect/#devices</code>，可以看到当前浏览器监听的所有<code>inspect</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> options = &#123;</span><br><span class="line">    root: <span class="built_in">document</span>.querySelector(<span class="string">'#scrollArea'</span>), </span><br><span class="line">    rootMargin: <span class="string">'0px'</span>, </span><br><span class="line">    threshold: <span class="number">1.0</span> <span class="comment">// 目标(target)元素与根(root)元素之间的交叉度是交叉比(intersection ratio), 取值在0.0和1.0之间</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> observer = <span class="keyword">new</span> IntersectionObserver(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 回调函数，当目标元素和根元素交叉时触发</span></span><br><span class="line">    ...</span><br><span class="line">&#125;, options);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> target = <span class="built_in">document</span>.querySelector(<span class="string">'#listItem'</span>);</span><br><span class="line"><span class="comment">// 添加目标元素，与根元素进行交叉状态比对</span></span><br><span class="line">observer.observe(target);</span><br></pre></td></tr></table></figure>
+<p>PS：该方案较前者的优点就是不需要监听，其实兼容性在chrome中还不错。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb7077465f16af?w=1466&amp;h=670&amp;f=png&amp;s=89229" alt></p>
+<h3 id="vue-组件懒加载"><a href="#vue-组件懒加载" class="headerlink" title="vue 组件懒加载"></a>vue 组件懒加载</h3><p>这里的懒加载判断依据和图片类似，同样是要判断可视或者即将可视的时机，来控制组件的加载与否。当加载条件为<code>false</code>时，不做渲染，为<code>true</code>时则渲染，这里用<code>v-if</code>指令就可以实现。</p>
+<p>在条件切换的同时，最好加入类似骨架屏的页面，来过渡用户体验。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb7079d8778db4?w=378&amp;h=382&amp;f=png&amp;s=94562" alt></p>
+<h3 id="项目实践"><a href="#项目实践" class="headerlink" title="项目实践"></a>项目实践</h3><blockquote>
+<p>社区里这样的方案有很多，评估后决定采用 <a href="https://github.com/hilongjw/vue-lazyload" target="_blank" rel="noopener">vue-lazyload</a>，star 5.7k，recent updates is 2 months ago，很稳。 </p>
 </blockquote>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd2541c7f92416?w=690&amp;h=437&amp;f=png&amp;s=51805" alt></p>
-<p>到这里，我们就可以利用Chrome DevTools的各类功能，<code>Sources Panel</code>查看脚本、<code>Profile Panel</code>监测性能等，文中不具体展开。</p>
-<h3 id="4-Inspector-Protocol-VS-Code"><a href="#4-Inspector-Protocol-VS-Code" class="headerlink" title="4. Inspector Protocol + VS Code"></a>4. Inspector Protocol + VS Code</h3><blockquote>
-<p>对服务端开发来讲，浏览器的使用反而不那么频繁，因此在IDE中调试<code>Nodejs</code>显得格外重要。值得高兴的是，市面上各类IDE对<code>Nodejs</code>的调试还算友好，尤其是VS Code。它内置了<code>Node debugger</code>，支持<code>v8 Debugger Protocol</code>和<code>v8 Inspector Protocol</code>两种协议。</p>
-</blockquote>
-<h4 id="launch"><a href="#launch" class="headerlink" title="launch"></a>launch</h4><blockquote>
-</blockquote>
-<p>在VS Code中，打开<code>调试</code>/<code>添加配置</code>/，如下图，添加launch配置，点击开始调试即可。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;version&quot;: &quot;0.2.0&quot;,</span><br><span class="line">    &quot;configurations&quot;: [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;type&quot;: &quot;node&quot;,</span><br><span class="line">            &quot;request&quot;: &quot;launch&quot;,</span><br><span class="line">            &quot;name&quot;: &quot;Launch Program&quot;,</span><br><span class="line">            &quot;program&quot;: &quot;$&#123;workspaceFolder&#125;\\index.js&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd25474fd14abd?w=802&amp;h=311&amp;f=png&amp;s=57632" alt></p>
-<p>下图展示了调试窗口，可以看到，我们可以直接在IDE中下断点，左侧小窗口中可以看到当前作用域的变量（可展开树），调用堆栈，所有断点等，右上方亦可逐步调试函数、重启等功能，非常强大。</p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd254e6ded40d6?w=948&amp;h=783&amp;f=png&amp;s=136426" alt></p>
-<h4 id="Auto-Attach"><a href="#Auto-Attach" class="headerlink" title="Auto Attach"></a>Auto Attach</h4><blockquote>
-<p>同样VS Code提供了自动附加的功能：Auto Attach。不用配置即可快速调试。</p>
-</blockquote>
-<p><code>Ctrl+Shift+p</code>打开Auto Attach功能，然后同样的方式在终端命令行中：<code>node --inspect=9222 .\index.js</code></p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd25512aecf597?w=609&amp;h=309&amp;f=png&amp;s=31760" alt></p>
-<p><img src="https://user-gold-cdn.xitu.io/2019/8/27/16cd255462c0dc83?w=948&amp;h=783&amp;f=png&amp;s=140285" alt></p>
-<h2 id="醉后"><a href="#醉后" class="headerlink" title="醉后"></a>醉后</h2><p>本文总结了<code>Nodejs</code>的调试方法，基本涵盖了所有的调试手段，包括了命令行调试，Chrome浏览器调试，VS Code编辑器调试，并深入部分调试协议，图文结合，可供其他的<code>Nodejs</code>开发者参考，降低开发人员的学习成本，在项目工程应用中，准确定位问题，提高开发效率。</p>
-<h2 id="参考文献："><a href="#参考文献：" class="headerlink" title="参考文献："></a>参考文献：</h2><p><a href="http://nodejs.cn/api/inspector.html" target="_blank" rel="noopener">http://nodejs.cn/api/inspector.html</a></p>
-<p><a href="http://nodejs.cn/api/debugger.html" target="_blank" rel="noopener">http://nodejs.cn/api/debugger.html</a></p>
-<p><a href="http://i5ting.github.io/vsc/#1" target="_blank" rel="noopener">http://i5ting.github.io/vsc/#1</a></p>
+<h4 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">npm i vue-lazyload -S</span><br><span class="line"></span><br><span class="line">// 在入口js中引入依赖，注册在vue实例上</span><br><span class="line">import VueLazyload from &apos;vue-lazyload&apos;</span><br><span class="line"></span><br><span class="line">Vue.use(VueLazyload, &#123;</span><br><span class="line">  lazyComponent: true</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这里简单提一下该方案的组件懒加载方案，在<a href="https://github.com/hilongjw/vue-lazyload/blob/52f45720cd59dba018785760fe5f4132face9445/src/lazy-component.js#L11-L16" target="_blank" rel="noopener">源码</a>L11-L16，利用<code>render</code>来生成组件的内容<code>this.$slots.default</code>，十分巧妙。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">render (h) &#123;</span><br><span class="line">   if (this.show === false) &#123;</span><br><span class="line">        return h(this.tag)</span><br><span class="line">   &#125;</span><br><span class="line">   return h(this.tag, null, this.$slots.default)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="组件应用"><a href="#组件应用" class="headerlink" title="组件应用"></a>组件应用</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 原代码</span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"camera-card-img"</span> :style=<span class="string">"&#123;'backgroundImage': 'url(' + data._thumbnails + ')'&#125;"</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加入图片懒加载逻辑</span></span><br><span class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"camera-card-img"</span> v-lazy:background-image=<span class="string">"data._thumbnails"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;lazy-component&gt;</span><br><span class="line">    <span class="comment">// 需要懒加载的组件</span></span><br><span class="line">    ...</span><br><span class="line">&lt;<span class="regexp">/lazy-component&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="优化结果"><a href="#优化结果" class="headerlink" title="优化结果"></a>优化结果</h2><h3 id="调用真实数据，控制变量，优化前："><a href="#调用真实数据，控制变量，优化前：" class="headerlink" title="调用真实数据，控制变量，优化前："></a>调用真实数据，控制变量，优化前：</h3><p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb7083b5dea792?w=1461&amp;h=825&amp;f=png&amp;s=158104" alt></p>
+<p>52 requests, 19 img</p>
+<h3 id="加入图片懒加载："><a href="#加入图片懒加载：" class="headerlink" title="加入图片懒加载："></a>加入图片懒加载：</h3><p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb7088c845bb9c?w=1461&amp;h=825&amp;f=png&amp;s=140257" alt></p>
+<p>38 requests, 12 img</p>
+<p>当浏览器继续滚动的时候，图片依次加载，可以看到network中的request逐步增加至52，说明加载了剩余图片。</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb708ec04d6764?w=1460&amp;h=825&amp;f=png&amp;s=149432" alt></p>
+<p>组件懒加载也是同样的效果，数据量小可能页面finish时间差感知不明显，可以加大模拟量至上千：</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb70941836bae9?w=1393&amp;h=693&amp;f=png&amp;s=196906" alt></p>
+<p><code>Finish</code>时间10s，</p>
+<p><img src="https://user-gold-cdn.xitu.io/2019/11/29/16eb709772e83263?w=1390&amp;h=697&amp;f=png&amp;s=190624" alt></p>
+<p><code>Finish</code>时间4s，速度提升显著。</p>
+<p>PS：这里前后请求数不变的原因，是作者在模拟数据的时候重复了若干次真实数据，导致资源地址都是重复的，浏览器会缓存请求，所以导致请求数不变。</p>
+<h2 id="后续计划"><a href="#后续计划" class="headerlink" title="后续计划"></a>后续计划</h2><p>其实可以看到，数据量大的时候，加载速度依旧很慢，还需要继续优化，可以从以下几个方向：</p>
+<ul>
+<li>缩略图格式（压缩资源大小）</li>
+<li>优化webpack打包，从代码块层面按需加载组件</li>
+<li>懒加载依然”不够懒”</li>
+<li>解决火焰图中看到的占据很长时间，阻塞页面渲染的请求</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>优化无止境，常常是花了大力气，收效甚微。需要考虑时间和资源成本，优先解决投入产出比高的优化方向。以上是作者在实际项目中遇到的优化问题，仅供大家参考。</p>
 
       
     </div>
@@ -479,19 +493,13 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Nodejs/" rel="tag"># Nodejs</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/03/DOM操作成本到底高在哪儿/" rel="next" title="DOM操作成本到底高在哪儿？">
-                <i class="fa fa-chevron-left"></i> DOM操作成本到底高在哪儿？
+              <a href="/2019/09/记一次换行符引发的事故/" rel="next" title="记一次换行符引发的事故">
+                <i class="fa fa-chevron-left"></i> 记一次换行符引发的事故
               </a>
             
           </div>
@@ -499,10 +507,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/09/记一次换行符引发的事故/" rel="prev" title="记一次换行符引发的事故">
-                记一次换行符引发的事故 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -701,7 +705,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-调试的痛点"><span class="nav-number">1.</span> <span class="nav-text">Node.js 调试的痛点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Node-js-调试的手段"><span class="nav-number">2.</span> <span class="nav-text">Node.js 调试的手段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-console-log"><span class="nav-number">2.1.</span> <span class="nav-text">1. console.log()</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#举例"><span class="nav-number">2.1.1.</span> <span class="nav-text">举例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#结果"><span class="nav-number">2.1.2.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Debugger-Protocol-node-inspector"><span class="nav-number">2.2.</span> <span class="nav-text">2. Debugger Protocol (node-inspector)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#使用方式"><span class="nav-number">2.2.1.</span> <span class="nav-text">使用方式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Inspector-Protocol-Chrome-DevTools"><span class="nav-number">2.3.</span> <span class="nav-text">3. Inspector Protocol + Chrome DevTools</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#结果-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">结果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#更便捷的调试入口"><span class="nav-number">2.3.2.</span> <span class="nav-text">更便捷的调试入口</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Inspector-Protocol-VS-Code"><span class="nav-number">2.4.</span> <span class="nav-text">4. Inspector Protocol + VS Code</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#launch"><span class="nav-number">2.4.1.</span> <span class="nav-text">launch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Auto-Attach"><span class="nav-number">2.4.2.</span> <span class="nav-text">Auto Attach</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#醉后"><span class="nav-number">3.</span> <span class="nav-text">醉后</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献："><span class="nav-number">4.</span> <span class="nav-text">参考文献：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#排查原因"><span class="nav-number">1.</span> <span class="nav-text">排查原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化方向"><span class="nav-number">2.</span> <span class="nav-text">优化方向</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#懒加载的实践应用"><span class="nav-number">3.</span> <span class="nav-text">懒加载的实践应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图片懒加载"><span class="nav-number">3.1.</span> <span class="nav-text">图片懒加载</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#原理解析"><span class="nav-number">3.1.1.</span> <span class="nav-text">原理解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#判断元素是否在浏览器可视区域"><span class="nav-number">3.1.2.</span> <span class="nav-text">判断元素是否在浏览器可视区域</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#getBoundingClientRect"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">getBoundingClientRect</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Intersection-Observer"><span class="nav-number">3.1.2.2.</span> <span class="nav-text">Intersection Observer</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-组件懒加载"><span class="nav-number">3.2.</span> <span class="nav-text">vue 组件懒加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目实践"><span class="nav-number">3.3.</span> <span class="nav-text">项目实践</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#引入"><span class="nav-number">3.3.1.</span> <span class="nav-text">引入</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#组件应用"><span class="nav-number">3.3.2.</span> <span class="nav-text">组件应用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化结果"><span class="nav-number">4.</span> <span class="nav-text">优化结果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#调用真实数据，控制变量，优化前："><span class="nav-number">4.1.</span> <span class="nav-text">调用真实数据，控制变量，优化前：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加入图片懒加载："><span class="nav-number">4.2.</span> <span class="nav-text">加入图片懒加载：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#后续计划"><span class="nav-number">5.</span> <span class="nav-text">后续计划</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">6.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
